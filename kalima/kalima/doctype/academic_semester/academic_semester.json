@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-25 15:22:35.188152",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "educational_year",
+  "semester",
+  "start",
+  "finish",
+  "apply_available",
+  "credit_range_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "educational_year",
+   "fieldtype": "Link",
+   "label": "Educational Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "start",
+   "fieldtype": "Date",
+   "label": "Start"
+  },
+  {
+   "fieldname": "finish",
+   "fieldtype": "Date",
+   "label": "Finish"
+  },
+  {
+   "default": "0",
+   "fieldname": "apply_available",
+   "fieldtype": "Check",
+   "label": "Apply Available"
+  },
+  {
+   "fieldname": "credit_range_time",
+   "fieldtype": "Table",
+   "label": "Credit Range Time",
+   "options": "Credit Range Time"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-25 15:30:31.736789",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Academic Semester",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

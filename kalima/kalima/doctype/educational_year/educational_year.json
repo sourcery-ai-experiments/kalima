@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:year_title",
+ "creation": "2024-05-25 15:19:23.062966",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "year_title",
+  "max_failed_courses",
+  "max_failed_courses_annual",
+  "column_break_vfnq",
+  "first_notification",
+  "max_available_failed_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "year_title",
+   "fieldtype": "Data",
+   "label": "Year Title",
+   "unique": 1
+  },
+  {
+   "fieldname": "max_failed_courses",
+   "fieldtype": "Int",
+   "label": "Max Failed Courses"
+  },
+  {
+   "fieldname": "max_failed_courses_annual",
+   "fieldtype": "Int",
+   "label": "Max Failed Courses Annual"
+  },
+  {
+   "fieldname": "column_break_vfnq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "first_notification",
+   "fieldtype": "Int",
+   "label": "First Notification"
+  },
+  {
+   "fieldname": "max_available_failed_count",
+   "fieldtype": "Int",
+   "label": "Max Available Failed Count"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-25 15:25:04.785717",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Educational Year",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
