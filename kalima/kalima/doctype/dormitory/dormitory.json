@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 12:41:26.890988",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "entrance_date",
+  "leave_date",
+  "column_break_tgld",
+  "description",
+  "hostel",
+  "room"
+ ],
+ "fields": [
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fieldname": "entrance_date",
+   "fieldtype": "Date",
+   "label": "Entrance Date"
+  },
+  {
+   "fieldname": "leave_date",
+   "fieldtype": "Date",
+   "label": "Leave Date"
+  },
+  {
+   "fieldname": "column_break_tgld",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "hostel",
+   "fieldtype": "Link",
+   "label": "Hostel",
+   "options": "Hostel"
+  },
+  {
+   "fetch_from": "hostel.address",
+   "fieldname": "room",
+   "fieldtype": "Data",
+   "label": "Room"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 12:43:01.240800",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Dormitory",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

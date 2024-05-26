@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 13:33:07.561487",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "department",
+  "continuous",
+  "practical",
+  "final",
+  "curve",
+  "total",
+  "notes",
+  "decision",
+  "af",
+  "me"
+ ],
+ "fields": [
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "continuous",
+   "fieldtype": "Float",
+   "label": "Continuous",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "practical",
+   "fieldtype": "Float",
+   "label": "Practical",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "final",
+   "fieldtype": "Float",
+   "label": "Final",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "curve",
+   "fieldtype": "Float",
+   "label": "Curve",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total",
+   "options": "Faculty Department"
+  },
+  {
+   "default": "0",
+   "fieldname": "decision",
+   "fieldtype": "Check",
+   "label": "Decision"
+  },
+  {
+   "default": "0",
+   "fieldname": "af",
+   "fieldtype": "Check",
+   "label": "AF"
+  },
+  {
+   "default": "0",
+   "fieldname": "me",
+   "fieldtype": "Check",
+   "label": "ME"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-26 13:35:59.013344",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Scores",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

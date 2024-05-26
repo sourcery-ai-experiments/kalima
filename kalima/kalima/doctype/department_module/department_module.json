@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 13:56:13.508088",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "faculty",
+  "module",
+  "semester",
+  "department",
+  "column_break_aolq",
+  "template",
+  "type",
+  "credit",
+  "code"
+ ],
+ "fields": [
+  {
+   "fieldname": "faculty",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Faculty",
+   "options": "Faculty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "Module",
+   "reqd": 1
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "column_break_aolq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Template",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Core\nElective\nGeneral\nSupported Module\nEngineering Project\nInternship"
+  },
+  {
+   "fieldname": "credit",
+   "fieldtype": "Int",
+   "label": "Credit"
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 13:59:40.511406",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Department Module",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -59,10 +59,10 @@
   },
   {
    "fieldname": "module",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Module",
-   "options": "Deparment Module"
+   "options": "Department Module"
   },
   {
    "fieldname": "capacity",
@@ -145,7 +145,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 11:28:33.975141",
+ "modified": "2024-05-26 14:12:51.945774",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Classes",

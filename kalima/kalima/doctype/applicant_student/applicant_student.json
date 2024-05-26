@@ -1,0 +1,651 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 12:35:36.338278",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_info_tab",
+  "personal_details_section",
+  "first_name",
+  "middle_name",
+  "last_name",
+  "fourth_name",
+  "sure_name",
+  "mother_name",
+  "full_name_in_arabic",
+  "column_break_aqxi",
+  "notes",
+  "gender",
+  "nationality",
+  "martyr_relative",
+  "subsidy_type",
+  "criminal_conviction",
+  "high_school_information_section",
+  "graduation_year",
+  "number_of_materials",
+  "number_of_failures",
+  "branch",
+  "average",
+  "specialization",
+  "section",
+  "column_break_pasl",
+  "certificate",
+  "center",
+  "examination_number",
+  "province",
+  "document_date",
+  "document_number",
+  "emergency_contact_person_section",
+  "contact_name",
+  "emergency_mobile_number",
+  "relationship",
+  "column_break_mxdu",
+  "country",
+  "address",
+  "current_employment_address_section",
+  "currently_unemployed",
+  "employer_name",
+  "position",
+  "department",
+  "work_email_address",
+  "column_break_cuhz",
+  "employee_country",
+  "employer_city",
+  "employer_mobile_number",
+  "employer_address",
+  "external_account_tab",
+  "university_email",
+  "column_break_tfjr",
+  "university_email_password",
+  "ministry_exam_section2",
+  "previous_academic_study",
+  "ministry_exam_results",
+  "ministry_exam_section",
+  "total",
+  "ten_percent_g10",
+  "ten_percent_g11",
+  "column_break_wont",
+  "eighty_percent_g12",
+  "average_g12",
+  "final_average",
+  "qualifications_tab",
+  "english_language_qualifications_section",
+  "language_qualification",
+  "work_experience_section",
+  "work_experience",
+  "choose_us_tab",
+  "personal_statement",
+  "how_hear_about_us_section",
+  "social_media",
+  "website",
+  "exhibition",
+  "recommendation_family_friend",
+  "tv",
+  "colleagues",
+  "school_college",
+  "column_break_dsgr",
+  "disability",
+  "uploads_tab",
+  "student_image",
+  "passport",
+  "id",
+  "last_certificate",
+  "sponsorship",
+  "column_break_hgxi",
+  "obligation_form",
+  "invoice_form",
+  "coupons_form",
+  "other",
+  "graduation_tab",
+  "graduate_date",
+  "graduate_order_number",
+  "results_tab",
+  "results",
+  "absences_list_tab",
+  "student_absences_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Personal Info"
+  },
+  {
+   "fieldname": "personal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "fourth_name",
+   "fieldtype": "Data",
+   "label": "Fourth Name"
+  },
+  {
+   "fieldname": "sure_name",
+   "fieldtype": "Data",
+   "label": "Sure Name"
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name"
+  },
+  {
+   "fieldname": "full_name_in_arabic",
+   "fieldtype": "Data",
+   "label": "Full name in Arabic"
+  },
+  {
+   "fieldname": "column_break_aqxi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOther"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "martyr_relative",
+   "fieldtype": "Data",
+   "label": "Martyr Relative"
+  },
+  {
+   "fieldname": "subsidy_type",
+   "fieldtype": "Select",
+   "label": "Subsidy Type",
+   "options": "Normal\nShahidan\nSJN"
+  },
+  {
+   "fieldname": "criminal_conviction",
+   "fieldtype": "Select",
+   "label": "Criminal Conviction",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "high_school_information_section",
+   "fieldtype": "Section Break",
+   "label": "High School Information"
+  },
+  {
+   "fieldname": "graduation_year",
+   "fieldtype": "Date",
+   "label": "Graduation Year"
+  },
+  {
+   "fieldname": "number_of_materials",
+   "fieldtype": "Int",
+   "label": "Number of Materials"
+  },
+  {
+   "fieldname": "number_of_failures",
+   "fieldtype": "Int",
+   "label": "Number of Failures"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch"
+  },
+  {
+   "fieldname": "average",
+   "fieldtype": "Data",
+   "label": "Average"
+  },
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Data",
+   "label": "Specialization"
+  },
+  {
+   "fieldname": "section",
+   "fieldtype": "Data",
+   "label": "Section"
+  },
+  {
+   "fieldname": "column_break_pasl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "certificate",
+   "fieldtype": "Data",
+   "label": "Certificate"
+  },
+  {
+   "fieldname": "center",
+   "fieldtype": "Data",
+   "label": "Center"
+  },
+  {
+   "fieldname": "examination_number",
+   "fieldtype": "Data",
+   "label": "Examination Number"
+  },
+  {
+   "fieldname": "province",
+   "fieldtype": "Link",
+   "label": "Province",
+   "options": "Province"
+  },
+  {
+   "fieldname": "document_date",
+   "fieldtype": "Date",
+   "label": "Document Date"
+  },
+  {
+   "fieldname": "document_number",
+   "fieldtype": "Data",
+   "label": "Document Number"
+  },
+  {
+   "fieldname": "emergency_contact_person_section",
+   "fieldtype": "Section Break",
+   "label": "Emergency Contact Person"
+  },
+  {
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact Name"
+  },
+  {
+   "fieldname": "emergency_mobile_number",
+   "fieldtype": "Data",
+   "label": "Emergency Mobile Number"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Data",
+   "label": "Relationship"
+  },
+  {
+   "fieldname": "column_break_mxdu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "current_employment_address_section",
+   "fieldtype": "Section Break",
+   "label": "Current Employment Address"
+  },
+  {
+   "default": "0",
+   "fieldname": "currently_unemployed",
+   "fieldtype": "Check",
+   "label": "Employed"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "employer_name",
+   "fieldtype": "Data",
+   "label": "Employer Name"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "work_email_address",
+   "fieldtype": "Data",
+   "label": "Work Email Address"
+  },
+  {
+   "fieldname": "column_break_cuhz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "employee_country",
+   "fieldtype": "Link",
+   "label": "Employee Country",
+   "options": "Country"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "employer_city",
+   "fieldtype": "Data",
+   "label": "Employer City"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "employer_mobile_number",
+   "fieldtype": "Data",
+   "label": "Employer Mobile Number"
+  },
+  {
+   "depends_on": "eval:doc.currently_unemployed == 1",
+   "fieldname": "employer_address",
+   "fieldtype": "Data",
+   "label": "Employer Address"
+  },
+  {
+   "fieldname": "external_account_tab",
+   "fieldtype": "Tab Break",
+   "label": "External Account"
+  },
+  {
+   "fieldname": "university_email",
+   "fieldtype": "Data",
+   "label": "University Email"
+  },
+  {
+   "fieldname": "column_break_tfjr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "university_email_password",
+   "fieldtype": "Password",
+   "label": "University Email Password"
+  },
+  {
+   "fieldname": "ministry_exam_section2",
+   "fieldtype": "Section Break",
+   "label": "Ministry Exam"
+  },
+  {
+   "fieldname": "previous_academic_study",
+   "fieldtype": "Table",
+   "label": "Previous Academic Study",
+   "options": "Previous Academic Study"
+  },
+  {
+   "fieldname": "ministry_exam_results",
+   "fieldtype": "Table",
+   "label": "Ministry Exam Results",
+   "options": "Ministry Exam Results"
+  },
+  {
+   "fieldname": "ministry_exam_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total"
+  },
+  {
+   "fieldname": "ten_percent_g10",
+   "fieldtype": "Float",
+   "label": "10% (G10)"
+  },
+  {
+   "fieldname": "ten_percent_g11",
+   "fieldtype": "Float",
+   "label": "10% (G11)"
+  },
+  {
+   "fieldname": "column_break_wont",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "eighty_percent_g12",
+   "fieldtype": "Float",
+   "label": "80% (G12)"
+  },
+  {
+   "fieldname": "average_g12",
+   "fieldtype": "Float",
+   "label": "Average (G12)"
+  },
+  {
+   "fieldname": "final_average",
+   "fieldtype": "Float",
+   "label": "Final Average"
+  },
+  {
+   "fieldname": "qualifications_tab",
+   "fieldtype": "Tab Break",
+   "label": "Qualifications"
+  },
+  {
+   "fieldname": "english_language_qualifications_section",
+   "fieldtype": "Section Break",
+   "label": "English Language Qualifications"
+  },
+  {
+   "fieldname": "language_qualification",
+   "fieldtype": "Table",
+   "label": "Language Qualification",
+   "options": "Language Qualification"
+  },
+  {
+   "fieldname": "work_experience_section",
+   "fieldtype": "Section Break",
+   "label": "Work Experience"
+  },
+  {
+   "fieldname": "work_experience",
+   "fieldtype": "Table",
+   "label": "Work Experience",
+   "options": "Work Experince"
+  },
+  {
+   "fieldname": "choose_us_tab",
+   "fieldtype": "Tab Break",
+   "label": "Choose Us"
+  },
+  {
+   "fieldname": "personal_statement",
+   "fieldtype": "Text",
+   "label": "Personal statement in support of your application"
+  },
+  {
+   "fieldname": "how_hear_about_us_section",
+   "fieldtype": "Section Break",
+   "label": "Please indicate how you hear about us?"
+  },
+  {
+   "default": "0",
+   "fieldname": "social_media",
+   "fieldtype": "Check",
+   "label": "Social Media"
+  },
+  {
+   "default": "0",
+   "fieldname": "website",
+   "fieldtype": "Check",
+   "label": "Website"
+  },
+  {
+   "default": "0",
+   "fieldname": "exhibition",
+   "fieldtype": "Check",
+   "label": "Exhibition"
+  },
+  {
+   "default": "0",
+   "fieldname": "recommendation_family_friend",
+   "fieldtype": "Check",
+   "label": "Recommendation (Family/Friend)"
+  },
+  {
+   "default": "0",
+   "fieldname": "tv",
+   "fieldtype": "Check",
+   "label": "TV"
+  },
+  {
+   "default": "0",
+   "fieldname": "colleagues",
+   "fieldtype": "Check",
+   "label": "Colleagues"
+  },
+  {
+   "default": "0",
+   "fieldname": "school_college",
+   "fieldtype": "Check",
+   "label": "School/College"
+  },
+  {
+   "fieldname": "column_break_dsgr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disability",
+   "fieldtype": "Text",
+   "label": "Disability"
+  },
+  {
+   "fieldname": "uploads_tab",
+   "fieldtype": "Tab Break",
+   "label": "Uploads"
+  },
+  {
+   "fieldname": "student_image",
+   "fieldtype": "Attach",
+   "label": "Student Image"
+  },
+  {
+   "fieldname": "passport",
+   "fieldtype": "Attach",
+   "label": "Passport"
+  },
+  {
+   "fieldname": "id",
+   "fieldtype": "Attach",
+   "label": "ID"
+  },
+  {
+   "fieldname": "last_certificate",
+   "fieldtype": "Attach",
+   "label": "Your Last Certificate"
+  },
+  {
+   "fieldname": "sponsorship",
+   "fieldtype": "Attach",
+   "label": "Sponsorship"
+  },
+  {
+   "fieldname": "column_break_hgxi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "obligation_form",
+   "fieldtype": "Attach",
+   "label": "Your Obligation Form"
+  },
+  {
+   "fieldname": "invoice_form",
+   "fieldtype": "Attach",
+   "label": "Your Invoice Form"
+  },
+  {
+   "fieldname": "coupons_form",
+   "fieldtype": "Attach",
+   "label": "Your Coupons Form"
+  },
+  {
+   "fieldname": "other",
+   "fieldtype": "Attach",
+   "label": "Other"
+  },
+  {
+   "fieldname": "graduation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Graduation"
+  },
+  {
+   "fieldname": "graduate_date",
+   "fieldtype": "Date",
+   "label": "Graduate Date"
+  },
+  {
+   "fieldname": "graduate_order_number",
+   "fieldtype": "Data",
+   "label": "Graduate Order Number"
+  },
+  {
+   "fieldname": "results_tab",
+   "fieldtype": "Tab Break",
+   "label": "Results"
+  },
+  {
+   "fieldname": "results",
+   "fieldtype": "Table",
+   "label": "Results",
+   "options": "Student Results"
+  },
+  {
+   "fieldname": "absences_list_tab",
+   "fieldtype": "Tab Break",
+   "label": "Absences List"
+  },
+  {
+   "fieldname": "student_absences_list",
+   "fieldtype": "Table",
+   "label": "Student Absences List",
+   "options": "Student Absences List",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 13:16:41.259036",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Applicant Student",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

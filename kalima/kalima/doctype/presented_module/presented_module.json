@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 14:00:36.902047",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "faculty",
+  "department",
+  "semester",
+  "stage",
+  "column_break_gjxd",
+  "module",
+  "sswl",
+  "usswl",
+  "ects",
+  "available_in_choose_credit_panel"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "faculty",
+   "fieldtype": "Link",
+   "label": "Faculty",
+   "options": "Faculty"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+  },
+  {
+   "fieldname": "column_break_gjxd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Module"
+  },
+  {
+   "fieldname": "sswl",
+   "fieldtype": "Int",
+   "label": "SSWL",
+   "options": "Module"
+  },
+  {
+   "fieldname": "usswl",
+   "fieldtype": "Int",
+   "label": "USSWL",
+   "options": "Module"
+  },
+  {
+   "fieldname": "ects",
+   "fieldtype": "Int",
+   "label": "ECTS",
+   "options": "Module"
+  },
+  {
+   "default": "0",
+   "fieldname": "available_in_choose_credit_panel",
+   "fieldtype": "Check",
+   "label": "Available in Choose Credit Panel",
+   "options": "Module"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 14:07:26.975390",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Presented Module",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
