@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 12:21:27.790565",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "test_type",
+  "place_of_test",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "test_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Test Type",
+   "options": "IELTS\nTOEFL\nPTE Academic\nIGCSE\nCambridge Advanced English\nOther"
+  },
+  {
+   "fieldname": "place_of_test",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Place of test"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-26 12:22:47.597025",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Language Qualification",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

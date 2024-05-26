@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 12:29:00.054344",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "semster",
+  "title",
+  "results"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "semster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Semster",
+   "options": "Academic Semester"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title"
+  },
+  {
+   "fieldname": "results",
+   "fieldtype": "JSON",
+   "label": "Results",
+   "options": "Academic Semester"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-26 12:31:08.237228",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Results",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
