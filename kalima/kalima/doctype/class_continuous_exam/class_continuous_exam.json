@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 14:53:09.947774",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "class",
+  "title",
+  "type",
+  "date",
+  "percentage",
+  "column_break_bltp",
+  "score",
+  "midterm",
+  "c_exams",
+  "marked_on",
+  "section_break_gahv",
+  "continuous_exam_result"
+ ],
+ "fields": [
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Classes"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Normal Exam\nAttendance\nProject\nSeminar\nQuiz"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "marked_on",
+   "fieldtype": "Int",
+   "label": "Marked On"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Int",
+   "label": "Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "midterm",
+   "fieldtype": "Int",
+   "label": "Midterm",
+   "read_only": 1
+  },
+  {
+   "fieldname": "c_exams",
+   "fieldtype": "Int",
+   "label": "C.Exams",
+   "read_only": 1
+  },
+  {
+   "fieldname": "continuous_exam_result",
+   "fieldtype": "Table",
+   "label": "Continuous Exam Result",
+   "options": "Continuous Exam Result"
+  },
+  {
+   "fieldname": "column_break_bltp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_gahv",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 14:58:48.148263",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Class Continuous Exam",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
