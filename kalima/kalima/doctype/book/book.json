@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 14:29:49.030059",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "library",
+  "category",
+  "number",
+  "title",
+  "count",
+  "class",
+  "number_of_copies",
+  "book_type",
+  "language",
+  "column_break_cdpt",
+  "author",
+  "pages",
+  "edition",
+  "no_of_vols",
+  "publisher",
+  "place_of_publish",
+  "date_of_publish",
+  "section_break_aqan",
+  "remark",
+  "isbn",
+  "right_to_use",
+  "column_break_gpak",
+  "ebook_file",
+  "barcode"
+ ],
+ "fields": [
+  {
+   "fieldname": "library",
+   "fieldtype": "Link",
+   "label": "Library",
+   "options": "Library"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Book Category"
+  },
+  {
+   "fieldname": "number",
+   "fieldtype": "Int",
+   "label": "Number"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "count",
+   "fieldtype": "Int",
+   "label": "Count"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Classes"
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "label": "Author"
+  },
+  {
+   "fieldname": "pages",
+   "fieldtype": "Int",
+   "label": "Pages"
+  },
+  {
+   "fieldname": "edition",
+   "fieldtype": "Data",
+   "label": "Edition"
+  },
+  {
+   "fieldname": "no_of_vols",
+   "fieldtype": "Data",
+   "label": "No. of Vols"
+  },
+  {
+   "fieldname": "place_of_publish",
+   "fieldtype": "Data",
+   "label": "Place of Publish"
+  },
+  {
+   "fieldname": "publisher",
+   "fieldtype": "Data",
+   "label": "Publisher"
+  },
+  {
+   "fieldname": "date_of_publish",
+   "fieldtype": "Date",
+   "label": "Date of Publish"
+  },
+  {
+   "fieldname": "number_of_copies",
+   "fieldtype": "Int",
+   "label": "Number of Copies"
+  },
+  {
+   "fieldname": "isbn",
+   "fieldtype": "Int",
+   "label": "ISBN"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Data",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "book_type",
+   "fieldtype": "Select",
+   "label": "Book Type",
+   "options": "Book\nThesis\nEbook"
+  },
+  {
+   "fieldname": "right_to_use",
+   "fieldtype": "Select",
+   "label": "The Right To Use The Book",
+   "options": "Employee\nTeacher\nBoth"
+  },
+  {
+   "fieldname": "ebook_file",
+   "fieldtype": "Attach",
+   "label": "Ebook File"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Barcode",
+   "label": "Barcode"
+  },
+  {
+   "fieldname": "column_break_cdpt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_aqan",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gpak",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 14:36:18.004316",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Book",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 14:44:10.272278",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "undergraduate_student",
+  "phd_student",
+  "employee",
+  "column_break_xaln",
+  "master_student",
+  "teacher",
+  "special"
+ ],
+ "fields": [
+  {
+   "fieldname": "undergraduate_student",
+   "fieldtype": "Int",
+   "label": "Undergraduate Student"
+  },
+  {
+   "fieldname": "phd_student",
+   "fieldtype": "Int",
+   "label": "Phd Student"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Int",
+   "label": "Employee"
+  },
+  {
+   "fieldname": "column_break_xaln",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "master_student",
+   "fieldtype": "Int",
+   "label": "Master Student"
+  },
+  {
+   "fieldname": "teacher",
+   "fieldtype": "Int",
+   "label": "Teacher"
+  },
+  {
+   "fieldname": "special",
+   "fieldtype": "Int",
+   "label": "Special"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-05-26 14:44:47.135474",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Borrowing Limitations",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

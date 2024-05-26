@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 14:56:55.441953",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student_code",
+  "student_name",
+  "department",
+  "score",
+  "net_score",
+  "is_absent",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "student_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Code"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "options": "Student"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Score"
+  },
+  {
+   "fieldname": "net_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Net Score"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_absent",
+   "fieldtype": "Check",
+   "label": "Is Absent"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-26 14:58:39.061678",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Continuous Exam Result",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-25 15:32:13.967534",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "english_title",
+  "arabic_title",
+  "abbreviation_title",
+  "column_break_hemz",
+  "code",
+  "dean_hr_department",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "english_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "English Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "arabic_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Arabic Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "abbreviation_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Abbreviation Title"
+  },
+  {
+   "fieldname": "column_break_hemz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dean_hr_department",
+   "fieldtype": "Link",
+   "label": "Dean Hr Department",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-25 15:34:11.954887",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Faculty",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

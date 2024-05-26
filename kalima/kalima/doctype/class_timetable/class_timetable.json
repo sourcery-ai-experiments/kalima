@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 14:59:59.237843",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "class",
+  "teacher",
+  "day",
+  "column_break_oimt",
+  "start",
+  "finish",
+  "section_break_cvsm",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Classes"
+  },
+  {
+   "fieldname": "teacher",
+   "fieldtype": "Link",
+   "label": "Teacher",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "day",
+   "fieldtype": "Data",
+   "label": "Day"
+  },
+  {
+   "fieldname": "column_break_oimt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start",
+   "fieldtype": "Time",
+   "label": "Start",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "finish",
+   "fieldtype": "Time",
+   "label": "Finish",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_cvsm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description",
+   "options": "Employee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 15:01:24.062529",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Class Timetable",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 13:18:04.420718",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "department",
+  "class",
+  "attempt",
+  "column_break_vmdf",
+  "module",
+  "stage",
+  "semester",
+  "section_break_pisk",
+  "student_scores",
+  "passed_percentage"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Department Module"
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Classes"
+  },
+  {
+   "fieldname": "attempt",
+   "fieldtype": "Select",
+   "label": "Attempt",
+   "options": "First\nSecond\nThird\nFourth"
+  },
+  {
+   "fieldname": "column_break_vmdf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_pisk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "student_scores",
+   "fieldtype": "Table",
+   "label": "Student Scores",
+   "options": "Student Scores"
+  },
+  {
+   "fieldname": "passed_percentage",
+   "fieldtype": "Percent",
+   "label": "Passed Percentage"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-26 14:15:54.618812",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Exam Result Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-26 11:51:41.671082",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "graduation_year",
+  "qualification",
+  "branch",
+  "specialization",
+  "section",
+  "institution_name",
+  "country_of_study",
+  "stype",
+  "average",
+  "number_of_materials",
+  "number_of_failures",
+  "center",
+  "round"
+ ],
+ "fields": [
+  {
+   "fieldname": "graduation_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Graduation Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "qualification",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Qualification",
+   "options": "High School\nVocational School\nInstitutes of 5 years\nTechnical Institutions\nOther"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Branch"
+  },
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Data",
+   "label": "Specialization"
+  },
+  {
+   "fieldname": "section",
+   "fieldtype": "Select",
+   "label": "Section",
+   "options": "Scientific Section\nLiterature Section"
+  },
+  {
+   "fieldname": "institution_name",
+   "fieldtype": "Select",
+   "label": "Institution Name",
+   "options": "Scientific Section\nLiterature Section"
+  },
+  {
+   "fieldname": "country_of_study",
+   "fieldtype": "Link",
+   "label": "Country of study",
+   "options": "Country"
+  },
+  {
+   "fieldname": "stype",
+   "fieldtype": "Select",
+   "label": "S.Type",
+   "options": "G\nP"
+  },
+  {
+   "fieldname": "average",
+   "fieldtype": "Float",
+   "label": "Average",
+   "options": "G\nP"
+  },
+  {
+   "fieldname": "number_of_materials",
+   "fieldtype": "Int",
+   "label": "Number Of Materials",
+   "options": "G\nP"
+  },
+  {
+   "fieldname": "number_of_failures",
+   "fieldtype": "Int",
+   "label": "Number of failures",
+   "options": "G\nP"
+  },
+  {
+   "fieldname": "center",
+   "fieldtype": "Data",
+   "label": "Center"
+  },
+  {
+   "fieldname": "round",
+   "fieldtype": "Select",
+   "label": "Round",
+   "options": "Round One\nRound Two\nRound Three\nDocument Number\nDocument Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-26 12:03:19.251840",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Previous Academic Study",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
