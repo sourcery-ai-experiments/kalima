@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-27 12:36:05.009377",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "year"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Year"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-27 12:36:17.714214",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Year of Student Admission",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

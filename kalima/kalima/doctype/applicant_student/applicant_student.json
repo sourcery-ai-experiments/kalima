@@ -8,6 +8,7 @@
  "field_order": [
   "personal_info_tab",
   "personal_details_section",
+  "admission_status",
   "first_name",
   "middle_name",
   "last_name",
@@ -15,6 +16,8 @@
   "sure_name",
   "mother_name",
   "full_name_in_arabic",
+  "marital_status",
+  "religion",
   "column_break_aqxi",
   "notes",
   "gender",
@@ -22,6 +25,7 @@
   "martyr_relative",
   "subsidy_type",
   "criminal_conviction",
+  "blood_type",
   "high_school_information_section",
   "graduation_year",
   "number_of_materials",
@@ -55,6 +59,8 @@
   "employer_city",
   "employer_mobile_number",
   "employer_address",
+  "application_tab",
+  "prefered_departments",
   "external_account_tab",
   "university_email",
   "column_break_tfjr",
@@ -76,6 +82,7 @@
   "work_experience_section",
   "work_experience",
   "choose_us_tab",
+  "section_break_szbx",
   "personal_statement",
   "how_hear_about_us_section",
   "social_media",
@@ -88,23 +95,36 @@
   "column_break_dsgr",
   "disability",
   "uploads_tab",
+  "id_section",
+  "id_number",
+  "id_issue_date",
+  "column_break_iizt",
+  "id_registration_number",
+  "issuer",
+  "foreign_students_section",
+  "is_foreign_student",
+  "table_teni",
+  "table_lhlt",
+  "section_break_bdtf",
   "student_image",
   "passport",
   "id",
   "last_certificate",
-  "sponsorship",
+  "residence_document",
+  "nationality_certificate",
+  "ration_card",
   "column_break_hgxi",
   "obligation_form",
   "invoice_form",
   "coupons_form",
+  "medical_test",
   "other",
+  "sponsorship",
   "graduation_tab",
   "graduate_date",
   "graduate_order_number",
   "results_tab",
-  "results",
-  "absences_list_tab",
-  "student_absences_list"
+  "results"
  ],
  "fields": [
   {
@@ -534,7 +554,7 @@
   {
    "fieldname": "uploads_tab",
    "fieldtype": "Tab Break",
-   "label": "Uploads"
+   "label": "Documents"
   },
   {
    "fieldname": "student_image",
@@ -612,21 +632,126 @@
    "options": "Student Results"
   },
   {
-   "fieldname": "absences_list_tab",
-   "fieldtype": "Tab Break",
-   "label": "Absences List"
+   "fieldname": "admission_status",
+   "fieldtype": "Select",
+   "label": "Admission Status",
+   "options": "\nAccepted\nRejected"
   },
   {
-   "fieldname": "student_absences_list",
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "Single\nMarried\nWidowed\nDivorced"
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Select",
+   "label": "Religion",
+   "options": "Muslim\nJew\nChristian\nShabak\nYarsanism\nMandaeism\nYazidis\nOther"
+  },
+  {
+   "fieldname": "blood_type",
+   "fieldtype": "Select",
+   "label": "Blood Type",
+   "options": "A+\nB+\nAB+\nO+\nA-\nB-\nAB-\nO-"
+  },
+  {
+   "fieldname": "section_break_szbx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "label": "ID Number"
+  },
+  {
+   "fieldname": "id_issue_date",
+   "fieldtype": "Date",
+   "label": "ID Issue Date"
+  },
+  {
+   "fieldname": "column_break_iizt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_registration_number",
+   "fieldtype": "Data",
+   "label": "ID Registration Number"
+  },
+  {
+   "fieldname": "issuer",
+   "fieldtype": "Data",
+   "label": "Issuer"
+  },
+  {
+   "fieldname": "section_break_bdtf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "residence_document",
+   "fieldtype": "Attach",
+   "label": "Residence Document"
+  },
+  {
+   "fieldname": "nationality_certificate",
+   "fieldtype": "Attach",
+   "label": "Nationality Certificate"
+  },
+  {
+   "fieldname": "ration_card",
+   "fieldtype": "Attach",
+   "label": "Ration card"
+  },
+  {
+   "fieldname": "medical_test",
+   "fieldtype": "Attach",
+   "label": "Medical Test"
+  },
+  {
+   "fieldname": "application_tab",
+   "fieldtype": "Tab Break",
+   "label": "Application"
+  },
+  {
+   "fieldname": "prefered_departments",
    "fieldtype": "Table",
-   "label": "Student Absences List",
-   "options": "Student Absences List",
-   "read_only": 1
+   "label": "Prefered Departments",
+   "options": "Preferred Departments"
+  },
+  {
+   "fieldname": "id_section",
+   "fieldtype": "Section Break",
+   "label": "ID"
+  },
+  {
+   "fieldname": "foreign_students_section",
+   "fieldtype": "Section Break",
+   "label": "Foreign Students"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_foreign_student",
+   "fieldtype": "Check",
+   "label": "Is Foreign Student"
+  },
+  {
+   "depends_on": "eval:doc.is_foreign_student == 1",
+   "fieldname": "table_teni",
+   "fieldtype": "Table",
+   "label": "Foreign Student Documents",
+   "options": "Foreign Student Documents"
+  },
+  {
+   "depends_on": "eval:doc.is_foreign_student == 1",
+   "fieldname": "table_lhlt",
+   "fieldtype": "Table",
+   "label": "Year of Student Admission",
+   "options": "Year of Student Admission"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 13:16:41.259036",
+ "modified": "2024-05-27 12:37:01.233774",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
