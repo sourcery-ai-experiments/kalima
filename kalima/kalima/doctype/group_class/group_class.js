@@ -20,8 +20,6 @@ frappe.ui.form.on("Group Class", {
     },
     async refresh(frm)  {
         await pres(frm);
-
-
         // fetch_students(frm);
         // frm.fields_dict.presented_modules.$wrapper.html(frm.doc.modules_html);
         // frm.fields_dict.students.$wrapper.html(frm.doc.students_html);

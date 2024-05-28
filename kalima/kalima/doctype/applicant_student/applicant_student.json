@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Applicant-{full_name_in_arabic}",
  "creation": "2024-05-26 12:35:36.338278",
  "default_view": "List",
  "doctype": "DocType",
@@ -170,7 +171,9 @@
   {
    "fieldname": "full_name_in_arabic",
    "fieldtype": "Data",
-   "label": "Full name in Arabic"
+   "in_list_view": 1,
+   "label": "Full name in Arabic",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_aqxi",
@@ -751,10 +754,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-27 12:37:01.233774",
+ "modified": "2024-05-28 15:31:43.272512",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

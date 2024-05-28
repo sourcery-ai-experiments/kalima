@@ -62,5 +62,12 @@ def create_class(group_title,module,year,stage,semester,department,students):
 								})
 	for std in students:
 		new_class.append("student_list", {"student": std})
+  
+		stud = frappe.get_doc("Student",std)
+		stud.append("enrolled_modules",{
+			"module":module,
+			"status":"Ongoing",
+		})
+		stud.save()
 
 	new_class.save()
