@@ -17,7 +17,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Document Type",
-   "options": "Residence document\nPassport",
+   "options": "Residence document\nPassport\nTie certificate\nSource of the student certificate",
    "reqd": 1
   },
   {
@@ -42,7 +42,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-28 15:59:56.084382",
+ "modified": "2024-05-28 16:01:46.837030",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Foreign Student Documents",
