@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2024-05-26 11:21:09.406301",
  "default_view": "List",
  "doctype": "DocType",
@@ -31,8 +32,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Year",
-   "options": "Educational Year",
-   "reqd": 1
+   "options": "Educational Year"
   },
   {
    "fieldname": "stage",
@@ -55,7 +55,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "module",
@@ -140,15 +141,16 @@
    "fieldname": "student_list",
    "fieldtype": "Table",
    "label": "Student List",
-   "options": "Class Teachers"
+   "options": "Class Students"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:12:51.945774",
+ "modified": "2024-05-28 14:51:38.264119",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Classes",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

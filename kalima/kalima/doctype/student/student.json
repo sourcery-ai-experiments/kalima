@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:full_name_in_arabic",
  "creation": "2024-05-26 11:28:58.326661",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -54,6 +55,10 @@
   "employer_city",
   "employer_mobile_number",
   "employer_address",
+  "overview_tab",
+  "admission_office_section",
+  "status",
+  "final_selected_course",
   "external_account_tab",
   "university_email",
   "column_break_tfjr",
@@ -74,18 +79,6 @@
   "language_qualification",
   "work_experience_section",
   "work_experience",
-  "choose_us_tab",
-  "personal_statement",
-  "how_hear_about_us_section",
-  "social_media",
-  "website",
-  "exhibition",
-  "recommendation_family_friend",
-  "tv",
-  "colleagues",
-  "school_college",
-  "column_break_dsgr",
-  "disability",
   "uploads_tab",
   "student_image",
   "passport",
@@ -102,12 +95,25 @@
   "graduate_order_number",
   "results_tab",
   "results",
+  "enrolled_modules",
   "absences_list_tab",
   "student_absences_list",
   "account_tab",
   "user_name",
   "password",
-  "confirm_password"
+  "confirm_password",
+  "choose_us_tab",
+  "personal_statement",
+  "how_hear_about_us_section",
+  "social_media",
+  "website",
+  "exhibition",
+  "recommendation_family_friend",
+  "tv",
+  "colleagues",
+  "school_college",
+  "column_break_dsgr",
+  "disability"
  ],
  "fields": [
   {
@@ -159,7 +165,8 @@
   {
    "fieldname": "full_name_in_arabic",
    "fieldtype": "Data",
-   "label": "Full name in Arabic"
+   "label": "Full name in Arabic",
+   "unique": 1
   },
   {
    "fieldname": "subsidy_type",
@@ -645,14 +652,43 @@
   {
    "fieldname": "column_break_hgxi",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrolled_modules",
+   "fieldtype": "Table",
+   "label": "Enrolled Modules",
+   "options": "Student Enrolled Modules"
+  },
+  {
+   "fieldname": "overview_tab",
+   "fieldtype": "Tab Break",
+   "label": "Overview"
+  },
+  {
+   "fieldname": "admission_office_section",
+   "fieldtype": "Section Break",
+   "label": "Admission Office"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Accepted\nRejected"
+  },
+  {
+   "fieldname": "final_selected_course",
+   "fieldtype": "Link",
+   "label": "Final Selected Course",
+   "options": "Faculty Department"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 12:33:34.446633",
+ "modified": "2024-05-28 13:42:10.441722",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
