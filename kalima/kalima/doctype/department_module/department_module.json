@@ -14,7 +14,9 @@
   "template",
   "type",
   "credit",
-  "code"
+  "code",
+  "prerequisites_section",
+  "prerequisite_modules"
  ],
  "fields": [
   {
@@ -74,11 +76,22 @@
    "fieldtype": "Data",
    "label": "Code",
    "unique": 1
+  },
+  {
+   "fieldname": "prerequisites_section",
+   "fieldtype": "Section Break",
+   "label": "Prerequisites"
+  },
+  {
+   "fieldname": "prerequisite_modules",
+   "fieldtype": "Table",
+   "label": "Prerequisite Modules",
+   "options": "Prerequisites Modules"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 12:02:04.675624",
+ "modified": "2024-05-29 11:15:43.673596",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Department Module",

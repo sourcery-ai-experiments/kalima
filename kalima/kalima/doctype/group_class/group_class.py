@@ -7,8 +7,6 @@ import json
 
 class GroupClass(Document):
     pass
-
-
 @frappe.whitelist()
 def fetch_students(selected_modules, department):
     if not selected_modules or not department:
@@ -19,26 +17,50 @@ def fetch_students(selected_modules, department):
     if not selected_modules:
         frappe.throw("No modules selected.")
 
-    # Prepare the SQL query to fetch students who do not have any of the selected modules
-    placeholders = ','.join(['%s'] * len(selected_modules))
-    query = f"""
+    # Convert selected_modules to a tuple for SQL query
+    selected_modules_tuple = tuple(selected_modules)
+
+    # SQL to get all prerequisites for the selected modules
+    prerequisites_query = """
+        SELECT DISTINCT module
+        FROM `tabPrerequisites Modules`
+        WHERE parent IN %s
+    """
+
+    prerequisites = frappe.db.sql(prerequisites_query, (selected_modules_tuple,), as_dict=True)
+    prerequisites_modules = [row['module'] for row in prerequisites]
+
+    # Prepare the base SQL query to fetch students
+    base_query = """
         SELECT student.name, student.full_name_in_arabic
         FROM `tabStudent` AS student
         WHERE student.final_selected_course = %s
-        AND student.name NOT IN (
-            SELECT enrolled.parent
-            FROM `tabStudent Enrolled Modules` AS enrolled
-            WHERE enrolled.module IN ({placeholders})
-        )
     """
+    query_params = [department]
 
-    # Combine department and selected modules as query parameters
-    query_params = [department] + selected_modules
+    if prerequisites_modules:
+        # Convert prerequisites_modules to a tuple for SQL query
+        prerequisites_modules_tuple = tuple(prerequisites_modules)
+
+        # Extend the query to include the prerequisite filter considering "Completed" status
+        base_query += """
+            AND student.name IN (
+                SELECT enrolled.parent
+                FROM `tabStudent Enrolled Modules` AS enrolled
+                WHERE enrolled.module IN %s
+                AND enrolled.status = 'Completed'
+                GROUP BY enrolled.parent
+                HAVING COUNT(DISTINCT enrolled.module) = %s
+            )
+        """
+        query_params.extend([prerequisites_modules_tuple, len(prerequisites_modules)])
 
     # Execute the query
-    students = frappe.db.sql(query, query_params, as_dict=True)
+    students = frappe.db.sql(base_query, query_params, as_dict=True)
 
     return students
+
+
 
 @frappe.whitelist()
 def create_classes(group_class_doc,group_class_modules,students):
