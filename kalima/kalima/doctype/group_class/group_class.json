@@ -1,14 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:group_title",
  "creation": "2024-05-26 11:18:54.340271",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "group_title",
   "year",
+  "departments_groups",
+  "column_break_ibbt",
   "stage",
   "semester",
-  "departments_groups"
+  "section_break_gasn",
+  "faculty",
+  "department",
+  "column_break_jabz",
+  "presented_modules",
+  "students_section",
+  "fetch_students",
+  "students",
+  "modules_html",
+  "students_html"
  ],
  "fields": [
   {
@@ -39,14 +52,81 @@
    "fieldname": "departments_groups",
    "fieldtype": "HTML",
    "label": "Departments Groups"
+  },
+  {
+   "fieldname": "group_title",
+   "fieldtype": "Data",
+   "label": "Group Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_ibbt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_gasn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "faculty",
+   "fieldtype": "Link",
+   "label": "Faculty",
+   "options": "Faculty"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "column_break_jabz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "presented_modules",
+   "fieldtype": "HTML",
+   "label": "Presented Modules",
+   "read_only": 1
+  },
+  {
+   "fieldname": "students_section",
+   "fieldtype": "Section Break",
+   "label": "Students"
+  },
+  {
+   "fieldname": "fetch_students",
+   "fieldtype": "Button",
+   "label": "Fetch Students"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "HTML",
+   "label": "Students"
+  },
+  {
+   "fieldname": "modules_html",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "modules_html",
+   "read_only": 1
+  },
+  {
+   "fieldname": "students_html",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "students_html",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 11:20:51.669975",
+ "modified": "2024-05-28 15:02:37.055495",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Group Class",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

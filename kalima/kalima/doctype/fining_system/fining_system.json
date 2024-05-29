@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Fining-System-{title}",
  "creation": "2024-05-26 14:39:35.816070",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -34,10 +35,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:40:18.765036",
+ "modified": "2024-05-28 15:27:47.205787",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Fining system",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
