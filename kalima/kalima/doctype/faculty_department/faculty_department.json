@@ -16,7 +16,9 @@
   "tuition_fee",
   "total_of_required_credits",
   "passed_grade",
-  "is_active"
+  "is_active",
+  "presented_departments_section",
+  "table_fpkl"
  ],
  "fields": [
   {
@@ -84,11 +86,21 @@
    "fieldname": "is_active",
    "fieldtype": "Check",
    "label": "Is Active"
+  },
+  {
+   "fieldname": "presented_departments_section",
+   "fieldtype": "Section Break",
+   "label": "Presented Departments"
+  },
+  {
+   "fieldname": "table_fpkl",
+   "fieldtype": "Table",
+   "options": "Presented Departments Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 11:50:30.157725",
+ "modified": "2024-05-29 15:03:15.047042",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Faculty Department",
