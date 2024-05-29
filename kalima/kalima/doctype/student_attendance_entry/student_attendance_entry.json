@@ -12,6 +12,7 @@
   "department",
   "column_break_wvoi",
   "module",
+  "presented_module_old",
   "date",
   "class",
   "teacher",
@@ -83,11 +84,18 @@
    "fieldtype": "Table",
    "label": "Attednance",
    "options": "Attednance"
+  },
+  {
+   "fieldname": "presented_module_old",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Presented Module Old",
+   "options": "Presented Module"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:19:24.325792",
+ "modified": "2024-05-29 15:20:47.098931",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Attendance Entry",
