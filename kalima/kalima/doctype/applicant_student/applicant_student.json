@@ -58,28 +58,28 @@
   "external_account_tab",
   "high_school_information_section",
   "institute_name",
+  "branch",
+  "specialization",
+  "center",
+  "province",
+  "column_break_pasl",
   "attempt",
   "graduation_year",
   "number_of_materials",
   "number_of_failures",
-  "branch",
-  "average",
-  "specialization",
-  "column_break_pasl",
-  "section",
-  "certificate",
-  "center",
+  "column_break_jufh",
   "examination_number",
   "secret_number",
-  "province",
-  "document_date",
   "document_number",
+  "document_date",
   "ministry_exam_section2",
   "previous_academic_study",
   "ministry_exam_results",
   "ministry_exam_section",
   "total",
+  "average",
   "column_break_wont",
+  "total_in_words",
   "final_average",
   "qualifications_tab",
   "english_language_qualifications_section",
@@ -236,8 +236,9 @@
   },
   {
    "fieldname": "branch",
-   "fieldtype": "Data",
-   "label": "Branch"
+   "fieldtype": "Select",
+   "label": "Branch",
+   "options": "Scientific - Biological\nScientific - Practical\nliterary\nOther"
   },
   {
    "fieldname": "average",
@@ -247,26 +248,16 @@
   {
    "fieldname": "specialization",
    "fieldtype": "Data",
-   "label": "Specialization"
-  },
-  {
-   "fieldname": "section",
-   "fieldtype": "Data",
-   "label": "Section"
+   "label": "Other Branch"
   },
   {
    "fieldname": "column_break_pasl",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "certificate",
-   "fieldtype": "Data",
-   "label": "Certificate"
-  },
-  {
    "fieldname": "center",
    "fieldtype": "Data",
-   "label": "Center"
+   "label": "Exam Center"
   },
   {
    "fieldname": "examination_number",
@@ -391,7 +382,7 @@
   {
    "fieldname": "final_average",
    "fieldtype": "Float",
-   "label": "Final Average"
+   "label": "Average in words"
   },
   {
    "fieldname": "qualifications_tab",
@@ -748,11 +739,20 @@
    "fieldname": "secret_number",
    "fieldtype": "Data",
    "label": "Secret Number"
+  },
+  {
+   "fieldname": "column_break_jufh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_in_words",
+   "fieldtype": "Float",
+   "label": "Total in Words"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 12:22:18.307039",
+ "modified": "2024-05-30 12:44:41.559375",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
