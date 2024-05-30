@@ -3,7 +3,51 @@
 
 frappe.ui.form.on("Applicant Student", {
     refresh(frm) {
+        if (!frm.is_new()) {
+            frm.add_custom_button(__('Admit Student'), function () {
+                let d = new frappe.ui.Dialog({
+                    title: 'Enter details',
+                    fields: [
+                        {
+                            label: 'Department',
+                            fieldname: 'department',
+                            fieldtype: 'Link',
+                            options: "Faculty Department",
+                            reqd: 1,
+                            get_query: function () {
+                                return {
+                                    filters: [
+                                        ['name', 'in', frm.doc.prefered_departments.map(dept => dept.department)]
+                                    ]
+                                };
+                            }
+                        }
+                    ],
+                    size: 'small', // small, large, extra-large 
+                    primary_action_label: 'Admit',
+                    primary_action(values) {
 
+                        frappe.call({
+                            method: "kalima.kalima.doctype.applicant_student.applicant_student.admit_student",
+                            args: {
+                                doc_name: cur_frm.doc.name,
+                                department: values["department"]
+                            },
+                            callback: function (response) {
+                                if (response.message) {
+                                    frappe.msgprint(__('Student document {0} created successfully.', [response.message]));
+                                }
+                            }
+                        });
+                        d.hide();
+                    }
+                });
+
+                d.show();
+            }).addClass('bg-success', 'text-white').css({
+                "color": "white",
+            });
+        }
     },
     validate(frm) {
         if (frm.doc.prefered_departments.length > 4) {
