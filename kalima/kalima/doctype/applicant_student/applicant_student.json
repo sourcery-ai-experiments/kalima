@@ -197,7 +197,7 @@
    "options": "Country"
   },
   {
-   "depends_on": "eval:doc.application_channel == \"\u0630\u0648\u064a \u0634\u0647\u062f\u0627\u0621\"",
+   "depends_on": "eval:doc.application_channel == \"Martyrs' relatives\"",
    "fieldname": "martyr_relative",
    "fieldtype": "Data",
    "label": "Martyr Relative"
@@ -651,7 +651,8 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of Birth"
+   "label": "Date of Birth",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_qozq",
@@ -681,7 +682,8 @@
   {
    "fieldname": "legal_guardian_name",
    "fieldtype": "Data",
-   "label": "Legal Guardian Name"
+   "label": "Legal Guardian Name",
+   "reqd": 1
   },
   {
    "fieldname": "relation",
@@ -752,7 +754,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 12:44:41.559375",
+ "modified": "2024-05-30 13:34:02.855446",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
