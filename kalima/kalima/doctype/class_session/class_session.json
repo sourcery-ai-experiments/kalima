@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Class-Session-{class}-{title}",
  "creation": "2024-05-26 14:49:28.233141",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -55,10 +56,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:52:41.288299",
+ "modified": "2024-05-28 15:25:48.477173",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class Session",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:full_name_in_arabic",
  "creation": "2024-05-26 11:28:58.326661",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -12,15 +13,31 @@
   "last_name",
   "fourth_name",
   "sure_name",
-  "mother_name",
   "full_name_in_arabic",
+  "mother_name",
   "column_break_aqxi",
-  "notes",
   "gender",
   "nationality",
-  "martyr_relative",
   "subsidy_type",
   "criminal_conviction",
+  "blood_type",
+  "marital_status",
+  "religion",
+  "column_break_kttf",
+  "full_name_in_english",
+  "phone_number",
+  "phone_number_2",
+  "application_channel",
+  "martyr_relative",
+  "date_of_birth",
+  "legal_guardian_section",
+  "legal_guardian_name",
+  "relation",
+  "occupation",
+  "column_break_rbai",
+  "mobile_no",
+  "email",
+  "guardian_address",
   "high_school_information_section",
   "graduation_year",
   "number_of_materials",
@@ -54,6 +71,12 @@
   "employer_city",
   "employer_mobile_number",
   "employer_address",
+  "notes_section",
+  "notes",
+  "overview_tab",
+  "admission_office_section",
+  "status",
+  "final_selected_course",
   "external_account_tab",
   "university_email",
   "column_break_tfjr",
@@ -74,6 +97,44 @@
   "language_qualification",
   "work_experience_section",
   "work_experience",
+  "uploads_tab",
+  "id_section",
+  "id_number",
+  "id_issue_date",
+  "column_break_didx",
+  "id_registration_number",
+  "issuer",
+  "foreign_students_section",
+  "is_foreign_student",
+  "foreign_student_documents",
+  "year_of_student_admission",
+  "section_break_vbsh",
+  "student_image",
+  "passport",
+  "id",
+  "last_certificate",
+  "sponsorship",
+  "residence_document",
+  "nationality_certificate",
+  "column_break_hgxi",
+  "obligation_form",
+  "invoice_form",
+  "coupons_form",
+  "other",
+  "medical_test",
+  "ration_card",
+  "graduation_tab",
+  "graduate_date",
+  "graduate_order_number",
+  "results_tab",
+  "results",
+  "enrolled_modules",
+  "absences_list_tab",
+  "student_absences_list",
+  "account_tab",
+  "user_name",
+  "password",
+  "confirm_password",
   "choose_us_tab",
   "personal_statement",
   "how_hear_about_us_section",
@@ -85,29 +146,7 @@
   "colleagues",
   "school_college",
   "column_break_dsgr",
-  "disability",
-  "uploads_tab",
-  "student_image",
-  "passport",
-  "id",
-  "last_certificate",
-  "sponsorship",
-  "column_break_hgxi",
-  "obligation_form",
-  "invoice_form",
-  "coupons_form",
-  "other",
-  "graduation_tab",
-  "graduate_date",
-  "graduate_order_number",
-  "results_tab",
-  "results",
-  "absences_list_tab",
-  "student_absences_list",
-  "account_tab",
-  "user_name",
-  "password",
-  "confirm_password"
+  "disability"
  ],
  "fields": [
   {
@@ -148,7 +187,9 @@
   {
    "fieldname": "mother_name",
    "fieldtype": "Data",
-   "label": "Mother Name"
+   "in_list_view": 1,
+   "label": "Mother Full Name",
+   "reqd": 1
   },
   {
    "fieldname": "nationality",
@@ -159,7 +200,10 @@
   {
    "fieldname": "full_name_in_arabic",
    "fieldtype": "Data",
-   "label": "Full name in Arabic"
+   "in_list_view": 1,
+   "label": "Full name in Arabic",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "subsidy_type",
@@ -168,6 +212,7 @@
    "options": "Normal\nShahidan\nSJN"
   },
   {
+   "depends_on": "eval:doc.application_channel == \"Martyrs' relatives\"",
    "fieldname": "martyr_relative",
    "fieldtype": "Data",
    "label": "Martyr Relative"
@@ -504,7 +549,7 @@
   {
    "fieldname": "uploads_tab",
    "fieldtype": "Tab Break",
-   "label": "Uploads"
+   "label": "Documents"
   },
   {
    "fieldname": "student_image",
@@ -645,14 +690,218 @@
   {
    "fieldname": "column_break_hgxi",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrolled_modules",
+   "fieldtype": "Table",
+   "label": "Enrolled Modules",
+   "options": "Student Enrolled Modules"
+  },
+  {
+   "fieldname": "overview_tab",
+   "fieldtype": "Tab Break",
+   "label": "Overview"
+  },
+  {
+   "fieldname": "admission_office_section",
+   "fieldtype": "Section Break",
+   "label": "Admission Office"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Accepted\nRejected"
+  },
+  {
+   "fieldname": "final_selected_course",
+   "fieldtype": "Link",
+   "label": "Final Selected Course",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "blood_type",
+   "fieldtype": "Select",
+   "label": "Blood Type",
+   "options": "A+\nB+\nAB+\nO+\nA-\nB-\nAB-\nO-"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "Single\nMarried\nWidowed\nDivorced"
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Select",
+   "label": "Religion",
+   "options": "Muslim\nJew\nChristian\nShabak\nYarsanism\nMandaeism\nYazidis\nOther"
+  },
+  {
+   "fieldname": "column_break_kttf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "full_name_in_english",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full name in English",
+   "unique": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Phone Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number_2",
+   "fieldtype": "Phone",
+   "label": "Phone Number 2"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "legal_guardian_section",
+   "fieldtype": "Section Break",
+   "label": "Legal Guardian"
+  },
+  {
+   "fieldname": "legal_guardian_name",
+   "fieldtype": "Data",
+   "label": "Legal Guardian Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relation",
+   "fieldtype": "Select",
+   "label": "Relation",
+   "options": "Father\nMother\nSister\nBrother\nUncle\nAunt\nGrandfather\nOther"
+  },
+  {
+   "fieldname": "occupation",
+   "fieldtype": "Data",
+   "label": "Occupation"
+  },
+  {
+   "fieldname": "column_break_rbai",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Phone",
+   "label": "Mobile No."
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "guardian_address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "application_channel",
+   "fieldtype": "Select",
+   "label": "Application Channel",
+   "options": "Martyrs' relatives\nRelatives of the martyrs of the Popular Mobilization Forces\nRelatives of victims of war operations\nGeneral channel\nTeaching"
+  },
+  {
+   "fieldname": "id_section",
+   "fieldtype": "Section Break",
+   "label": "ID"
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "label": "ID Number"
+  },
+  {
+   "fieldname": "id_issue_date",
+   "fieldtype": "Date",
+   "label": "ID Issue Date"
+  },
+  {
+   "fieldname": "column_break_didx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_registration_number",
+   "fieldtype": "Data",
+   "label": "ID Registration Number"
+  },
+  {
+   "fieldname": "issuer",
+   "fieldtype": "Data",
+   "label": "Issuer"
+  },
+  {
+   "fieldname": "foreign_students_section",
+   "fieldtype": "Section Break",
+   "label": "Foreign Students"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_foreign_student",
+   "fieldtype": "Check",
+   "label": "Is Foreign Student"
+  },
+  {
+   "fieldname": "foreign_student_documents",
+   "fieldtype": "Table",
+   "label": "Foreign Student Documents",
+   "options": "Foreign Student Documents"
+  },
+  {
+   "fieldname": "year_of_student_admission",
+   "fieldtype": "Table",
+   "label": "Year of Student Admission",
+   "options": "Foreign Student Documents"
+  },
+  {
+   "fieldname": "section_break_vbsh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "residence_document",
+   "fieldtype": "Attach",
+   "label": "Residence Document"
+  },
+  {
+   "fieldname": "nationality_certificate",
+   "fieldtype": "Attach",
+   "label": "Nationality Certificate"
+  },
+  {
+   "fieldname": "medical_test",
+   "fieldtype": "Attach",
+   "label": "Medical Test"
+  },
+  {
+   "fieldname": "ration_card",
+   "fieldtype": "Attach",
+   "label": "Ration card"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 12:33:34.446633",
+ "modified": "2024-05-30 13:31:37.945992",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

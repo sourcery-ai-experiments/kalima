@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Lend-Book-{book}",
  "creation": "2024-05-26 14:38:08.388292",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -45,10 +46,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:40:33.575511",
+ "modified": "2024-05-28 15:28:16.433493",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Lend Book",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:arabic_title",
  "creation": "2024-05-25 15:32:13.967534",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -26,7 +27,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Arabic Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "abbreviation_title",
@@ -62,10 +64,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-25 15:34:11.954887",
+ "modified": "2024-05-28 11:47:24.955356",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Faculty",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

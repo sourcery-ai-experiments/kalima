@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2024-05-26 14:39:00.457133",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,7 +15,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "days",
@@ -25,10 +27,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:39:17.106236",
+ "modified": "2024-05-28 15:25:09.177332",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Borrowing Period",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

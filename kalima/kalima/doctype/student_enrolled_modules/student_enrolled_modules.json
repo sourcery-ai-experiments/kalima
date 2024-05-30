@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-28 11:25:37.805479",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "module",
+  "status",
+  "department",
+  "semester",
+  "template"
+ ],
+ "fields": [
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "Department Module"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Ongoing\nCompleted"
+  },
+  {
+   "fetch_from": "module.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Department"
+  },
+  {
+   "fetch_from": "module.semester",
+   "fieldname": "semester",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Semester"
+  },
+  {
+   "fetch_from": "module.template",
+   "fieldname": "template",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-28 11:28:17.726971",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Enrolled Modules",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

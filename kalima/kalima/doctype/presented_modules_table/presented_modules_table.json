@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-29 15:11:27.107458",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "status",
+  "stage",
+  "semester",
+  "ects",
+  "sswl",
+  "usswl",
+  "available_in_choose_credit_panel"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Year",
+   "options": "Educational Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna",
+   "reqd": 1
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ects",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "ECTS",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "sswl",
+   "fieldtype": "Int",
+   "label": "SSWL",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "usswl",
+   "fieldtype": "Int",
+   "label": "USSWL",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "default": "0",
+   "fieldname": "available_in_choose_credit_panel",
+   "fieldtype": "Check",
+   "label": "Available in Choose Credit Panel"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-29 15:15:10.258704",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Presented Modules Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

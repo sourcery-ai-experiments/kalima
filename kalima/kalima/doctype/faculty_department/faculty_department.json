@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:arabic_title",
  "creation": "2024-05-25 15:38:01.500302",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -15,7 +16,9 @@
   "tuition_fee",
   "total_of_required_credits",
   "passed_grade",
-  "is_active"
+  "is_active",
+  "presented_departments_section",
+  "table_fpkl"
  ],
  "fields": [
   {
@@ -38,7 +41,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Arabic Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "abbreviation_title",
@@ -78,18 +82,29 @@
    "label": "Passed Grade"
   },
   {
-   "default": "0",
+   "default": "1",
    "fieldname": "is_active",
    "fieldtype": "Check",
    "label": "Is Active"
+  },
+  {
+   "fieldname": "presented_departments_section",
+   "fieldtype": "Section Break",
+   "label": "Presented Departments"
+  },
+  {
+   "fieldname": "table_fpkl",
+   "fieldtype": "Table",
+   "options": "Presented Departments Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-25 15:43:17.946806",
+ "modified": "2024-05-29 15:03:15.047042",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Faculty Department",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
