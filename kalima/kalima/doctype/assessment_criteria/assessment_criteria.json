@@ -1,40 +1,38 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Exam-Schedule-{class}",
- "creation": "2024-05-26 14:59:06.583096",
+ "autoname": "field:assessment_criteria",
+ "creation": "2024-06-01 10:52:34.280751",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "class",
-  "date",
-  "time"
+  "assessment_criteria",
+  "default_score"
  ],
  "fields": [
   {
-   "fieldname": "class",
-   "fieldtype": "Link",
-   "label": "Class",
-   "options": "Class"
+   "fieldname": "assessment_criteria",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Assessment Criteria",
+   "reqd": 1,
+   "unique": 1
   },
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
-   "fieldname": "time",
-   "fieldtype": "Time",
-   "label": "Time"
+   "fieldname": "default_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Default score",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.891576",
+ "modified": "2024-06-01 10:54:23.315703",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Exam Schedule",
- "naming_rule": "Expression",
+ "name": "Assessment Criteria",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,39 +1,34 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Exam-Schedule-{class}",
- "creation": "2024-05-26 14:59:06.583096",
+ "autoname": "format:Participant-{participant}-{MM}-{YYYY}",
+ "creation": "2024-06-01 11:47:39.831950",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "class",
-  "date",
-  "time"
+  "participant_type",
+  "participant"
  ],
  "fields": [
   {
-   "fieldname": "class",
+   "fieldname": "participant_type",
    "fieldtype": "Link",
-   "label": "Class",
-   "options": "Class"
+   "label": "Participant Type",
+   "options": "DocType"
   },
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
-   "fieldname": "time",
-   "fieldtype": "Time",
-   "label": "Time"
+   "fieldname": "participant",
+   "fieldtype": "Dynamic Link",
+   "label": "Participant",
+   "options": "participant_type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.891576",
+ "modified": "2024-06-01 11:50:35.969177",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Exam Schedule",
+ "name": "Activity Participant",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

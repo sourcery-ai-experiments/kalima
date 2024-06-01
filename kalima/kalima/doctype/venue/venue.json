@@ -1,40 +1,40 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Exam-Schedule-{class}",
- "creation": "2024-05-26 14:59:06.583096",
+ "autoname": "field:name1",
+ "creation": "2024-06-01 11:38:56.850062",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "class",
-  "date",
-  "time"
+  "name1",
+  "location",
+  "capacity"
  ],
  "fields": [
   {
-   "fieldname": "class",
-   "fieldtype": "Link",
-   "label": "Class",
-   "options": "Class"
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "unique": 1
   },
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "Date"
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
   },
   {
-   "fieldname": "time",
-   "fieldtype": "Time",
-   "label": "Time"
+   "fieldname": "capacity",
+   "fieldtype": "Data",
+   "label": "Capacity"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.891576",
+ "modified": "2024-06-01 11:39:29.744840",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Exam Schedule",
- "naming_rule": "Expression",
+ "name": "Venue",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

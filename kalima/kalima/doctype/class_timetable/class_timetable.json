@@ -20,7 +20,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "teacher",
@@ -62,7 +62,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 15:31:16.699626",
+ "modified": "2024-06-01 10:37:11.690288",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class Timetable",

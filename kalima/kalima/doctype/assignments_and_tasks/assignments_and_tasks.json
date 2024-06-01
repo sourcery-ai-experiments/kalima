@@ -26,7 +26,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "from_date",
@@ -70,7 +70,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 12:40:34.900616",
+ "modified": "2024-06-01 10:37:11.176550",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Assignments and Tasks",

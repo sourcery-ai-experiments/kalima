@@ -67,7 +67,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "author",
@@ -162,7 +162,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 15:26:49.480675",
+ "modified": "2024-06-01 10:37:12.547822",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Book",

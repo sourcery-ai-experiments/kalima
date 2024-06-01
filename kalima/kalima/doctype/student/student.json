@@ -30,6 +30,7 @@
   "application_channel",
   "martyr_relative",
   "date_of_birth",
+  "customer",
   "legal_guardian_section",
   "legal_guardian_name",
   "relation",
@@ -893,11 +894,17 @@
    "fieldname": "ration_card",
    "fieldtype": "Attach",
    "label": "Ration card"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 13:31:37.945992",
+ "modified": "2024-06-01 11:07:16.173091",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

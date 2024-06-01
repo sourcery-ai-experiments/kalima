@@ -26,9 +26,19 @@ def admit_student(doc_name,department):
         # Only set the field if it exists in the "Student" DocType
         if student_meta.has_field(fieldname):
             student_doc.set(fieldname, applicant_doc.get(fieldname))
-
-    # Save the new "Student" document
+    
+    customer = frappe.get_doc({
+        "doctype": "Customer",
+        "customer_name": student_doc.full_name_in_arabic,
+        "customer_type": "Individual",
+        "customer_group": "Individual",
+        "territory": "All Territories",
+    })
+    customer.insert()
+    
+    student_doc.customer = customer.name
     student_doc.final_selected_course = department
     student_doc.save()
+
     
     return student_doc.name

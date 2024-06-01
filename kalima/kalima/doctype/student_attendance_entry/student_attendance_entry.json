@@ -40,7 +40,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "column_break_wvoi",
@@ -95,7 +95,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-29 15:20:47.098931",
+ "modified": "2024-06-01 10:37:12.784784",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Attendance Entry",
