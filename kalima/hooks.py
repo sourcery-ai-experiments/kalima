@@ -9,6 +9,21 @@ app_license = "mit"
 # Includes in <head>
 # ------------------
 
+fixtures = [
+    {
+        "dt": "Role",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Student"
+                ]
+            ]
+        ]
+    }
+]
+
 # include js, css files in header of desk.html
 # app_include_css = "/assets/kalima/css/kalima.css"
 # app_include_js = "/assets/kalima/js/kalima.js"
