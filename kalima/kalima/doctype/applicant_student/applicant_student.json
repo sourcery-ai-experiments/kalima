@@ -22,6 +22,7 @@
   "subsidy_type",
   "criminal_conviction",
   "blood_type",
+  "email",
   "column_break_qozq",
   "english_student_full_name",
   "phone_number",
@@ -37,7 +38,7 @@
   "occupation",
   "column_break_pxgg",
   "mobile_no",
-  "email",
+  "guardian_email",
   "guardian_address",
   "current_employment_address_section",
   "currently_unemployed",
@@ -699,7 +700,8 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_pxgg",
@@ -750,11 +752,16 @@
    "fieldname": "total_in_words",
    "fieldtype": "Float",
    "label": "Total in Words"
+  },
+  {
+   "fieldname": "guardian_email",
+   "fieldtype": "Data",
+   "label": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 13:34:02.855446",
+ "modified": "2024-06-01 14:17:12.423984",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",

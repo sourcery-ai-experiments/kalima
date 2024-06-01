@@ -133,7 +133,7 @@
   "absences_list_tab",
   "student_absences_list",
   "account_tab",
-  "user_name",
+  "user",
   "password",
   "confirm_password",
   "choose_us_tab",
@@ -641,11 +641,6 @@
    "label": "Account"
   },
   {
-   "fieldname": "user_name",
-   "fieldtype": "Data",
-   "label": "User Name"
-  },
-  {
    "fieldname": "password",
    "fieldtype": "Password",
    "label": "Password"
@@ -900,11 +895,17 @@
    "fieldtype": "Link",
    "label": "Customer",
    "options": "Customer"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 11:07:16.173091",
+ "modified": "2024-06-01 14:26:38.182755",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

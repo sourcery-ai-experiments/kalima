@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+# from frappe.utils.user import add_user
 
 
 class ApplicantStudent(Document):
@@ -26,18 +27,41 @@ def admit_student(doc_name,department):
         # Only set the field if it exists in the "Student" DocType
         if student_meta.has_field(fieldname):
             student_doc.set(fieldname, applicant_doc.get(fieldname))
+        # Create a new user
+    user_doc = frappe.get_doc({
+        "doctype": "User",
+        "email":applicant_doc.email,
+        "first_name":applicant_doc.first_name,
+        "last_name":applicant_doc.sure_name,
+        "roles":[
+            {
+                "role":"Student"
+            }
+        ]
+    })
+    # Assign the "Student" role to the user
+    # user_doc.add_roles("Student")
+    user_doc.save()
     
+    print(user_doc)
+
     customer = frappe.get_doc({
         "doctype": "Customer",
         "customer_name": student_doc.full_name_in_arabic,
         "customer_type": "Individual",
         "customer_group": "Individual",
         "territory": "All Territories",
+        "portal_users": [
+            {
+                "user": user_doc.name
+            }
+        ]
     })
     customer.insert()
     
     student_doc.customer = customer.name
     student_doc.final_selected_course = department
+    student_doc.user = user_doc.name
     student_doc.save()
 
     
