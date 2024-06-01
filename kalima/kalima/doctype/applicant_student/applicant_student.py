@@ -63,6 +63,8 @@ def admit_student(doc_name,department):
     student_doc.final_selected_course = department
     student_doc.user = user_doc.name
     student_doc.save()
+    student_doc.insert()
+    student_doc.save()
 
     
     return student_doc.name
