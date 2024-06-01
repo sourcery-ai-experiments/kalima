@@ -6,9 +6,9 @@ from frappe.model.document import Document
 
 
 class Student(Document):
-	def save(doc):
+	def after_save(doc):
 		# user = frappe.get_doc("User", doc.user)
-		if(doc.password != None):
+		if(doc.password != None and doc.password != ""):
 			if(doc.password == doc.confirm_password):
 				update_password(doc.user, doc.password)
 				frappe.db.commit()

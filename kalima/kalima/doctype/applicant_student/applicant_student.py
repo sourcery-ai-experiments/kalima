@@ -9,8 +9,9 @@ from frappe.model.document import Document
 class ApplicantStudent(Document):
 	pass
 
+
 @frappe.whitelist()
-def admit_student(doc_name,department):
+def admit_student(doc_name, department):
     # Get the "Applicant Student" document
     applicant_doc = frappe.get_doc("Applicant Student", doc_name)
 
@@ -27,24 +28,30 @@ def admit_student(doc_name,department):
         # Only set the field if it exists in the "Student" DocType
         if student_meta.has_field(fieldname):
             student_doc.set(fieldname, applicant_doc.get(fieldname))
-        # Create a new user
+
+    # Generate email address
+    email_prefix = applicant_doc.english_student_full_name.replace(" ", "").lower()
+    custom_email_domain = "Kalima.com"
+    email = f"{email_prefix}@{custom_email_domain}"
+    
+    print("email")
+    print(applicant_doc.email)
+    print(email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email)
+    
+    # Create a new user
     user_doc = frappe.get_doc({
         "doctype": "User",
-        "email":applicant_doc.email,
-        "first_name":applicant_doc.first_name,
-        "last_name":applicant_doc.sure_name,
-        "roles":[
+        "email": email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email,
+        "first_name": applicant_doc.first_name,
+        "last_name": applicant_doc.sure_name,
+        "roles": [
             {
-                "role":"Student"
+                "role": "Student"
             }
         ]
     })
-    # Assign the "Student" role to the user
-    # user_doc.add_roles("Student")
     user_doc.save()
     
-    print(user_doc)
-
     customer = frappe.get_doc({
         "doctype": "Customer",
         "customer_name": student_doc.full_name_in_arabic,
@@ -58,13 +65,11 @@ def admit_student(doc_name,department):
         ]
     })
     customer.insert()
-    
+    student_doc.email = email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email
     student_doc.customer = customer.name
     student_doc.final_selected_course = department
     student_doc.user = user_doc.name
-    student_doc.save()
     student_doc.insert()
     student_doc.save()
 
-    
     return student_doc.name
