@@ -1,5 +1,6 @@
 var selected_class;
 var selectedTeacher;
+var current_class;// = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
 
 
 frappe.pages['class-managment'].on_page_load = async function (wrapper) {
@@ -71,6 +72,7 @@ async function class_field(page, teacher) {
                         reqd: 1,
                         change: async () => {
                             selected_class = classSelector.get_value();
+                            current_class = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
                         }
                     }
                 });
@@ -233,7 +235,7 @@ function createFormDialogNew(templateName) {
         return;
     }
     const button = $('<button class="btn btn-success border hover">Create New</button>').appendTo(parent);
-    button.click(function () {
+    button.click(async function () {
         var fields = [];
         if (templateName == "sessions-list") {
             fields = [
@@ -251,7 +253,7 @@ function createFormDialogNew(templateName) {
                     fieldname: 'title',
                     fieldtype: 'Data'
                 },
-    
+
                 {
                     fieldname: 'column_break_inyc',
                     fieldtype: 'Column Break'
@@ -294,7 +296,7 @@ function createFormDialogNew(templateName) {
                     fieldname: "class",
                     fieldtype: "Link",
                     label: "Class",
-                    default: selected_class,read_only:1,
+                    default: selected_class, read_only: 1,
                     options: "Class"
                 },
                 {
@@ -311,7 +313,7 @@ function createFormDialogNew(templateName) {
                     fieldname: "column_break_bltp",
                     fieldtype: "Column Break"
                 },
-    
+
                 {
                     fieldname: "date",
                     fieldtype: "Date",
@@ -321,7 +323,7 @@ function createFormDialogNew(templateName) {
                     fieldtype: "Percent",
                     label: "Percentage"
                 },
-    
+
                 {
                     fieldname: "marked_on",
                     fieldtype: "Int",
@@ -344,18 +346,18 @@ function createFormDialogNew(templateName) {
                         { fieldname: 'score', fieldtype: 'Float', in_list_view: 1, label: 'Score' },
                         { fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent' },
                         { fieldname: 'Description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
-    
+
                     ]
                 },
             ];
         } else if (templateName == "assignment-list") {
             fields = [
-    
+
                 {
                     fieldname: "class",
                     fieldtype: "Link",
                     label: "Class",
-                    default: selected_class,read_only:1,
+                    default: selected_class, read_only: 1,
                     options: "Class"
                 },
                 {
@@ -370,7 +372,7 @@ function createFormDialogNew(templateName) {
                     fieldname: "column_break_bltp",
                     fieldtype: "Column Break"
                 },
-    
+
                 {
                     fieldname: "from_date",
                     fieldtype: "Date",
@@ -402,19 +404,19 @@ function createFormDialogNew(templateName) {
                     fields: [
                         { fieldname: 'file', fieldtype: 'Attach', in_list_view: 1, label: 'File' },
                         { fieldname: 'description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
-    
+
                     ]
                 },
-    
+
             ];
         } else if (templateName == "exam-schedule") {
             fields = [
-    
+
                 {
                     fieldname: "class",
                     fieldtype: "Link",
                     label: "Class",
-                    default: selected_class,read_only:1,
+                    default: selected_class, read_only: 1,
                     // read_only: 1,
                     options: "Class"
                 },
@@ -427,22 +429,89 @@ function createFormDialogNew(templateName) {
                     fieldtype: "Time",
                     label: "Time"
                 },
-    
+
             ];
         } else if (templateName == "attendance-entry") {
+            // var current_class = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
+
+            console.log("current_class");
+            console.log(current_class);
+
+
+            // {
+            //     "name": "CE 1",
+            //     "student_list": [
+            //         {
+            //             "name": "fb0967c46e",
+            //             "owner": "Administrator",
+            //             "creation": "2024-06-02 14:22:50.121633",
+            //             "modified": "2024-06-04 10:40:11.390315",
+            //             "modified_by": "Administrator",
+            //             "docstatus": 0,
+            //             "idx": 1,
+            //             "student": "Abdullah Alshehab",
+            //             "parent": "CE 1",
+            //             "parentfield": "student_list",
+            //             "parenttype": "Class",
+            //             "doctype": "Class Students"
+            //         },
+            //         {
+            //             "name": "20b3bf15fc",
+            //             "owner": "Administrator",
+            //             "creation": "2024-06-02 14:22:50.121633",
+            //             "modified": "2024-06-04 10:40:11.390315",
+            //             "modified_by": "Administrator",
+            //             "docstatus": 0,
+            //             "idx": 2,
+            //             "student": "احمد حامد محمود حمدان",
+            //             "parent": "CE 1",
+            //             "parentfield": "student_list",
+            //             "parenttype": "Class",
+            //             "doctype": "Class Students"
+            //         },
+            //         {
+            //             "name": "899970c156",
+            //             "owner": "Administrator",
+            //             "creation": "2024-06-02 14:22:50.121633",
+            //             "modified": "2024-06-04 10:40:11.390315",
+            //             "modified_by": "Administrator",
+            //             "docstatus": 0,
+            //             "idx": 3,
+            //             "student": "حامد حامد حامد حامد",
+            //             "parent": "CE 1",
+            //             "parentfield": "student_list",
+            //             "parenttype": "Class",
+            //             "doctype": "Class Students"
+            //         },
+            //         {
+            //             "name": "9e02c5a585",
+            //             "owner": "Administrator",
+            //             "creation": "2024-06-02 14:22:50.121633",
+            //             "modified": "2024-06-04 10:40:11.390315",
+            //             "modified_by": "Administrator",
+            //             "docstatus": 0,
+            //             "idx": 4,
+            //             "student": "a b c d",
+            //             "parent": "CE 1",
+            //             "parentfield": "student_list",
+            //             "parenttype": "Class",
+            //             "doctype": "Class Students"
+            //         }
+            //     ]
+            // }
             fields = [
                 {
                     fieldname: "class",
                     fieldtype: "Link",
-                    label: "Class",                    
+                    label: "Class",
                     default: selected_class,
-                    read_only:1,
+                    read_only: 1,
                     options: "Class"
                 }, {
                     fieldname: "teacher",
                     fieldtype: "Link",
                     label: "Teacher",
-                    default: selectedTeacher,read_only:1,
+                    default: selectedTeacher, read_only: 1,
                     options: "Employee"
                 },
                 {
@@ -491,32 +560,46 @@ function createFormDialogNew(templateName) {
                     fieldname: "section_break_fsrg",
                     fieldtype: "Section Break"
                 },
-                {
-                    label: 'Attednance',
-                    fieldname: 'attednance',
-                    fieldtype: 'Table',
-                    cannot_add_rows: false,
-                    in_place_edit: false,
-                    fields: [
-                        { fieldname: 'student', fieldtype: 'Link', options: 'Student', in_list_view: 1, label: 'Student' },
-                        { fieldname: 'status', fieldtype: 'Select', options: "Absent\nDelayed\nPresent", in_list_view: 1, label: 'Status' },
-                        { fieldname: 'leave', fieldtype: 'Check', in_list_view: 1, label: 'leave' },
-                    ]
-                },
+                // {
+                //     label: 'Attednance',
+                //     fieldname: 'attednance',
+                //     fieldtype: 'Table',
+                //     cannot_add_rows: false,
+                //     in_place_edit: false,
+                //     fields: [
+                //         { fieldname: 'student', fieldtype: 'Link', options: 'Student', in_list_view: 1, label: 'Student' },
+                //         { fieldname: 'status', fieldtype: 'Select', options: "Absent\nDelayed\nPresent", in_list_view: 1, label: 'Status' },
+                //         { fieldname: 'leave', fieldtype: 'Check', in_list_view: 1, label: 'leave' },
+                //     ]
+                // },
             ];
+            var student_counter = 1;
+            console.log("123 fields 321");
+            console.log(fields);
+            current_class.student_list.forEach(element => {
+                fields.push({
+                    fieldname: element.name,
+                    fieldType: "Check", 
+                    label: element.student,
+                  });
+                  student_counter++;
+            });
+            console.log("fields");
+            console.log(fields);
+
         } else if (templateName == "time-table") {
             fields = [
                 {
                     fieldname: "class",
-                    fieldtype: "Link",                    
-                    default: selected_class,read_only:1,
+                    fieldtype: "Link",
+                    default: selected_class, read_only: 1,
 
                     label: "Class",
                     options: "Class"
                 }, {
                     fieldname: "teacher",
                     fieldtype: "Link",
-                    default: selectedTeacher,read_only:1,
+                    default: selectedTeacher, read_only: 1,
 
                     label: "Teacher",
                     options: "Employee"
@@ -549,7 +632,7 @@ function createFormDialogNew(templateName) {
                 },
             ];
         }
-    
+
         let d = new frappe.ui.Dialog({
             title: 'Enter details',
             fields: fields,

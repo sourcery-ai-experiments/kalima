@@ -30,6 +30,7 @@ frappe.ui.form.on("Group Class", {
         // generate_classes(frm);
     },
     async refresh(frm) {
+        console.log(frm.doc.docstatus);
         await pres(frm);
         if (!frm.is_new()) {
             frm.add_custom_button(__('Generate Classes'), function () {

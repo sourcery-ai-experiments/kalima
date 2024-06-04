@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"mtjl9t1akH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Kalima</span>\",\"col\":12}},{\"id\":\"39Z7-PWxC9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":4}},{\"id\":\"URME7InMNb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Applicant Student\",\"col\":4}},{\"id\":\"1Lv8QJXvmp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"f8LccI3ra4\",\"type\":\"card\",\"data\":{\"card_name\":\"Misc\",\"col\":4}},{\"id\":\"g1qXCJ0-XF\",\"type\":\"card\",\"data\":{\"card_name\":\"Departments\",\"col\":4}},{\"id\":\"Ri_B6pJ3Hg\",\"type\":\"card\",\"data\":{\"card_name\":\"Modules\",\"col\":4}},{\"id\":\"WR-TIso7PU\",\"type\":\"card\",\"data\":{\"card_name\":\"Classes\",\"col\":4}},{\"id\":\"0wJLyLTvp-\",\"type\":\"card\",\"data\":{\"card_name\":\"Exams\",\"col\":4}},{\"id\":\"YPbvJGs5B4\",\"type\":\"card\",\"data\":{\"card_name\":\"Library\",\"col\":4}},{\"id\":\"X78M3WaKVz\",\"type\":\"card\",\"data\":{\"card_name\":\"Quality Assurance\",\"col\":4}},{\"id\":\"hegyiEK1Fp\",\"type\":\"card\",\"data\":{\"card_name\":\"Performance appraisal\",\"col\":4}}]",
+ "content": "[{\"id\":\"mtjl9t1akH\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Kalima</span>\",\"col\":12}},{\"id\":\"39Z7-PWxC9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":4}},{\"id\":\"URME7InMNb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Applicant Student\",\"col\":4}},{\"id\":\"4nTMX_VyfI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Class Management\",\"col\":4}},{\"id\":\"1Lv8QJXvmp\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"f8LccI3ra4\",\"type\":\"card\",\"data\":{\"card_name\":\"Misc\",\"col\":4}},{\"id\":\"g1qXCJ0-XF\",\"type\":\"card\",\"data\":{\"card_name\":\"Departments\",\"col\":4}},{\"id\":\"Ri_B6pJ3Hg\",\"type\":\"card\",\"data\":{\"card_name\":\"Modules\",\"col\":4}},{\"id\":\"WR-TIso7PU\",\"type\":\"card\",\"data\":{\"card_name\":\"Classes\",\"col\":4}},{\"id\":\"0wJLyLTvp-\",\"type\":\"card\",\"data\":{\"card_name\":\"Exams\",\"col\":4}},{\"id\":\"YPbvJGs5B4\",\"type\":\"card\",\"data\":{\"card_name\":\"Library\",\"col\":4}},{\"id\":\"X78M3WaKVz\",\"type\":\"card\",\"data\":{\"card_name\":\"Quality Assurance\",\"col\":4}},{\"id\":\"hegyiEK1Fp\",\"type\":\"card\",\"data\":{\"card_name\":\"Performance appraisal\",\"col\":4}}]",
  "creation": "2024-05-27 13:03:57.752510",
  "custom_blocks": [],
  "docstatus": 0,
@@ -506,7 +506,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-06-01 13:18:07.981704",
+ "modified": "2024-06-04 10:20:40.894543",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",
@@ -525,6 +525,13 @@
    "link_to": "Student",
    "stats_filter": "[]",
    "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Class Management",
+   "link_to": "class-managment",
+   "type": "Page"
   },
   {
    "color": "Grey",
