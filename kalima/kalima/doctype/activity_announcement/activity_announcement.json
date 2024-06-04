@@ -1,70 +1,46 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Act-Req-{MM}-{YYYY}-{title}",
- "creation": "2024-06-01 11:35:30.561908",
+ "autoname": "format:Activity-Ann-{title}-{date}",
+ "creation": "2024-06-04 14:34:18.173899",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "activity_request",
   "title",
-  "type",
-  "venue",
   "date",
-  "deliverer_type",
-  "column_break_msoa",
   "description",
-  "status",
-  "cv",
-  "section_break_brcz",
+  "column_break_dltw",
   "activity_deliverers",
+  "section_break_ilot",
   "participants_type",
-  "departments"
+  "departments",
+  "activity_participants_list"
  ],
  "fields": [
   {
-   "fieldname": "title",
-   "fieldtype": "Data",
+   "fieldname": "activity_request",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Title",
+   "label": "Activity Request",
+   "options": "Activity Request",
    "reqd": 1
   },
   {
-   "fieldname": "venue",
-   "fieldtype": "Link",
-   "label": "Venue",
-   "options": "Venue"
+   "fetch_from": "activity_request.title",
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
   },
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "Seminar\nWorkshop\nTraining course"
-  },
-  {
-   "fieldname": "column_break_msoa",
-   "fieldtype": "Column Break"
-  },
-  {
+   "fetch_from": "activity_request.description",
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description"
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Pending\nAccepted\nPostponded\nIn Progress\nCompleted\nRejected"
-  },
-  {
-   "fieldname": "deliverer_type",
-   "fieldtype": "Select",
-   "label": "Deliverer Type",
-   "options": "Single\nMultiple"
+   "fieldname": "column_break_dltw",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "activity_deliverers",
@@ -73,34 +49,41 @@
    "options": "Activity Deliverers"
   },
   {
+   "fetch_from": "activity_request.date",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Activity Date"
+  },
+  {
+   "fetch_from": "activity_request.participants_type",
    "fieldname": "participants_type",
    "fieldtype": "Select",
    "label": "Participants Type",
    "options": "General\nStaff\nDepartments"
   },
   {
-   "depends_on": "eval:doc.participants_type == \"Departments\"",
    "fieldname": "departments",
    "fieldtype": "Table",
    "label": "Departments",
    "options": "Activity Departments"
   },
   {
-   "fieldname": "cv",
-   "fieldtype": "Attach",
-   "label": "CV"
+   "fieldname": "activity_participants_list",
+   "fieldtype": "Table",
+   "label": "Activity Participants List",
+   "options": "Activity Participants List"
   },
   {
-   "fieldname": "section_break_brcz",
+   "fieldname": "section_break_ilot",
    "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-04 15:00:34.447885",
+ "modified": "2024-06-04 14:59:46.491369",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Activity Request",
+ "name": "Activity Announcement",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

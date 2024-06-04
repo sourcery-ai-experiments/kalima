@@ -88,7 +88,7 @@ async function pres(frm) {
                                   <label class="form-check-label my-1" for="module_${index}">
                                       ${module.module}
                                   </label>
-                              </div>`;
+                              </div><br>`;
                     });
 
                     html += '</div>';
