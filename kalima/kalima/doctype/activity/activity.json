@@ -6,26 +6,26 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "title",
   "activity_request",
-  "description",
-  "column_break_slun",
+  "title",
   "status",
   "start_date",
   "end_date",
-  "requeste",
+  "column_break_slun",
   "venue",
   "participant_count",
+  "description",
   "section_break_cfjo",
-  "activity_participants_list"
+  "activity_participants_list",
+  "requirements"
  ],
  "fields": [
   {
+   "fetch_from": "activity_request.title",
    "fieldname": "title",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Title",
-   "reqd": 1
+   "label": "Title"
   },
   {
    "fieldname": "activity_request",
@@ -49,12 +49,6 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Draft\nPublished\nPlanned\nExecuted"
-  },
-  {
-   "fetch_from": "activity_request.requester",
-   "fieldname": "requeste",
-   "fieldtype": "Data",
-   "label": "Requester"
   },
   {
    "fieldname": "start_date",
@@ -86,11 +80,17 @@
    "fieldtype": "Table",
    "label": "Activity Participants List",
    "options": "Activity Participants List"
+  },
+  {
+   "fieldname": "requirements",
+   "fieldtype": "Table",
+   "label": "Requirements",
+   "options": "Activity Requirements"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 11:53:20.118074",
+ "modified": "2024-06-04 15:23:17.012229",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity",

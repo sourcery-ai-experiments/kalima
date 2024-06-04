@@ -529,7 +529,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Continuing Education",
-   "link_count": 4,
+   "link_count": 5,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -573,9 +573,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Activity Announcement",
+   "link_count": 0,
+   "link_to": "Activity Announcement",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-06-04 14:05:44.686282",
+ "modified": "2024-06-04 15:05:37.350314",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",
