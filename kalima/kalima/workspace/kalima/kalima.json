@@ -450,7 +450,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Classes",
-   "link_count": 6,
+   "link_count": 7,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -514,9 +514,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assignments and Tasks",
+   "link_count": 0,
+   "link_to": "Assignments and Tasks",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-06-04 11:40:26.586565",
+ "modified": "2024-06-04 12:56:37.598565",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",

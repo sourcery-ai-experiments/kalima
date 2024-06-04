@@ -50,7 +50,7 @@ async function class_field(page, teacher) {
         },
         callback: function (response) {
             if (response.message) {
-                console.log("Classes for the teacher:", response.message);
+                // console.log("Classes for the teacher:", response.message);
 
                 // Clear existing class selector if it exists
                 page.wrapper.find('#class-holder').empty();
@@ -75,6 +75,7 @@ async function class_field(page, teacher) {
                         change: async () => {
                             selected_class = classSelector.get_value();
                             current_class = await frappe.db.get_doc("Class", selected_class, fields = ["student_list"]);
+                            // console.log(current_class);
                         }
                     }
                 });
@@ -89,37 +90,72 @@ async function class_field(page, teacher) {
 }
 
 async function content_manager(page) {
-
-    //contents
     var contentColumn = document.querySelector("#content");
     document.querySelectorAll('.btn-secondary').forEach(button => {
-        button.addEventListener('click', function () {
-
-            // Remove 'btn-info' and 'active' classes from all buttons
+        button.addEventListener('click', async function () {
             document.querySelectorAll('.btn-secondary').forEach(btn => {
                 btn.classList.remove('btn-info');
                 btn.classList.remove('active');
             });
-            // Add 'btn-info' and 'active' classes to the clicked button
             this.classList.add('btn-info');
             this.classList.add('active');
 
-            // Clear the content column
-            contentColumn.innerHTML = '';
-
-            // Load the corresponding template based on the clicked button
+            contentColumn.innerHTML = ''; // Clear the content column
             var templateName = this.textContent.replace(/\s+/g, '-').toLowerCase(); // Convert button text to lowercase and replace spaces with dashes
             var cnt = frappe.render_template(templateName, {}, contentColumn);
             contentColumn.innerHTML = cnt;
 
-            // if (templateName == "sessions-list")
-            createFormDialogNew(templateName);
+            if (templateName != 'student-list' && templateName != 'dissolution') {
+                createFormDialogNew(templateName);
+            }
 
-            // Call the function to create the form
-            // createCustomForm();
+            if (templateName === 'sessions-list') {
+                const columns = [
+                    { label: 'Title', fieldname: 'title' },
+                    { label: 'Issue Date', fieldname: 'issue_date' },
+                    { label: 'Expiration Date', fieldname: 'expiration_date' }
+                ];
+                await populateTable('Class Session', contentColumn, columns);
+            } else if (templateName == "continuous-exam-list") {
+                const columns = [
+                    { label: 'Title', fieldname: 'title' },
+                    { label: 'Type', fieldname: 'type' },
+                    { label: 'Date', fieldname: 'date' }
+                ];
+                await populateTable('Class Continuous Exam', contentColumn, columns);
+            } else if (templateName == "assignment-list") {
+                const columns = [
+                    { label: 'Title', fieldname: 'title' },
+                    { label: 'From Date', fieldname: 'from_date' },
+                    { label: 'Percentage', fieldname: 'percentage' },
+                    { label: 'Total in final Score', fieldname: 'total_in_final_score' }
+                ];
+                await populateTable('Assignments and Tasks', contentColumn, columns);
+            } else if (templateName == "exam-schedule") {
+                const columns = [
+                    { label: 'Date', fieldname: 'date' },
+                    { label: 'Time', fieldname: 'time' },
+                ];
+                await populateTable('Exam Schedule', contentColumn, columns);
+            } else if (templateName == "attendance-entry") {
+                const columns = [
+                    { label: 'Date', fieldname: 'date' },
+                    { label: 'Presented Module', fieldname: 'module' }
+                ];
+                await populateTable('Student Attendance Entry', contentColumn, columns);
+            } else if (templateName == "time-table") {
+                const columns = [
+                    { label: 'Day', fieldname: 'day' },
+                    { label: 'Start', fieldname: 'start' },
+                    { label: 'Finish', fieldname: 'finish' }
+                ];
+                await populateTable('Class Timetable', contentColumn, columns);
+            } else if (templateName == "student-list") {
+                populateStudents(contentColumn);
+            }
+
+
         });
-
-
     });
 
     document.querySelectorAll('.first-button').forEach(btn => {
@@ -127,111 +163,163 @@ async function content_manager(page) {
     });
 }
 
-function createFormDialog() {
 
-    const parent = $('#main-div');
-    if (parent.length === 0) {
-        console.error("Parent element not found");
-        return;
-    }
-    const button = $('<button class="btn btn-success border hover">Create New</button>').appendTo(parent);
-    button.click(function () {
+async function populateTable(doctype, container, columns) {
+    // Fetch data from Frappe
+    const data = await frappe.call({
+        method: 'frappe.client.get_list',
+        args: {
+            doctype: doctype,
+            fields: ['name', ...columns.map(col => col.fieldname)],
+            limit_page_length: 15
+        }
+    });
 
+    // Create table elements
+    const table = document.createElement('table');
+    table.classList.add('table', 'border', 'rounded', 'table-hover');
 
-        var session_list_fields = [
-            {
-                label: 'Class',
-                fieldname: 'class',
-                fieldtype: 'Link',
-                options: 'Class',
-                default: selected_class,
-                reqd: 1,
-                read_only: 1
-            },
-            {
-                label: 'Title',
-                fieldname: 'title',
-                fieldtype: 'Data'
-            },
+    const thead = document.createElement('thead');
+    const tr = document.createElement('tr');
 
-            {
-                fieldname: 'column_break_inyc',
-                fieldtype: 'Column Break'
-            },
-            {
-                label: 'Issue Date',
-                fieldname: 'issue_date',
-                fieldtype: 'Date'
-            },
-            {
-                label: 'Expiration Date',
-                fieldname: 'expiration_date',
-                fieldtype: 'Date'
-            },
-            {
-                fieldname: 'section_break_inyc',
-                fieldtype: 'Section Break'
-            },
-            {
-                label: 'Description',
-                fieldname: 'description',
-                fieldtype: 'Text Editor'
-            },
-            {
-                label: 'Session Files',
-                fieldname: 'session_files',
-                fieldtype: 'Table',
-                cannot_add_rows: false,
-                in_place_edit: false,
-                // data: [{ field1: 'Row1.1', field2: 'Row1.2' }, { field1: 'Row2.1', field2: 'Row2.2' }],
-                fields: [
-                    { fieldname: 'file', fieldtype: 'Attach', in_list_view: 1, label: 'File' },
-                    { fieldname: 'description', fieldtype: 'Data', in_list_view: 1, label: 'Description' }
-                ]
-            },
-        ];
+    const th = document.createElement('th');
+    th.scope = 'col';
+    th.textContent = "#";
+    tr.appendChild(th);
 
+    // Create table header
+    columns.forEach(col => {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        th.textContent = col.label;
+        tr.appendChild(th);
+    });
 
-        let d = new frappe.ui.Dialog({
-            title: 'Enter details',
-            fields: session_list_fields,
-            size: 'large', // small, large, extra-large
-            primary_action_label: 'Submit',
-            primary_action(values) {
-                console.log(values);
+    // Add "Edit" column header
+    const editTh = document.createElement('th');
+    editTh.scope = 'col';
+    editTh.textContent = 'Edit';
+    tr.appendChild(editTh);
 
-                frappe.call({
-                    method: 'frappe.client.insert',
-                    args: {
-                        doc: {
-                            doctype: 'Class Session',
-                            class: values.class,
-                            title: values.title,
-                            issue_date: values.issue_date,
-                            expiration_date: values.expiration_date,
-                            session_files: values.session_files,
-                            description: values.description
-                        }
-                    },
-                    callback: function (response) {
-                        if (!response.exc) {
-                            frappe.msgprint('Record created successfully!');
-                            d.hide();
-                        } else {
-                            frappe.msgprint('An error occurred while creating the record.');
-                        }
-                    }
-                });
-                // d.hide();
-            }
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    // Populate table rows
+    data.message.forEach((row, index) => {
+        const tr = document.createElement('tr');
+        tr.classList.add('clickable-row');
+
+        tr.addEventListener('click', () => {
+            frappe.open_in_new_tab = true;
+            frappe.set_route(`/app/${toKebabCase(doctype)}/${row.name}`);
         });
 
-        d.show();
+        const th = document.createElement('th');
+        th.scope = 'row';
+        th.textContent = index + 1;
+        tr.appendChild(th);
+
+        columns.forEach(col => {
+            const td = document.createElement('td');
+            td.textContent = row[col.fieldname] || '';
+            tr.appendChild(td);
+        });
+
+        // Add "Edit" column
+        const editTd = document.createElement('td');
+        const editButton = document.createElement('button');
+        editButton.classList.add('btn', 'btn-primary', 'btn-sm');
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', () => {
+            // Add your edit functionality here
+            console.log(`Editing row ${index + 1}`);
+        });
+        editTd.appendChild(editButton);
+        tr.appendChild(editTd);
+
+        tbody.appendChild(tr);
     });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
+}
+
+async function populateStudents(container) {
+    // Create table elements
+    const table = document.createElement('table');
+    table.classList.add('table', 'border', 'rounded', 'table-hover');
+
+    const thead = document.createElement('thead');
+    const tr = document.createElement('tr');
+
+    const th = document.createElement('th');
+    th.scope = 'col';
+    th.textContent = "#";
+    tr.appendChild(th);
+
+    // Create table header
+    const columns = [
+        { fieldname: 'student', label: 'Student' },
+        // { fieldname: 'parent', label: 'Class' },
+    ];
+
+    columns.forEach(col => {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        th.textContent = col.label;
+        tr.appendChild(th);
+    });
+
+    // // Add "Edit" column header
+    // const editTh = document.createElement('th');
+    // editTh.scope = 'col';
+    // editTh.textContent = 'Edit';
+    // tr.appendChild(editTh);
+
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    // Populate table rows
+    current_class.student_list.forEach((student, index) => {
+        const tr = document.createElement('tr');
+        tr.classList.add('clickable-row');
+
+
+        const th = document.createElement('th');
+        th.scope = 'row';
+        th.textContent = index + 1;
+        tr.appendChild(th);
+
+        columns.forEach(col => {
+            const td = document.createElement('td');
+            td.textContent = student[col.fieldname] || '';
+            tr.appendChild(td);
+        });
+
+        // Add "Edit" column
+        // const editTd = document.createElement('td');
+        // const editButton = document.createElement('button');
+        // editButton.classList.add('btn', 'btn-primary', 'btn-sm');
+        // editButton.textContent = 'Edit';
+        // editButton.addEventListener('click', () => {
+        //     // Add your edit functionality here
+        //     console.log(`Editing student ${student.student}`);
+        // });
+        // editTd.appendChild(editButton);
+        // tr.appendChild(editTd);
+
+        tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
 }
 
 function createFormDialogNew(templateName) {
-    console.log(selected_class);
 
     const parent = $('#main-div');
     if (parent.length === 0) {
@@ -436,73 +524,7 @@ function createFormDialogNew(templateName) {
 
             ];
         } else if (templateName == "attendance-entry") {
-            // var current_class = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
 
-            console.log("current_class");
-            console.log(current_class);
-
-
-            // {
-            //     "name": "CE 1",
-            //     "student_list": [
-            //         {
-            //             "name": "fb0967c46e",
-            //             "owner": "Administrator",
-            //             "creation": "2024-06-02 14:22:50.121633",
-            //             "modified": "2024-06-04 10:40:11.390315",
-            //             "modified_by": "Administrator",
-            //             "docstatus": 0,
-            //             "idx": 1,
-            //             "student": "Abdullah Alshehab",
-            //             "parent": "CE 1",
-            //             "parentfield": "student_list",
-            //             "parenttype": "Class",
-            //             "doctype": "Class Students"
-            //         },
-            //         {
-            //             "name": "20b3bf15fc",
-            //             "owner": "Administrator",
-            //             "creation": "2024-06-02 14:22:50.121633",
-            //             "modified": "2024-06-04 10:40:11.390315",
-            //             "modified_by": "Administrator",
-            //             "docstatus": 0,
-            //             "idx": 2,
-            //             "student": "احمد حامد محمود حمدان",
-            //             "parent": "CE 1",
-            //             "parentfield": "student_list",
-            //             "parenttype": "Class",
-            //             "doctype": "Class Students"
-            //         },
-            //         {
-            //             "name": "899970c156",
-            //             "owner": "Administrator",
-            //             "creation": "2024-06-02 14:22:50.121633",
-            //             "modified": "2024-06-04 10:40:11.390315",
-            //             "modified_by": "Administrator",
-            //             "docstatus": 0,
-            //             "idx": 3,
-            //             "student": "حامد حامد حامد حامد",
-            //             "parent": "CE 1",
-            //             "parentfield": "student_list",
-            //             "parenttype": "Class",
-            //             "doctype": "Class Students"
-            //         },
-            //         {
-            //             "name": "9e02c5a585",
-            //             "owner": "Administrator",
-            //             "creation": "2024-06-02 14:22:50.121633",
-            //             "modified": "2024-06-04 10:40:11.390315",
-            //             "modified_by": "Administrator",
-            //             "docstatus": 0,
-            //             "idx": 4,
-            //             "student": "a b c d",
-            //             "parent": "CE 1",
-            //             "parentfield": "student_list",
-            //             "parenttype": "Class",
-            //             "doctype": "Class Students"
-            //         }
-            //     ]
-            // }
             fields = [
                 {
                     fieldname: "class",
@@ -589,26 +611,26 @@ function createFormDialogNew(templateName) {
 
             let student_count = current_class.student_list.length;
             let column_count = Math.ceil(student_count / 3);
-            
+
             current_class.student_list.forEach((element, index) => {
                 let column_break = index % column_count === 0 ? {
                     fieldname: `column_break_${index}`,
                     fieldtype: "Column Break"
                 } : null;
-            
+
                 if (column_break) {
                     fields.push(column_break);
                 }
-            
+
                 fields.push({
                     fieldname: element.name,
                     fieldtype: "Check",
                     label: element.student
                 });
-            
+
                 naming_maps[element.name] = element.student;
             });
-            
+
             // Add the last column break
             if (student_count % column_count !== 0) {
                 fields.push({
@@ -616,7 +638,7 @@ function createFormDialogNew(templateName) {
                     fieldtype: "Column Break"
                 });
             }
-            
+
 
         } else if (templateName == "time-table") {
             fields = [
@@ -670,7 +692,7 @@ function createFormDialogNew(templateName) {
             size: 'large', // small, large, extra-large
             primary_action_label: 'Submit',
             primary_action(values) {
-                console.log(values);
+                // console.log(values);
                 if (templateName == "attendance-entry") {
                     values["attednance"] = [];
                     var idx = 1;
@@ -772,8 +794,6 @@ function createFormDialogNew(templateName) {
     });
 }
 
-
-
 function handleSubmit() {
     const formData = {
         first_name: $(`[data-fieldname="first_name"]`).val(),
@@ -781,4 +801,8 @@ function handleSubmit() {
         birth_date: $(`[data-fieldname="birth_date"]`).val()
     };
     console.log(`Form Data:`, formData);
+}
+
+function toKebabCase(str) {
+    return str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
 }
