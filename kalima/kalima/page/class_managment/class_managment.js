@@ -1,6 +1,7 @@
 var selected_class;
 var selectedTeacher;
 var current_class;// = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
+var naming_maps = {};
 
 
 frappe.pages['class-managment'].on_page_load = async function (wrapper) {
@@ -37,6 +38,7 @@ async function teacher_field(page) {
             }
         }
     });
+    teacherSelector.set_value("HR-EMP-00001");
     teacherSelector.refresh();
 }
 
@@ -72,10 +74,12 @@ async function class_field(page, teacher) {
                         reqd: 1,
                         change: async () => {
                             selected_class = classSelector.get_value();
-                            current_class = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
+                            current_class = await frappe.db.get_doc("Class", selected_class, fields = ["student_list"]);
                         }
                     }
                 });
+                classSelector.set_value("CE 1");
+
                 classSelector.refresh();
             } else {
                 console.log("No classes found for the teacher.");
@@ -543,7 +547,8 @@ function createFormDialogNew(templateName) {
                 {
                     fieldname: "date",
                     fieldtype: "Date",
-                    label: "Date"
+                    label: "Date",
+                    reqd: 1
                 },
                 {
                     fieldname: "semester",
@@ -573,19 +578,45 @@ function createFormDialogNew(templateName) {
                 //     ]
                 // },
             ];
-            var student_counter = 1;
-            console.log("123 fields 321");
-            console.log(fields);
-            current_class.student_list.forEach(element => {
+            // current_class.student_list.forEach(element => {
+            //     fields.push({
+            //         fieldname: element.name,
+            //         fieldtype: "Check",
+            //         label: element.student,
+            //     });
+            //     naming_maps[element.name] = element.student;
+            // });
+
+            let student_count = current_class.student_list.length;
+            let column_count = Math.ceil(student_count / 3);
+            
+            current_class.student_list.forEach((element, index) => {
+                let column_break = index % column_count === 0 ? {
+                    fieldname: `column_break_${index}`,
+                    fieldtype: "Column Break"
+                } : null;
+            
+                if (column_break) {
+                    fields.push(column_break);
+                }
+            
                 fields.push({
                     fieldname: element.name,
-                    fieldType: "Check", 
-                    label: element.student,
-                  });
-                  student_counter++;
+                    fieldtype: "Check",
+                    label: element.student
+                });
+            
+                naming_maps[element.name] = element.student;
             });
-            console.log("fields");
-            console.log(fields);
+            
+            // Add the last column break
+            if (student_count % column_count !== 0) {
+                fields.push({
+                    fieldname: `column_break_${Math.floor(student_count / column_count)}`,
+                    fieldtype: "Column Break"
+                });
+            }
+            
 
         } else if (templateName == "time-table") {
             fields = [
@@ -640,6 +671,22 @@ function createFormDialogNew(templateName) {
             primary_action_label: 'Submit',
             primary_action(values) {
                 console.log(values);
+                if (templateName == "attendance-entry") {
+                    values["attednance"] = [];
+                    var idx = 1;
+                    for (const [key, value] of Object.entries(naming_maps)) {
+                        if (values[key] == 1) {
+                            values["attednance"].push({
+                                "idx": idx,
+                                "__islocal": true,
+                                "student": value, // Access the name directly
+                                "status": "Present",
+                            });
+                            idx++;
+                        }
+                    }
+                }
+                // return;
                 if (templateName == "sessions-list") {
                     var creation_fields = {
                         doctype: 'Class Session',

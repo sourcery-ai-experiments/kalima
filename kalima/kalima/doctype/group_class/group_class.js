@@ -30,7 +30,6 @@ frappe.ui.form.on("Group Class", {
         // generate_classes(frm);
     },
     async refresh(frm) {
-        console.log(frm.doc.docstatus);
         await pres(frm);
         if (!frm.is_new()) {
             frm.add_custom_button(__('Generate Classes'), function () {
@@ -89,7 +88,7 @@ async function pres(frm) {
                                   <label class="form-check-label my-1" for="module_${index}">
                                       ${module.module}
                                   </label>
-                              </div>`;
+                              </div><br>`;
                     });
 
                     html += '</div>';
