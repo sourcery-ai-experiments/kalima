@@ -76,7 +76,7 @@ def create_classes(group_class_doc,group_class_modules,students):
 
 def create_class(group_title,module,year,stage,semester,department,students):
 
-	new_class = frappe.get_doc({"doctype":"Classes", 
+	new_class = frappe.get_doc({"doctype":"Class", 
 								"title": group_title + " - " + module, 
 								"stage":stage,
 								"semester": semester,

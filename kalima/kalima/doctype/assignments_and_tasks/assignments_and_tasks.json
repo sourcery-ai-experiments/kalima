@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{title}-{MM}-{YYYY}",
  "creation": "2024-05-26 12:37:35.865149",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -70,10 +71,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.176550",
+ "modified": "2024-06-03 14:23:51.287112",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Assignments and Tasks",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
