@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Class-Timetable-{class}",
+ "autoname": "format:Class-Timetable-{class}-{day}",
  "creation": "2024-05-26 14:59:59.237843",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -62,7 +62,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.690288",
+ "modified": "2024-06-04 13:46:06.024790",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class Timetable",

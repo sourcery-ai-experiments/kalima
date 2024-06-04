@@ -17,7 +17,7 @@ frappe.pages['class-managment'].on_page_load = async function (wrapper) {
     $container.html(main_template);
 
     await teacher_field(page);
-    await content_manager(page);
+    await content_manager();
 }
 
 async function teacher_field(page) {
@@ -89,7 +89,7 @@ async function class_field(page, teacher) {
     });
 }
 
-async function content_manager(page) {
+async function content_manager(dont_click=false) {
     var contentColumn = document.querySelector("#content");
     document.querySelectorAll('.btn-secondary').forEach(button => {
         button.addEventListener('click', async function () {
@@ -158,9 +158,10 @@ async function content_manager(page) {
         });
     });
 
+    if(!dont_click){
     document.querySelectorAll('.first-button').forEach(btn => {
         btn.click();
-    });
+    });}
 }
 
 
@@ -691,7 +692,7 @@ function createFormDialogNew(templateName) {
             fields: fields,
             size: 'large', // small, large, extra-large
             primary_action_label: 'Submit',
-            primary_action(values) {
+            async primary_action(values) {
                 // console.log(values);
                 if (templateName == "attendance-entry") {
                     values["attednance"] = [];
@@ -780,6 +781,8 @@ function createFormDialogNew(templateName) {
                     callback: function (response) {
                         if (!response.exc) {
                             frappe.msgprint('Record created successfully!');
+                            var contentColumn = document.querySelector("#content");
+                            refresh(templateName,contentColumn)
                             d.hide();
                         } else {
                             frappe.msgprint('An error occurred while creating the record.');
@@ -787,6 +790,9 @@ function createFormDialogNew(templateName) {
                     }
                 });
                 // d.hide();
+
+                // await content_manager(true);
+
             }
         });
 
@@ -794,15 +800,64 @@ function createFormDialogNew(templateName) {
     });
 }
 
-function handleSubmit() {
-    const formData = {
-        first_name: $(`[data-fieldname="first_name"]`).val(),
-        email: $(`[data-fieldname="email"]`).val(),
-        birth_date: $(`[data-fieldname="birth_date"]`).val()
-    };
-    console.log(`Form Data:`, formData);
-}
 
 function toKebabCase(str) {
     return str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
+}
+
+async function refresh(templateName,contentColumn){
+
+    contentColumn.innerHTML = ''; // Clear the content column
+    var cnt = frappe.render_template(templateName, {}, contentColumn);
+    contentColumn.innerHTML = cnt;
+
+    if (templateName != 'student-list' && templateName != 'dissolution') {
+        createFormDialogNew(templateName);
+    }
+
+    if (templateName === 'sessions-list') {
+        const columns = [
+            { label: 'Title', fieldname: 'title' },
+            { label: 'Issue Date', fieldname: 'issue_date' },
+            { label: 'Expiration Date', fieldname: 'expiration_date' }
+        ];
+        await populateTable('Class Session', contentColumn, columns);
+    } else if (templateName == "continuous-exam-list") {
+        const columns = [
+            { label: 'Title', fieldname: 'title' },
+            { label: 'Type', fieldname: 'type' },
+            { label: 'Date', fieldname: 'date' }
+        ];
+        await populateTable('Class Continuous Exam', contentColumn, columns);
+    } else if (templateName == "assignment-list") {
+        const columns = [
+            { label: 'Title', fieldname: 'title' },
+            { label: 'From Date', fieldname: 'from_date' },
+            { label: 'Percentage', fieldname: 'percentage' },
+            { label: 'Total in final Score', fieldname: 'total_in_final_score' }
+        ];
+        await populateTable('Assignments and Tasks', contentColumn, columns);
+    } else if (templateName == "exam-schedule") {
+        const columns = [
+            { label: 'Date', fieldname: 'date' },
+            { label: 'Time', fieldname: 'time' },
+        ];
+        await populateTable('Exam Schedule', contentColumn, columns);
+    } else if (templateName == "attendance-entry") {
+        const columns = [
+            { label: 'Date', fieldname: 'date' },
+            { label: 'Presented Module', fieldname: 'module' }
+        ];
+        await populateTable('Student Attendance Entry', contentColumn, columns);
+    } else if (templateName == "time-table") {
+        const columns = [
+            { label: 'Day', fieldname: 'day' },
+            { label: 'Start', fieldname: 'start' },
+            { label: 'Finish', fieldname: 'finish' }
+        ];
+        await populateTable('Class Timetable', contentColumn, columns);
+    } else if (templateName == "student-list") {
+        populateStudents(contentColumn);
+    }
+
 }
