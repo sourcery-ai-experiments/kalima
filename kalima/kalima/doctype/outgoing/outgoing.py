@@ -21,21 +21,7 @@ class Outgoing(Document):
 		new_incoming.insert()
   
 		# for rec in doc.document_receivers:
-		# 	if(rec.user != None):
-		# 		# new_incoming = frappe.new_doc({
-		# 		# 	"doctype":"Incoming",
-		# 		# 	"outgoing":doc.name,
-		# 		# 	"receiver":rec.user,
-		# 		# 	"doctype":"Incoming",
-		# 		# 	"doctype":"Incoming",
-		# 		# 	"doctype":"Incoming",
-		# 		# 	"doctype":"Incoming",
-					
-		# 		# })
-		# 		#create new incoming
-		# 		# make notification
-		# 		pass
-		# 	elif(rec.department != None):
+		# 	if(rec.department != None):
 				
 		# 		# get the leader
 		# 		#create new incoming

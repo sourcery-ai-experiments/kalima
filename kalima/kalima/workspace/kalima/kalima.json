@@ -410,85 +410,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Classes",
-   "link_count": 7,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Group Class",
-   "link_count": 0,
-   "link_to": "Group Class",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Classes",
-   "link_count": 0,
-   "link_to": "Class",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Class Session",
-   "link_count": 0,
-   "link_to": "Class Session",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Class Continuous Exam",
-   "link_count": 0,
-   "link_to": "Class Continuous Exam",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Class Timetable",
-   "link_count": 0,
-   "link_to": "Class Timetable",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Student Attendance Entry",
-   "link_count": 0,
-   "link_to": "Student Attendance Entry",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Assignments and Tasks",
-   "link_count": 0,
-   "link_to": "Assignments and Tasks",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Continuing Education",
    "link_count": 5,
    "link_type": "DocType",
@@ -603,9 +524,98 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Classes",
+   "link_count": 8,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Group Class",
+   "link_count": 0,
+   "link_to": "Group Class",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Classes",
+   "link_count": 0,
+   "link_to": "Class",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Class Session",
+   "link_count": 0,
+   "link_to": "Class Session",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Class Continuous Exam",
+   "link_count": 0,
+   "link_to": "Class Continuous Exam",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Class Timetable",
+   "link_count": 0,
+   "link_to": "Class Timetable",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Attendance Entry",
+   "link_count": 0,
+   "link_to": "Student Attendance Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Assignments and Tasks",
+   "link_count": 0,
+   "link_to": "Assignments and Tasks",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Class Management",
+   "link_count": 0,
+   "link_to": "class-managment",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-06-05 14:20:47.949023",
+ "modified": "2024-06-08 10:20:40.965427",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",
