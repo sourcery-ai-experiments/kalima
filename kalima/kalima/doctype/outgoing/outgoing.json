@@ -13,8 +13,14 @@
   "document_number",
   "amended_from",
   "column_break_yevt",
-  "document_receivers",
-  "description"
+  "description",
+  "receives_section",
+  "column_break_zjfa",
+  "receivers_type",
+  "receive_student",
+  "receive_teachers",
+  "departments",
+  "other_receivers"
  ],
  "fields": [
   {
@@ -54,7 +60,7 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text Editor",
    "label": "Description"
   },
   {
@@ -62,16 +68,56 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "document_receivers",
+   "fieldname": "receivers_type",
+   "fieldtype": "Select",
+   "label": "Receivers Type",
+   "no_copy": 1,
+   "options": "Students\nTeachers\nDepartments\nOther",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.receivers_type == \"Students\"",
+   "fieldname": "receive_student",
    "fieldtype": "Table",
-   "label": "Document Receivers",
-   "options": "Document Receivers"
+   "label": "Receive Student",
+   "options": "Class Students"
+  },
+  {
+   "fieldname": "receives_section",
+   "fieldtype": "Section Break",
+   "label": "Receives"
+  },
+  {
+   "depends_on": "eval:doc.receivers_type == \"Teachers\"",
+   "fieldname": "receive_teachers",
+   "fieldtype": "Table",
+   "label": "Receive Teachers",
+   "options": "Teachers List"
+  },
+  {
+   "depends_on": "eval:doc.receivers_type == \"Other\"",
+   "fieldname": "other_receivers",
+   "fieldtype": "Data",
+   "label": "Other Receivers"
+  },
+  {
+   "depends_on": "eval:doc.receivers_type == \"Departments\"",
+   "fieldname": "departments",
+   "fieldtype": "Table",
+   "label": "Departments",
+   "options": "Activity Departments"
+  },
+  {
+   "depends_on": "eval:doc.receivers_type == \"Teachers\"",
+   "fieldname": "column_break_zjfa",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-05 11:30:06.054376",
+ "modified": "2024-06-08 14:52:45.166286",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Outgoing",

@@ -1,29 +1,30 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-06-05 11:20:46.403536",
+ "creation": "2024-06-08 12:40:21.072722",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "user"
+  "teacher"
  ],
  "fields": [
   {
-   "fieldname": "user",
+   "fieldname": "teacher",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "User",
-   "options": "User"
+   "label": "Teacher",
+   "options": "Employee",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-08 15:25:51.720074",
+ "modified": "2024-06-08 12:40:54.979212",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Document Receivers",
+ "name": "Teachers List",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
