@@ -89,7 +89,7 @@ async function class_field(page, teacher) {
     });
 }
 
-async function content_manager(dont_click=false) {
+async function content_manager(dont_click = false) {
     var contentColumn = document.querySelector("#content");
     document.querySelectorAll('.btn-secondary').forEach(button => {
         button.addEventListener('click', async function () {
@@ -158,10 +158,11 @@ async function content_manager(dont_click=false) {
         });
     });
 
-    if(!dont_click){
-    document.querySelectorAll('.first-button').forEach(btn => {
-        btn.click();
-    });}
+    if (!dont_click) {
+        document.querySelectorAll('.first-button').forEach(btn => {
+            btn.click();
+        });
+    }
 }
 
 
@@ -390,7 +391,8 @@ function createFormDialogNew(templateName) {
                     fieldtype: "Link",
                     label: "Class",
                     default: selected_class, read_only: 1,
-                    options: "Class"
+                    options: "Class",
+                    reqd: 1
                 },
                 {
                     fieldname: "title",
@@ -410,17 +412,20 @@ function createFormDialogNew(templateName) {
                 {
                     fieldname: "date",
                     fieldtype: "Date",
-                    label: "Date"
+                    label: "Date",
+                    reqd: 1
                 }, {
                     fieldname: "percentage",
                     fieldtype: "Percent",
-                    label: "Percentage"
+                    label: "Percentage",
+                    reqd: 1
                 },
 
                 {
                     fieldname: "marked_on",
                     fieldtype: "Int",
-                    label: "Marked On"
+                    label: "Marked On",
+                    reqd: 1
                 },
                 {
                     fieldname: "section_break_gahv",
@@ -436,13 +441,22 @@ function createFormDialogNew(templateName) {
                         { fieldname: 'student_code', fieldtype: 'Data', in_list_view: 1, label: 'Student Code' },
                         { fieldname: 'student_name', fieldtype: 'Link', options: 'Student', in_list_view: 1, label: 'Student Name' },
                         { fieldname: 'department', fieldtype: 'Link', options: 'Faculty Department', in_list_view: 1, label: 'Department' },
-                        { fieldname: 'score', fieldtype: 'Float', in_list_view: 1, label: 'Score' },
+                        {
+                            fieldname: 'score', fieldtype: 'Float', in_list_view: 1,
+                            label: 'Score'
+                        },
+                        { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 0,read_only:1, label: 'Net Score' },
                         { fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent' },
                         { fieldname: 'Description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
 
                     ]
+                    , label: 'Score'
                 },
-            ];
+                // { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 1, label: 'Net Score' },
+                { fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent' },
+                { fieldname: 'Description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
+
+            ]
         } else if (templateName == "assignment-list") {
             fields = [
 
@@ -721,6 +735,11 @@ function createFormDialogNew(templateName) {
                         description: values.description
                     }
                 } else if (templateName == "continuous-exam-list") {
+                    values.continuous_exam_result.forEach(element => {
+                        element["net_score"] = (element.score/values.marked_on)* values.percentage;
+                    });
+                    console.log(values);
+
                     var creation_fields = {
                         doctype: 'Class Continuous Exam',
                         class: values.class,
@@ -728,6 +747,7 @@ function createFormDialogNew(templateName) {
                         type: values.type,
                         date: values.date,
                         score: values.score,
+                        marked_on: values.marked_on,
                         continuous_exam_result: values.continuous_exam_result,
                         percentage: values.percentage
                     }
@@ -782,7 +802,7 @@ function createFormDialogNew(templateName) {
                         if (!response.exc) {
                             frappe.msgprint('Record created successfully!');
                             var contentColumn = document.querySelector("#content");
-                            refresh(templateName,contentColumn)
+                            refresh(templateName, contentColumn)
                             d.hide();
                         } else {
                             frappe.msgprint('An error occurred while creating the record.');
@@ -805,7 +825,7 @@ function toKebabCase(str) {
     return str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
 }
 
-async function refresh(templateName,contentColumn){
+async function refresh(templateName, contentColumn) {
 
     contentColumn.innerHTML = ''; // Clear the content column
     var cnt = frappe.render_template(templateName, {}, contentColumn);
