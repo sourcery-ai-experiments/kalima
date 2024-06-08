@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Activity-Ann-{title}-{date}",
+ "creation": "2024-06-04 14:34:18.173899",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "activity_request",
+  "title",
+  "date",
+  "description",
+  "column_break_dltw",
+  "activity_deliverers",
+  "section_break_ilot",
+  "participants_type",
+  "departments",
+  "activity_participants_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "activity_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Activity Request",
+   "options": "Activity Request",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "activity_request.title",
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fetch_from": "activity_request.description",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_dltw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "activity_deliverers",
+   "fieldtype": "Table",
+   "label": "Activity Deliverers",
+   "options": "Activity Deliverers"
+  },
+  {
+   "fetch_from": "activity_request.date",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Activity Date"
+  },
+  {
+   "fetch_from": "activity_request.participants_type",
+   "fieldname": "participants_type",
+   "fieldtype": "Select",
+   "label": "Participants Type",
+   "options": "General\nStaff\nDepartments"
+  },
+  {
+   "fieldname": "departments",
+   "fieldtype": "Table",
+   "label": "Departments",
+   "options": "Activity Departments"
+  },
+  {
+   "fieldname": "activity_participants_list",
+   "fieldtype": "Table",
+   "label": "Activity Participants List",
+   "options": "Activity Participants List"
+  },
+  {
+   "fieldname": "section_break_ilot",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-04 14:59:46.491369",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Activity Announcement",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

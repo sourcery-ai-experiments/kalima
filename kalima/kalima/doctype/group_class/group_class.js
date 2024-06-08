@@ -16,21 +16,39 @@ frappe.ui.form.on("Group Class", {
         pres(frm);
     },
     after_save: function (frm) {
-        const selected_modules = [];
-        const department = frm.doc.department;
-    
-        // Get selected modules
-        frm.fields_dict.presented_modules.$wrapper.find('input[type="checkbox"]:checked').each(function () {
-            selected_modules.push($(this).val());
-        });
-    
-        if (selected_modules.length === 0 || !department) {
-            return;
-        }        
-        generate_classes(frm);
+        // const selected_modules = [];
+        // const department = frm.doc.department;
+
+        // // Get selected modules
+        // frm.fields_dict.presented_modules.$wrapper.find('input[type="checkbox"]:checked').each(function () {
+        //     selected_modules.push($(this).val());
+        // });
+
+        // if (selected_modules.length === 0 || !department) {
+        //     return;
+        // }
+        // generate_classes(frm);
     },
-    async refresh(frm)  {
+    async refresh(frm) {
         await pres(frm);
+        if (!frm.is_new()) {
+            frm.add_custom_button(__('Generate Classes'), function () {
+                const selected_modules = [];
+                const department = frm.doc.department;
+        
+                // Get selected modules
+                frm.fields_dict.presented_modules.$wrapper.find('input[type="checkbox"]:checked').each(function () {
+                    selected_modules.push($(this).val());
+                });
+        
+                if (selected_modules.length === 0 || !department) {
+                    return;
+                }
+                generate_classes(frm);
+            }).addClass('bg-success', 'text-white').css({
+                "color": "white",
+            });
+        }
     }
 });
 
@@ -40,51 +58,51 @@ frappe.ui.form.on("Group Class", "fetch_students", function (frm) {
 });
 
 async function pres(frm) {
-      // Ensure both faculty and department are selected
-      const faculty = frm.doc.faculty;
-      const stage = frm.doc.stage;
-      const department = frm.doc.department;
+    // Ensure both faculty and department are selected
+    const faculty = frm.doc.faculty;
+    const stage = frm.doc.stage;
+    const department = frm.doc.department;
 
-      if (faculty && department) {
-          // Fetch presented modules based on the selected department and faculty
-          frappe.call({
-              method: "frappe.client.get_list",
-              args: {
-                  doctype: "Presented Module",
-                  filters: {
-                      "faculty": faculty,
-                      "stage": stage,
-                      "department": department
-                  },
-                  fields: ["module"]
-              },
-              callback: function (r) {
-                  if (r.message) {
-                      // Create an HTML form with checkboxes from the fetched modules
-                      let html = '<div class="form-check">';
+    if (faculty && department) {
+        // Fetch presented modules based on the selected department and faculty
+        frappe.call({
+            method: "frappe.client.get_list",
+            args: {
+                doctype: "Presented Module",
+                filters: {
+                    "faculty": faculty,
+                    "stage": stage,
+                    "department": department
+                },
+                fields: ["module"]
+            },
+            callback: function (r) {
+                if (r.message) {
+                    // Create an HTML form with checkboxes from the fetched modules
+                    let html = '<div class="form-check">';
 
-                      r.message.forEach(function (module, index) {
-                          html += `
+                    r.message.forEach(function (module, index) {
+                        html += `
                               <div class="form-check">
                                   <input class="form-check-input my-1" type="checkbox" name="modules" value="${module.module}" id="module_${index}">
                                   <label class="form-check-label my-1" for="module_${index}">
                                       ${module.module}
                                   </label>
-                              </div>`;
-                      });
+                              </div><br>`;
+                    });
 
-                      html += '</div>';
-                      frm.set_value('modules_html', html);
+                    html += '</div>';
+                    frm.set_value('modules_html', html);
 
-                      // Set the HTML content to the presented_modules field
-                      frm.fields_dict.presented_modules.$wrapper.html(html);
-                  }
-              }
-          });
-      } else {
-          // Clear the presented_modules field if faculty or department is not selected
-          frm.fields_dict.presented_modules.$wrapper.html('');
-      }
+                    // Set the HTML content to the presented_modules field
+                    frm.fields_dict.presented_modules.$wrapper.html(html);
+                }
+            }
+        });
+    } else {
+        // Clear the presented_modules field if faculty or department is not selected
+        frm.fields_dict.presented_modules.$wrapper.html('');
+    }
 }
 
 function fetch_students(frm) {

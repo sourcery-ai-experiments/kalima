@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Incoming-{receiving_date}-{#####}",
+ "creation": "2024-06-05 11:25:59.297718",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_6o8j",
+  "document_number",
+  "receiving_date",
+  "outgoing",
+  "column_break_pzva",
+  "sender",
+  "amended_from",
+  "section_break_kjri",
+  "document_receivers"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_6o8j",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Incoming",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "outgoing.sent_to",
+   "fieldname": "sender",
+   "fieldtype": "Data",
+   "label": "Sender"
+  },
+  {
+   "fetch_from": "outgoing.document_number",
+   "fieldname": "document_number",
+   "fieldtype": "Data",
+   "label": "Document Number"
+  },
+  {
+   "fieldname": "receiving_date",
+   "fieldtype": "Date",
+   "label": "Receiving Date"
+  },
+  {
+   "fieldname": "column_break_pzva",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "outgoing",
+   "fieldtype": "Link",
+   "label": "Outgoing",
+   "options": "Outgoing",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_kjri",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "document_receivers",
+   "fieldtype": "Table",
+   "label": "Document Receivers",
+   "options": "Document Receivers"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-05 13:36:59.593905",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Incoming",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

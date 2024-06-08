@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Student-Attendance-{date}",
  "creation": "2024-05-26 13:48:43.913911",
  "default_view": "List",
  "doctype": "DocType",
@@ -40,7 +41,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "column_break_wvoi",
@@ -55,7 +56,8 @@
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "semester",
@@ -95,10 +97,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-29 15:20:47.098931",
+ "modified": "2024-06-04 11:50:11.994169",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Attendance Entry",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

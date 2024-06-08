@@ -3,13 +3,15 @@
 
 import frappe
 from frappe.model.document import Document
+# from frappe.utils.user import add_user
 
 
 class ApplicantStudent(Document):
 	pass
 
+
 @frappe.whitelist()
-def admit_student(doc_name,department):
+def admit_student(doc_name, department):
     # Get the "Applicant Student" document
     applicant_doc = frappe.get_doc("Applicant Student", doc_name)
 
@@ -27,8 +29,47 @@ def admit_student(doc_name,department):
         if student_meta.has_field(fieldname):
             student_doc.set(fieldname, applicant_doc.get(fieldname))
 
-    # Save the new "Student" document
-    student_doc.final_selected_course = department
-    student_doc.save()
+    # Generate email address
+    email_prefix = applicant_doc.english_student_full_name.replace(" ", "").lower()
+    custom_email_domain = "Kalima.com"
+    email = f"{email_prefix}@{custom_email_domain}"
     
+    print("email")
+    print(applicant_doc.email)
+    print(email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email)
+    
+    # Create a new user
+    user_doc = frappe.get_doc({
+        "doctype": "User",
+        "email": email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email,
+        "first_name": applicant_doc.first_name,
+        "last_name": applicant_doc.sure_name,
+        "roles": [
+            {
+                "role": "Student"
+            }
+        ]
+    })
+    user_doc.save()
+    
+    customer = frappe.get_doc({
+        "doctype": "Customer",
+        "customer_name": student_doc.full_name_in_arabic,
+        "customer_type": "Individual",
+        "customer_group": "Individual",
+        "territory": "All Territories",
+        "portal_users": [
+            {
+                "user": user_doc.name
+            }
+        ]
+    })
+    customer.insert()
+    student_doc.email = email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email
+    student_doc.customer = customer.name
+    student_doc.final_selected_course = department
+    student_doc.user = user_doc.name
+    student_doc.insert()
+    student_doc.save()
+
     return student_doc.name

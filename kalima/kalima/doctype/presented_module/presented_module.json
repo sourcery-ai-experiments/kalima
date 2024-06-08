@@ -6,9 +6,9 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "department",
   "year",
   "faculty",
-  "department",
   "semester",
   "stage",
   "column_break_gjxd",
@@ -26,16 +26,18 @@
    "options": "Educational Year"
   },
   {
+   "fetch_from": "module.faculty",
    "fieldname": "faculty",
-   "fieldtype": "Link",
-   "label": "Faculty",
-   "options": "Faculty"
+   "fieldtype": "Data",
+   "label": "Faculty"
   },
   {
    "fieldname": "department",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Faculty Department",
+   "reqd": 1
   },
   {
    "fieldname": "semester",
@@ -56,8 +58,10 @@
   {
    "fieldname": "module",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Module",
    "options": "Department Module",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -88,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 12:00:33.306705",
+ "modified": "2024-06-01 11:21:32.976390",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Module",

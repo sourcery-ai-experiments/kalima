@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Act-Req-{MM}-{YYYY}-{title}",
+ "creation": "2024-06-01 11:35:30.561908",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "type",
+  "venue",
+  "date",
+  "deliverer_type",
+  "column_break_msoa",
+  "description",
+  "status",
+  "cv",
+  "section_break_brcz",
+  "activity_deliverers",
+  "participants_type",
+  "departments"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "venue",
+   "fieldtype": "Link",
+   "label": "Venue",
+   "options": "Venue"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Seminar\nWorkshop\nTraining course"
+  },
+  {
+   "fieldname": "column_break_msoa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nAccepted\nPostponded\nIn Progress\nCompleted\nRejected"
+  },
+  {
+   "fieldname": "deliverer_type",
+   "fieldtype": "Select",
+   "label": "Deliverer Type",
+   "options": "Single\nMultiple"
+  },
+  {
+   "fieldname": "activity_deliverers",
+   "fieldtype": "Table",
+   "label": "Activity Deliverers",
+   "options": "Activity Deliverers"
+  },
+  {
+   "fieldname": "participants_type",
+   "fieldtype": "Select",
+   "label": "Participants Type",
+   "options": "General\nStaff\nDepartments"
+  },
+  {
+   "depends_on": "eval:doc.participants_type == \"Departments\"",
+   "fieldname": "departments",
+   "fieldtype": "Table",
+   "label": "Departments",
+   "options": "Activity Departments"
+  },
+  {
+   "fieldname": "cv",
+   "fieldtype": "Attach",
+   "label": "CV"
+  },
+  {
+   "fieldname": "section_break_brcz",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-04 15:00:34.447885",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Activity Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class Classes(Document):
+class ActivityDepartments(Document):
 	pass

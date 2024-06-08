@@ -52,7 +52,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "attempt",
@@ -82,7 +82,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:15:54.618812",
+ "modified": "2024-06-01 10:37:11.435887",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Result Entry",

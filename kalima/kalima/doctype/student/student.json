@@ -15,6 +15,7 @@
   "sure_name",
   "full_name_in_arabic",
   "mother_name",
+  "email",
   "column_break_aqxi",
   "gender",
   "nationality",
@@ -24,19 +25,20 @@
   "marital_status",
   "religion",
   "column_break_kttf",
-  "full_name_in_english",
+  "english_student_full_name",
   "phone_number",
   "phone_number_2",
   "application_channel",
   "martyr_relative",
   "date_of_birth",
+  "customer",
   "legal_guardian_section",
   "legal_guardian_name",
   "relation",
   "occupation",
   "column_break_rbai",
   "mobile_no",
-  "email",
+  "guardian_email",
   "guardian_address",
   "high_school_information_section",
   "graduation_year",
@@ -132,7 +134,7 @@
   "absences_list_tab",
   "student_absences_list",
   "account_tab",
-  "user_name",
+  "user",
   "password",
   "confirm_password",
   "choose_us_tab",
@@ -640,11 +642,6 @@
    "label": "Account"
   },
   {
-   "fieldname": "user_name",
-   "fieldtype": "Data",
-   "label": "User Name"
-  },
-  {
    "fieldname": "password",
    "fieldtype": "Password",
    "label": "Password"
@@ -742,13 +739,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "full_name_in_english",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Full name in English",
-   "unique": 1
-  },
-  {
    "fieldname": "phone_number",
    "fieldtype": "Phone",
    "in_list_view": 1,
@@ -805,7 +795,8 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "reqd": 1
   },
   {
    "fieldname": "guardian_address",
@@ -893,11 +884,35 @@
    "fieldname": "ration_card",
    "fieldtype": "Attach",
    "label": "Ration card"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fieldname": "guardian_email",
+   "fieldtype": "Data",
+   "label": "Guardian Email"
+  },
+  {
+   "fieldname": "english_student_full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full name in English",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 13:31:37.945992",
+ "modified": "2024-06-01 15:41:55.668848",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

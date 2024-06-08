@@ -12,12 +12,11 @@
   "column_break_ibbt",
   "stage",
   "semester",
-  "section_break_gasn",
+  "column_break_sglj",
   "faculty",
   "department",
-  "column_break_jabz",
-  "presented_modules",
   "students_section",
+  "presented_modules",
   "fetch_students",
   "students",
   "modules_html",
@@ -65,24 +64,18 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_gasn",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "faculty",
    "fieldtype": "Link",
    "label": "Faculty",
-   "options": "Faculty"
+   "options": "Faculty",
+   "reqd": 1
   },
   {
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Faculty Department"
-  },
-  {
-   "fieldname": "column_break_jabz",
-   "fieldtype": "Column Break"
+   "options": "Faculty Department",
+   "reqd": 1
   },
   {
    "fieldname": "presented_modules",
@@ -118,11 +111,15 @@
    "hidden": 1,
    "label": "students_html",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sglj",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 15:02:37.055495",
+ "modified": "2024-06-04 11:14:52.538733",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Group Class",

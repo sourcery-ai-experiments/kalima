@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{title}-{MM}-{YYYY}",
  "creation": "2024-05-26 12:37:35.865149",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -12,6 +13,7 @@
   "column_break_kosm",
   "percentage",
   "total_in_final_score",
+  "total_of_all_midterms",
   "section_break_hymn",
   "description",
   "assignment_files"
@@ -26,7 +28,7 @@
    "fieldname": "class",
    "fieldtype": "Link",
    "label": "Class",
-   "options": "Classes"
+   "options": "Class"
   },
   {
    "fieldname": "from_date",
@@ -50,7 +52,8 @@
   {
    "fieldname": "total_in_final_score",
    "fieldtype": "Float",
-   "label": "Total in final Score"
+   "label": "Total in final Score",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_hymn",
@@ -66,14 +69,21 @@
    "fieldtype": "Table",
    "label": "Assignment Files",
    "options": "Assignment Files"
+  },
+  {
+   "fieldname": "total_of_all_midterms",
+   "fieldtype": "Float",
+   "label": "Total of All midterms",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 12:40:34.900616",
+ "modified": "2024-06-08 11:49:19.075333",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Assignments and Tasks",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
