@@ -30,8 +30,9 @@
   },
   {
    "fieldname": "day",
-   "fieldtype": "Data",
-   "label": "Day"
+   "fieldtype": "Select",
+   "label": "Day",
+   "options": "Saturday\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday"
   },
   {
    "fieldname": "column_break_oimt",
@@ -61,8 +62,9 @@
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2024-06-04 13:46:06.024790",
+ "modified": "2024-06-08 11:45:59.167232",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class Timetable",
@@ -82,6 +84,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

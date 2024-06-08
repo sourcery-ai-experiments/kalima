@@ -13,6 +13,7 @@
   "column_break_kosm",
   "percentage",
   "total_in_final_score",
+  "total_of_all_midterms",
   "section_break_hymn",
   "description",
   "assignment_files"
@@ -51,7 +52,8 @@
   {
    "fieldname": "total_in_final_score",
    "fieldtype": "Float",
-   "label": "Total in final Score"
+   "label": "Total in final Score",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_hymn",
@@ -67,11 +69,17 @@
    "fieldtype": "Table",
    "label": "Assignment Files",
    "options": "Assignment Files"
+  },
+  {
+   "fieldname": "total_of_all_midterms",
+   "fieldtype": "Float",
+   "label": "Total of All midterms",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-03 14:23:51.287112",
+ "modified": "2024-06-08 11:49:19.075333",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Assignments and Tasks",
