@@ -138,8 +138,7 @@
    "fieldname": "students_fees",
    "fieldtype": "Table",
    "label": "Students Fees",
-   "options": "Students Fees Table",
-   "read_only": 1
+   "options": "Students Fees Table"
   },
   {
    "fieldname": "total_amount",
@@ -188,7 +187,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 12:36:20.833673",
+ "modified": "2024-06-10 15:11:37.170914",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees",
