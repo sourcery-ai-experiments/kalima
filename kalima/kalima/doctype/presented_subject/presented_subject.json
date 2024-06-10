@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KPRES-{year}-{#####}",
  "creation": "2024-05-26 11:11:55.747188",
  "default_view": "List",
  "doctype": "DocType",
@@ -80,10 +81,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:12:04.200040",
+ "modified": "2024-06-10 13:28:54.391060",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Subject",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

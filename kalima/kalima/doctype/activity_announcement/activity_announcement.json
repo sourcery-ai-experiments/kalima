@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Activity-Ann-{title}-{date}",
+ "autoname": "format:KACT-ANN-{date}-{#####}",
  "creation": "2024-06-04 14:34:18.173899",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -80,7 +80,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-04 14:59:46.491369",
+ "modified": "2024-06-10 13:42:20.813380",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Announcement",

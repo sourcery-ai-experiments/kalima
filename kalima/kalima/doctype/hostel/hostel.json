@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2024-05-26 10:49:40.346532",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,7 +22,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "city",
@@ -67,10 +69,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 10:51:50.775384",
+ "modified": "2024-06-10 13:00:00.830444",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Hostel",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

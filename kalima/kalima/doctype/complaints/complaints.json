@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KCOMP-{date}-{#####}",
  "creation": "2024-05-26 13:39:21.141702",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -73,10 +74,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:10.979139",
+ "modified": "2024-06-10 12:46:44.983411",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Complaints",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

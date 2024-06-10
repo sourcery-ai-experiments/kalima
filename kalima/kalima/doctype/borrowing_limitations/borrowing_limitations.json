@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KBL-{#####}",
  "creation": "2024-05-26 14:44:10.272278",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -52,10 +53,11 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-05-26 14:44:47.135474",
+ "modified": "2024-06-10 13:30:11.712388",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Borrowing Limitations",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,40 +1,30 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KB-RET-{DD}-{MM}-{YYYY}-{#####}",
- "creation": "2024-05-26 14:40:55.545289",
+ "autoname": "field:title",
+ "creation": "2024-06-10 11:04:29.723067",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "book",
-  "code",
-  "due_date"
+  "title"
  ],
  "fields": [
   {
-   "fieldname": "book",
-   "fieldtype": "Link",
-   "label": "Book",
-   "options": "Book"
-  },
-  {
-   "fieldname": "code",
-   "fieldtype": "Int",
-   "label": "Code"
-  },
-  {
-   "fieldname": "due_date",
-   "fieldtype": "Date",
-   "label": "Due date"
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:35:08.302517",
+ "modified": "2024-06-10 12:45:08.157522",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Return Book",
- "naming_rule": "Expression",
+ "name": "Fee Category",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

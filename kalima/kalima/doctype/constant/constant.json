@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KCON-{#####} ",
  "creation": "2024-05-26 11:05:43.429833",
  "default_view": "List",
  "doctype": "DocType",
@@ -81,10 +82,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 11:06:24.408555",
+ "modified": "2024-06-10 13:02:51.234662",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Constant",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

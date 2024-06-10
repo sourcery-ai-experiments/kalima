@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Cert-{activity}-{issue_date}",
+ "autoname": "format:KCRT-{issue_date}-{#####}",
  "creation": "2024-06-01 11:45:15.399052",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -44,7 +44,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 11:49:23.460995",
+ "modified": "2024-06-10 12:39:40.764002",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Certificate",

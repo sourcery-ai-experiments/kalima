@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Outgoing-{date}-{#####}",
+ "autoname": "format:KOUT-{date}-{#####}",
  "creation": "2024-06-05 11:17:04.895201",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -117,7 +117,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-08 14:52:45.166286",
+ "modified": "2024-06-10 12:45:39.128393",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Outgoing",

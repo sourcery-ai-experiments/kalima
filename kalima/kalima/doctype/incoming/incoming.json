@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Incoming-{receiving_date}-{#####}",
+ "autoname": "format:KINC-{receiving_date}-{#####}",
  "creation": "2024-06-05 11:25:59.297718",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -73,7 +73,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-05 13:36:59.593905",
+ "modified": "2024-06-10 12:45:22.917519",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Incoming",
