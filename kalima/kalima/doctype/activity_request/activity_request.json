@@ -11,14 +11,15 @@
   "venue",
   "date",
   "deliverer_type",
+  "cv",
+  "status",
   "column_break_msoa",
   "description",
-  "status",
-  "cv",
   "section_break_brcz",
   "activity_deliverers",
   "participants_type",
-  "departments"
+  "departments",
+  "staff_activity_list"
  ],
  "fields": [
   {
@@ -52,7 +53,7 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text Editor",
    "label": "Description"
   },
   {
@@ -76,7 +77,7 @@
   {
    "fieldname": "participants_type",
    "fieldtype": "Select",
-   "label": "Participants Type",
+   "label": "Audience Type",
    "options": "General\nStaff\nDepartments"
   },
   {
@@ -89,16 +90,23 @@
   {
    "fieldname": "cv",
    "fieldtype": "Attach",
-   "label": "CV"
+   "label": "Activity Owner CV"
   },
   {
    "fieldname": "section_break_brcz",
    "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.participants_type == \"Staff\"",
+   "fieldname": "staff_activity_list",
+   "fieldtype": "Table",
+   "label": "Staff Activity List",
+   "options": "Staff Activity List"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:41:26.415583",
+ "modified": "2024-06-11 12:07:18.683899",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Request",

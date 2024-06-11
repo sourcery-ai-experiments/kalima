@@ -9,13 +9,12 @@
   "activity_request",
   "title",
   "date",
-  "description",
-  "column_break_dltw",
   "activity_deliverers",
+  "column_break_dltw",
+  "description",
   "section_break_ilot",
   "participants_type",
-  "departments",
-  "activity_participants_list"
+  "departments"
  ],
  "fields": [
   {
@@ -35,7 +34,7 @@
   {
    "fetch_from": "activity_request.description",
    "fieldname": "description",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text Editor",
    "label": "Description"
   },
   {
@@ -68,19 +67,13 @@
    "options": "Activity Departments"
   },
   {
-   "fieldname": "activity_participants_list",
-   "fieldtype": "Table",
-   "label": "Activity Participants List",
-   "options": "Activity Participants List"
-  },
-  {
    "fieldname": "section_break_ilot",
    "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:42:20.813380",
+ "modified": "2024-06-11 12:12:53.357470",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Announcement",

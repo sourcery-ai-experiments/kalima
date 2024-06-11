@@ -87,7 +87,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Activity Execution",
-   "options": "Activity Execution",
+   "options": "Activity Coordination",
    "reqd": 1
   },
   {
@@ -99,7 +99,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 12:37:28.987225",
+ "modified": "2024-06-11 12:13:07.483481",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity",

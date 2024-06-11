@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-06-04 14:12:32.794393",
+ "creation": "2024-06-11 12:06:37.477058",
+ "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -11,19 +12,20 @@
  "fields": [
   {
    "fieldname": "speaker",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Speaker",
+   "label": "Employee",
+   "options": "Employee",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-11 12:02:47.396460",
+ "modified": "2024-06-11 12:06:56.703274",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "Activity Deliverers",
+ "name": "Staff Activity List",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
