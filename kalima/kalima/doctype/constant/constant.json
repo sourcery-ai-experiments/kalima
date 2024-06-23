@@ -34,6 +34,8 @@
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Amount",
    "mandatory_depends_on": "eval:doc.type == \"Fixed Amount\""
   },
@@ -88,6 +90,8 @@
    "fieldname": "percentage",
    "fieldtype": "Percent",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Percentage",
    "mandatory_depends_on": "eval:doc.type == \"Percentage\""
   },
@@ -95,6 +99,8 @@
    "fieldname": "type",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Type",
    "options": "Percentage\nFixed Amount",
    "reqd": 1
@@ -102,7 +108,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-23 12:27:48.215057",
+ "modified": "2024-06-23 12:46:20.104133",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Constant",
@@ -122,6 +128,7 @@
    "write": 1
   }
  ],
+ "search_fields": "type,percentage,amount",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
