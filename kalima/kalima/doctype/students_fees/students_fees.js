@@ -28,11 +28,16 @@ frappe.ui.form.on("Students Fees", {
                 var discount_value;
                 if (discount_type.message.type == "Percentage") {
                     discount_value = await frappe.db.get_value("Constant", element.discount, 'percentage');
-                    discount_value = frm.doc.fee_amount * (discount_value.message.percentage/100);
+                    discount_value = frm.doc.fee_amount * (discount_value.message.percentage / 100);
                 }
                 else {
                     discount_value = await frappe.db.get_value("Constant", element.discount, 'amount');
                     discount_value = discount_value.message.amount;
+
+                }
+                var amnt_aftr_disc = frm.doc.fee_amount;
+                if (discount_value != null) {
+                    amnt_aftr_disc -= discount_value;
 
                 }
 
@@ -41,14 +46,13 @@ frappe.ui.form.on("Students Fees", {
                     study_type: frm.doc.study_system,
                     discount_type: element.discount,
                     amount: frm.doc.fee_amount,
-                    amount_after_discount: frm.doc.fee_amount - discount_value,
+                    amount_after_discount: amnt_aftr_disc,
                 });
             }
             frm.set_value('students_fees', temp_list);
             frm.refresh_field('students_fees');
             var total_amount = 0;
             frm.doc.students_fees.forEach(element => {
-
                 total_amount += element.amount_after_discount;
             });
 
@@ -58,7 +62,7 @@ frappe.ui.form.on("Students Fees", {
         }).addClass('bg-success', 'text-white').css({
             "color": "white",
         });
-        if (frm.doc.docstatus === 1 && (frm.doc.transfer_date == null && frm.doc.transfer_date == undefined)) {
+        // if (frm.doc.docstatus === 1 && (frm.doc.transfer_date == null && frm.doc.transfer_date == undefined)) {
 
             frm.add_custom_button(__('Create Invoices'), async function () {
                 await frappe.call({
@@ -76,7 +80,7 @@ frappe.ui.form.on("Students Fees", {
             }).addClass('bg-secondary', 'text-white').css({
                 "color": "white",
             });
-        }
+        // }
         if (frm.doc.docstatus === 1 && (frm.doc.transfer_date == null && frm.doc.transfer_date == undefined)) {
 
             frm.add_custom_button(__('Cancel Invoices'), async function () {

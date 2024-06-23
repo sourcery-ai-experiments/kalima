@@ -196,13 +196,19 @@
    "fieldname": "payment_term",
    "fieldtype": "Link",
    "label": "Payment Term",
-   "options": "Payment Terms Template"
+   "options": "Payment Terms Template",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-06-23 13:09:33.193618",
+ "links": [
+  {
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "custom_student_fee"
+  }
+ ],
+ "modified": "2024-06-23 14:25:37.286283",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees",

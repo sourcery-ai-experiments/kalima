@@ -13,7 +13,5 @@ frappe.ui.form.on("Constant", {
                 frm.refresh_field("percentage");
 
             }
-
-
 	},
 });
