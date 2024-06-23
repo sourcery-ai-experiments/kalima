@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KFSTR-{#####}",
+ "autoname": "field:title",
  "creation": "2024-06-10 11:05:03.471725",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_k0kh",
+  "title",
   "fee_category",
   "year",
   "stage",
@@ -142,16 +143,23 @@
    "fieldtype": "Link",
    "label": "Income Account",
    "options": "Account"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 12:38:18.587792",
+ "modified": "2024-06-23 11:31:35.482462",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Fee Structure",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
