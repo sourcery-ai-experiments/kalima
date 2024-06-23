@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KSFE-{#####}",
+ "autoname": "format:Student-Fees-{YYYY}-{#####}",
  "creation": "2024-06-10 11:40:58.889557",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -15,6 +15,7 @@
   "semester",
   "study_system",
   "date",
+  "transfer_date",
   "amended_from",
   "section_break_mpbh",
   "item",
@@ -182,12 +183,19 @@
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "transfer_date",
+   "fieldtype": "Date",
+   "label": "Transfer Date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 15:11:37.170914",
+ "modified": "2024-06-23 12:07:55.127700",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees",

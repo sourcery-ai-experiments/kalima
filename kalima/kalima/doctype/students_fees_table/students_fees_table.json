@@ -34,8 +34,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Discount Type",
-   "options": "Constant",
-   "reqd": 1
+   "options": "Constant"
   },
   {
    "fieldname": "amount",
@@ -55,7 +54,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-10 11:55:08.221603",
+ "modified": "2024-06-23 11:44:53.943772",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees Table",
