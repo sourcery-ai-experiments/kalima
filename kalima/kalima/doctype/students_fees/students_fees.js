@@ -62,7 +62,7 @@ frappe.ui.form.on("Students Fees", {
         }).addClass('bg-success', 'text-white').css({
             "color": "white",
         });
-        // if (frm.doc.docstatus === 1 && (frm.doc.transfer_date == null && frm.doc.transfer_date == undefined)) {
+        if (frm.doc.docstatus === 1 && (frm.doc.transfer_date == null && frm.doc.transfer_date == undefined)) {
 
             frm.add_custom_button(__('Create Invoices'), async function () {
                 await frappe.call({
@@ -80,7 +80,7 @@ frappe.ui.form.on("Students Fees", {
             }).addClass('bg-secondary', 'text-white').css({
                 "color": "white",
             });
-        // }
+        }
         if (frm.doc.docstatus === 1 && (frm.doc.transfer_date == null && frm.doc.transfer_date == undefined)) {
 
             frm.add_custom_button(__('Cancel Invoices'), async function () {
