@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-23 21:30:26.703179",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "classroom",
+  "from_date",
+  "to_date",
+  "column_break_sroy",
+  "from_time",
+  "to_time",
+  "section_break_tgcd",
+  "days",
+  "exam_departments",
+  "students_section",
+  "students"
+ ],
+ "fields": [
+  {
+   "fieldname": "classroom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Classroom",
+   "options": "Classroom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "column_break_sroy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time"
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Table",
+   "label": "Days",
+   "options": "Week Days"
+  },
+  {
+   "fieldname": "section_break_tgcd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "students_section",
+   "fieldtype": "Section Break",
+   "label": "Students"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Exam Students"
+  },
+  {
+   "fieldname": "exam_departments",
+   "fieldtype": "Table",
+   "label": "Exam Departments",
+   "options": "Exam Departments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-23 22:35:46.415306",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Exam Hall Distribution",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
