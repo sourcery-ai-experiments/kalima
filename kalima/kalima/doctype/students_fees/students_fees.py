@@ -19,6 +19,9 @@ class StudentsFees(Document):
   
 		for std in students:
 			student_customer = frappe.db.get_value("Student",std.student,"customer")
+			if(student_customer == None):
+				frappe.throw('User Does Not Have A Customer Assigned : ' + std.student)
+		
    
 			template = frappe.get_doc("Payment Terms Template",doc.payment_term)
    
@@ -33,6 +36,7 @@ class StudentsFees(Document):
 					"customer":student_customer,
 					"due_date":future_date,
 					"custom_student_fee":doc.name,
+					"custom_from_term":trm.payment_term,
 				})
 	
 				new_invoice.append("items",{
@@ -45,7 +49,7 @@ class StudentsFees(Document):
 				})
 	
 				new_invoice.insert()
-				new_invoice.submit()
+				# new_invoice.submit()
 	
 		current_date = nowdate()
 		doc.transfer_date = current_date
