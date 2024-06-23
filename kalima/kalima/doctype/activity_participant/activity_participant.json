@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Participant-{participant}-{MM}-{YYYY}",
+ "autoname": "format:KACT-PAR-{DD}-{MM}-{YYYY}-{#####}",
  "creation": "2024-06-01 11:47:39.831950",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,7 +25,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 11:50:35.969177",
+ "modified": "2024-06-10 13:44:39.438820",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Participant",

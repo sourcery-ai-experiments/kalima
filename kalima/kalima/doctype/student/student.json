@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:full_name_in_arabic",
+ "autoname": "format:{full_name_in_arabic}-{#####}",
  "creation": "2024-05-26 11:28:58.326661",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -79,6 +79,15 @@
   "admission_office_section",
   "status",
   "final_selected_course",
+  "study_info_tab",
+  "current_info_section",
+  "year",
+  "stage",
+  "discount",
+  "column_break_qbgh",
+  "semester",
+  "fee_category",
+  "study_system",
   "external_account_tab",
   "university_email",
   "column_break_tfjr",
@@ -908,15 +917,65 @@
    "in_list_view": 1,
    "label": "Full name in English",
    "unique": 1
+  },
+  {
+   "fieldname": "fee_category",
+   "fieldtype": "Link",
+   "label": "Fee Category",
+   "options": "Fee Category"
+  },
+  {
+   "fieldname": "study_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Study Info"
+  },
+  {
+   "fieldname": "current_info_section",
+   "fieldtype": "Section Break",
+   "label": "Current Info"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+  },
+  {
+   "fieldname": "column_break_qbgh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "study_system",
+   "fieldtype": "Select",
+   "label": "Study System",
+   "options": "Morning\nEvening"
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Link",
+   "label": "Discount Type",
+   "options": "Constant"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 15:41:55.668848",
+ "modified": "2024-06-10 15:07:40.309856",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

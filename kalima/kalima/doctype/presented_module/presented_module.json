@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:module",
+ "autoname": "format:KPRM-{year}-{#####}",
  "creation": "2024-05-26 14:00:36.902047",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -92,11 +92,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 11:21:32.976390",
+ "modified": "2024-06-10 12:44:34.973084",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Module",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

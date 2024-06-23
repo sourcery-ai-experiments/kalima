@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:KFSTR-{#####}",
+ "creation": "2024-06-10 11:05:03.471725",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_k0kh",
+  "fee_category",
+  "year",
+  "stage",
+  "column_break_xlbt",
+  "semester",
+  "study_system",
+  "amended_from",
+  "fees_section",
+  "fee_amount",
+  "study_type",
+  "column_break_dzkx",
+  "description",
+  "account_section",
+  "company",
+  "debit_account",
+  "column_break_sjdx",
+  "income_account",
+  "cost_center"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_k0kh",
+   "fieldtype": "Section Break",
+   "label": "Main Info"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Fee Structure",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "fee_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fee Category",
+   "options": "Fee Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "study_system",
+   "fieldtype": "Select",
+   "label": "Study System",
+   "options": "Morning\nEvening"
+  },
+  {
+   "fieldname": "column_break_xlbt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fees_section",
+   "fieldtype": "Section Break",
+   "label": "Fees"
+  },
+  {
+   "fieldname": "fee_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Fee Amount",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "study_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Study Type",
+   "options": "Morning\nEvening",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dzkx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "account_section",
+   "fieldtype": "Section Break",
+   "label": "Account"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "debit_account",
+   "fieldtype": "Link",
+   "label": "Debit Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_sjdx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "income_account",
+   "fieldtype": "Link",
+   "label": "Income Account",
+   "options": "Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-10 12:38:18.587792",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Fee Structure",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestActivityExecution(FrappeTestCase):
+class TestFeeCategory(FrappeTestCase):
 	pass

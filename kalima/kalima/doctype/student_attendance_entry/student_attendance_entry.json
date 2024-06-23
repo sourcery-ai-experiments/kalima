@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Student-Attendance-{date}",
+ "autoname": "format:KSTD-ATT-{date}-{#####}",
  "creation": "2024-05-26 13:48:43.913911",
  "default_view": "List",
  "doctype": "DocType",
@@ -97,7 +97,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-04 11:50:11.994169",
+ "modified": "2024-06-10 12:58:15.982795",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Attendance Entry",

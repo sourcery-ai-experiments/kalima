@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KAC-SEM-{educational_year}-{#####}",
  "creation": "2024-05-25 15:22:35.188152",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -16,8 +17,10 @@
   {
    "fieldname": "educational_year",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Educational Year",
-   "options": "Educational Year"
+   "options": "Educational Year",
+   "reqd": 1
   },
   {
    "fieldname": "semester",
@@ -50,10 +53,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-25 15:30:31.736789",
+ "modified": "2024-06-10 13:01:40.871081",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Academic Semester",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

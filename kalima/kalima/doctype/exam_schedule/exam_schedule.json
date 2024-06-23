@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Exam-Schedule-{class}",
+ "autoname": "format:KEX-SCH-{date}-{#####}",
  "creation": "2024-05-26 14:59:06.583096",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,13 +14,17 @@
   {
    "fieldname": "class",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Class",
-   "options": "Class"
+   "options": "Class",
+   "reqd": 1
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "time",
@@ -30,7 +34,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.891576",
+ "modified": "2024-06-10 13:46:11.342514",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Schedule",

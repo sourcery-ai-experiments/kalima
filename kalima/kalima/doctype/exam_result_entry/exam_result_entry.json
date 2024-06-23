@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KEX-RSE-{MM}-{YYYY}-{#####}",
  "creation": "2024-05-26 13:18:04.420718",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -82,10 +83,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 10:37:11.435887",
+ "modified": "2024-06-10 12:55:13.532608",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Result Entry",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

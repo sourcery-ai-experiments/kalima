@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class ActivityExecution(Document):
+class StaffActivityList(Document):
 	pass
