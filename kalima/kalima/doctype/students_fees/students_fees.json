@@ -24,6 +24,7 @@
   "column_break_ytfk",
   "fee_amount",
   "fee_study_type",
+  "payment_term",
   "section_break_fuet",
   "students_fees",
   "total_amount",
@@ -190,12 +191,18 @@
    "fieldtype": "Date",
    "label": "Transfer Date",
    "read_only": 1
+  },
+  {
+   "fieldname": "payment_term",
+   "fieldtype": "Link",
+   "label": "Payment Term",
+   "options": "Payment Terms Template"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-23 12:07:55.127700",
+ "modified": "2024-06-23 13:09:33.193618",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees",

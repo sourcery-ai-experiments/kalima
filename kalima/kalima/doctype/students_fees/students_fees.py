@@ -4,6 +4,12 @@ import frappe
 from frappe.model.docstatus import DocStatus
 from frappe.utils import nowdate
 
+from datetime import datetime, timedelta
+
+def get_future_date(days):
+    current_date = datetime.now()
+    future_date = current_date + timedelta(days=days)
+    return future_date
 
 class StudentsFees(Document):
 	# def on_submit(doc):
@@ -13,26 +19,34 @@ class StudentsFees(Document):
   
 		for std in students:
 			student_customer = frappe.db.get_value("Student",std.student,"customer")
-			new_invoice = frappe.get_doc({
-				"doctype":"Sales Invoice",
-				"company":doc.company,
-				"cost_center":doc.cost_center,
-				"customer":student_customer,
-				"custom_student_fee":doc.name,
-			})
    
-			new_invoice.append("items",{
-			"item_code": doc.item,
-            "qty": 1,
-            "income_account": doc.income_account,
-            "company": doc.company,
-            "cost_center": doc.cost_center,
-            "rate": doc.fee_amount,
-			})
+			template = frappe.get_doc("Payment Terms Template",doc.payment_term)
    
-			new_invoice.insert()
-			new_invoice.submit()
-   
+			for trm in template.terms:
+				days_from_now = trm.credit_days
+				future_date = get_future_date(days_from_now)
+					
+				new_invoice = frappe.get_doc({
+					"doctype":"Sales Invoice",
+					"company":doc.company,
+					"cost_center":doc.cost_center,
+					"customer":student_customer,
+					"due_date":future_date,
+					"custom_student_fee":doc.name,
+				})
+	
+				new_invoice.append("items",{
+				"item_code": doc.item,
+				"qty": 1,
+				"income_account": doc.income_account,
+				"company": doc.company,
+				"cost_center": doc.cost_center,
+				"rate": doc.fee_amount * (trm.invoice_portion /100)
+				})
+	
+				new_invoice.insert()
+				new_invoice.submit()
+	
 		current_date = nowdate()
 		doc.transfer_date = current_date
 		doc.save()
