@@ -1,6 +1,7 @@
 
 from frappe.model.document import Document
 import frappe
+from frappe.model.docstatus import DocStatus
 
 
 class StudentsFees(Document):
@@ -14,7 +15,7 @@ class StudentsFees(Document):
 				"company":doc.company,
 				"cost_center":doc.cost_center,
 				"customer":student_customer,
-				"discount_amount":std.amount-std.amount_after_discount,
+				"custom_student_fee":doc.name,
 			})
    
 			new_invoice.append("items",{
@@ -27,3 +28,18 @@ class StudentsFees(Document):
 			})
    
 			new_invoice.insert()
+			new_invoice.submit()
+   
+   
+	def on_cancel(doc):
+		all_docs = frappe.db.get_list('Sales Invoice',
+			filters={
+				"docstatus": DocStatus.submitted()
+				,"custom_student_fee":doc.name,
+			},
+			fields=['name'],
+		)
+		for d in all_docs:
+			docu = frappe.get_doc("Sales Invoice",d.name)
+			docu.cancel()
+			
