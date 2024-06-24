@@ -8,14 +8,18 @@
   "classroom",
   "from_date",
   "to_date",
+  "days",
   "column_break_sroy",
   "from_time",
   "to_time",
+  "distribution_type",
   "section_break_tgcd",
-  "days",
   "exam_departments",
   "students_section",
-  "students"
+  "students",
+  "student_distro",
+  "distribution_section",
+  "distribution"
  ],
  "fields": [
   {
@@ -52,7 +56,7 @@
   },
   {
    "fieldname": "days",
-   "fieldtype": "Table",
+   "fieldtype": "Table MultiSelect",
    "label": "Days",
    "options": "Week Days"
   },
@@ -69,18 +73,43 @@
    "fieldname": "students",
    "fieldtype": "Table",
    "label": "Students",
-   "options": "Exam Students"
+   "options": "Exam Students",
+   "read_only": 1
   },
   {
    "fieldname": "exam_departments",
    "fieldtype": "Table",
    "label": "Exam Departments",
    "options": "Exam Departments"
+  },
+  {
+   "fieldname": "distribution_section",
+   "fieldtype": "Section Break",
+   "label": "Distribution"
+  },
+  {
+   "fieldname": "distribution",
+   "fieldtype": "HTML",
+   "label": "Distribution"
+  },
+  {
+   "fieldname": "distribution_type",
+   "fieldtype": "Select",
+   "label": "Distribution Type",
+   "options": "XO\nParallel"
+  },
+  {
+   "fieldname": "student_distro",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Student Distro",
+   "options": "Student Distro",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-23 22:35:46.415306",
+ "modified": "2024-06-24 14:52:28.429678",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Hall Distribution",
