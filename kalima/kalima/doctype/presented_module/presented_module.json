@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "main_tab",
   "department",
   "year",
   "faculty",
@@ -16,7 +17,39 @@
   "sswl",
   "usswl",
   "ects",
-  "available_in_choose_credit_panel"
+  "available_in_choose_credit_panel",
+  "scheduled_tab",
+  "a_section",
+  "in_class_hours",
+  "number_of_weeks",
+  "hours_per_week",
+  "total_hours",
+  "column_break_mpqg",
+  "online_hours",
+  "number_of_weeks_online",
+  "hours_per_week_online",
+  "total_hours_online",
+  "column_break_mkhv",
+  "circles_hours",
+  "number_of_weeks_circles",
+  "hours_per_week_circles",
+  "total_hours_circles",
+  "b_section",
+  "column_break_nfmu",
+  "training_hours",
+  "number_of_weeks_training",
+  "hours_per_week_training",
+  "total_hours_training",
+  "column_break_lgmr",
+  "practical_hours",
+  "number_of_weeks_practical",
+  "hours_per_week_practical",
+  "total_hours_practical",
+  "column_break_hhxn",
+  "laboratory_hours",
+  "number_of_weeks_laboratory",
+  "hours_per_week_laboratory",
+  "total_hours_laboratory"
  ],
  "fields": [
   {
@@ -88,11 +121,188 @@
    "fieldtype": "Check",
    "label": "Available in Choose Credit Panel",
    "options": "Module"
+  },
+  {
+   "fieldname": "main_tab",
+   "fieldtype": "Tab Break",
+   "label": "Main"
+  },
+  {
+   "depends_on": "eval:doc.stage == \"Bologna\"",
+   "fieldname": "scheduled_tab",
+   "fieldtype": "Tab Break",
+   "label": "Scheduled"
+  },
+  {
+   "fieldname": "in_class_hours",
+   "fieldtype": "Heading",
+   "label": "In Class Hours"
+  },
+  {
+   "fieldname": "number_of_weeks",
+   "fieldtype": "Int",
+   "label": "Number of Weeks",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "hours_per_week",
+   "fieldtype": "Int",
+   "label": "Hours per Week",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "total_hours",
+   "fieldtype": "Int",
+   "label": "Total Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mpqg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "online_hours",
+   "fieldtype": "Heading",
+   "label": "Online Hours"
+  },
+  {
+   "fieldname": "number_of_weeks_online",
+   "fieldtype": "Int",
+   "label": "Number of Weeks",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "hours_per_week_online",
+   "fieldtype": "Int",
+   "label": "Hours per Week",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "total_hours_online",
+   "fieldtype": "Int",
+   "label": "Total Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mkhv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "circles_hours",
+   "fieldtype": "Heading",
+   "label": "Study Circles"
+  },
+  {
+   "fieldname": "number_of_weeks_circles",
+   "fieldtype": "Int",
+   "label": "Number of Weeks",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "hours_per_week_circles",
+   "fieldtype": "Int",
+   "label": "Hours per Week",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "total_hours_circles",
+   "fieldtype": "Int",
+   "label": "Total Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "a_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "b_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "training_hours",
+   "fieldtype": "Heading",
+   "label": "Training Hours"
+  },
+  {
+   "fieldname": "number_of_weeks_training",
+   "fieldtype": "Int",
+   "label": "Number of Weeks",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "hours_per_week_training",
+   "fieldtype": "Int",
+   "label": "Hours per Week",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "total_hours_training",
+   "fieldtype": "Int",
+   "label": "Total Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_nfmu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "practical_hours",
+   "fieldtype": "Heading",
+   "label": "Practical Hours"
+  },
+  {
+   "fieldname": "number_of_weeks_practical",
+   "fieldtype": "Int",
+   "label": "Number of Weeks",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "hours_per_week_practical",
+   "fieldtype": "Int",
+   "label": "Hours per Week",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "total_hours_practical",
+   "fieldtype": "Int",
+   "label": "Total Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lgmr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "laboratory_hours",
+   "fieldtype": "Heading",
+   "label": "Laboratory Hours"
+  },
+  {
+   "fieldname": "number_of_weeks_laboratory",
+   "fieldtype": "Int",
+   "label": "Number of Weeks",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "hours_per_week_laboratory",
+   "fieldtype": "Int",
+   "label": "Hours per Week",
+   "mandatory_depends_on": "eval:doc.stage == \"Bologna\""
+  },
+  {
+   "fieldname": "total_hours_laboratory",
+   "fieldtype": "Int",
+   "label": "Total Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hhxn",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 12:44:34.973084",
+ "modified": "2024-06-25 10:40:59.790943",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Module",
