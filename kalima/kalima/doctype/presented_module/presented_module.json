@@ -14,9 +14,10 @@
   "stage",
   "column_break_gjxd",
   "module",
+  "ects",
+  "swl",
   "sswl",
   "usswl",
-  "ects",
   "available_in_choose_credit_panel",
   "scheduled_tab",
   "a_section",
@@ -49,7 +50,27 @@
   "laboratory_hours",
   "number_of_weeks_laboratory",
   "hours_per_week_laboratory",
-  "total_hours_laboratory"
+  "total_hours_laboratory",
+  "unscheduled_tab",
+  "project",
+  "number_of_weeks_prepare",
+  "hours_per_week_prepare",
+  "total_hours_prepare",
+  "column_break_cjxd",
+  "daily_lecture_preparation",
+  "number_of_weeks_lecture",
+  "hours_per_week_lecture",
+  "total_hours_lecture",
+  "section_break_hdze",
+  "gg",
+  "number_of_weeks_daily",
+  "hours_per_week_daily",
+  "total_hours_daily",
+  "column_break_wlfo",
+  "exam_preparation",
+  "number_of_weeks_exam",
+  "hours_per_week_exam",
+  "total_hours_exam"
  ],
  "fields": [
   {
@@ -101,19 +122,19 @@
    "fieldname": "sswl",
    "fieldtype": "Int",
    "label": "SSWL",
-   "options": "Module"
+   "read_only": 1
   },
   {
    "fieldname": "usswl",
    "fieldtype": "Int",
    "label": "USSWL",
-   "options": "Module"
+   "options": "Module",
+   "read_only": 1
   },
   {
    "fieldname": "ects",
    "fieldtype": "Int",
-   "label": "ECTS",
-   "options": "Module"
+   "label": "ECTS"
   },
   {
    "default": "0",
@@ -298,11 +319,115 @@
   {
    "fieldname": "column_break_hhxn",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.stage == \"Bologna\"",
+   "fieldname": "unscheduled_tab",
+   "fieldtype": "Tab Break",
+   "label": "Unscheduled"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Heading",
+   "label": "Project Preparation"
+  },
+  {
+   "fieldname": "column_break_cjxd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hdze",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "gg",
+   "fieldtype": "Heading",
+   "label": "Daily Exam Preparation"
+  },
+  {
+   "fieldname": "column_break_wlfo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "number_of_weeks_prepare",
+   "fieldtype": "Int",
+   "label": "Number of Weeks"
+  },
+  {
+   "fieldname": "hours_per_week_prepare",
+   "fieldtype": "Int",
+   "label": "Number of hours per Weeks"
+  },
+  {
+   "fieldname": "total_hours_prepare",
+   "fieldtype": "Int",
+   "label": "Total Hours"
+  },
+  {
+   "fieldname": "daily_lecture_preparation",
+   "fieldtype": "Heading",
+   "label": "Daily Lecture Preparation"
+  },
+  {
+   "fieldname": "number_of_weeks_lecture",
+   "fieldtype": "Int",
+   "label": "Number of Weeks"
+  },
+  {
+   "fieldname": "hours_per_week_lecture",
+   "fieldtype": "Int",
+   "label": "Number of hours per Weeks"
+  },
+  {
+   "fieldname": "total_hours_lecture",
+   "fieldtype": "Int",
+   "label": "Total Hours"
+  },
+  {
+   "fieldname": "number_of_weeks_daily",
+   "fieldtype": "Int",
+   "label": "Number of Weeks"
+  },
+  {
+   "fieldname": "hours_per_week_daily",
+   "fieldtype": "Int",
+   "label": "Number of hours per Weeks"
+  },
+  {
+   "fieldname": "total_hours_daily",
+   "fieldtype": "Int",
+   "label": "Total Hours"
+  },
+  {
+   "fieldname": "exam_preparation",
+   "fieldtype": "Heading",
+   "label": "Exam Preparation"
+  },
+  {
+   "fieldname": "number_of_weeks_exam",
+   "fieldtype": "Int",
+   "label": "Number of Weeks Copy"
+  },
+  {
+   "fieldname": "hours_per_week_exam",
+   "fieldtype": "Int",
+   "label": "Number of hours per Week"
+  },
+  {
+   "fieldname": "total_hours_exam",
+   "fieldtype": "Int",
+   "label": "Total Hours"
+  },
+  {
+   "fieldname": "swl",
+   "fieldtype": "Int",
+   "label": "SWL",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-25 10:40:59.790943",
+ "modified": "2024-06-25 12:33:45.028003",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Module",
