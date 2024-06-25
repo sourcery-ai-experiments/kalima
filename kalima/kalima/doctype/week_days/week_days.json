@@ -1,0 +1,34 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-23 21:39:10.701883",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "day_copy"
+ ],
+ "fields": [
+  {
+   "fieldname": "day_copy",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Day",
+   "options": "Week Day",
+   "reqd": 1,
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-24 13:03:06.021090",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Week Days",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -32,22 +32,21 @@ class StudentsFees(Document):
             for trm in template.terms:
                 days_from_now = trm.credit_days
                 future_date = get_future_date(days_from_now)
-                
-                print("std.amount")
-                print(std.amount)
-                print("std.amount_after_discount")
-                print(std.amount_after_discount)
-
+                future_due_date = get_future_date(days_from_now+7)
+                print(future_date)
+                print(future_date)
                 new_invoice = frappe.get_doc({
                     "doctype": "Sales Invoice",
+                    "set_posting_time":1,
                     "company": doc.company,
                     "cost_center": doc.cost_center,
                     "customer": student_customer,
-                    "due_date": future_date,
+                    "posting_date": future_date,
+                    "due_date": future_due_date,
                     "custom_student_fee": doc.name,
                     "custom_from_term": trm.payment_term,
-                    "discount_amount": std.amount - std.amount_after_discount,
-                    "additional_discount_percentage": ((std.amount - std.amount_after_discount) / std.amount) * 100
+                    "discount_amount": (std.amount - std.amount_after_discount)*(trm.invoice_portion /100),
+                    "additional_discount_percentage": (((std.amount - std.amount_after_discount) / std.amount) * 100)*(trm.invoice_portion /100)
                 })
 
                 new_invoice.append("items", {
@@ -56,7 +55,7 @@ class StudentsFees(Document):
                     "income_account": doc.income_account,
                     "company": doc.company,
                     "cost_center": doc.cost_center,
-                    "rate": doc.fee_amount  # * (trm.invoice_portion /100)
+                    "rate": doc.fee_amount  *(trm.invoice_portion /100)
                 })
 
                 new_invoice.insert()

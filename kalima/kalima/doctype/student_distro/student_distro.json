@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-24 14:46:25.231193",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "column",
+  "row"
+ ],
+ "fields": [
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Column"
+  },
+  {
+   "fieldname": "row",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Row"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-24 14:47:03.248509",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Distro",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
