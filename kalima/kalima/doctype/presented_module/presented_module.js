@@ -7,7 +7,14 @@ frappe.ui.form.on('Presented Module', {
     validate: function(frm) {
         validate_total_hours(frm);
     },
-    
+    ects: function(frm) {
+        frm.set_value("swl",frm.doc.ects * 25);
+        frm.set_value("usswl",frm.doc.sswl - frm.doc.swl );
+
+    },
+    // sswl: function(frm) {
+    //     frm.set_value("usswl",frm.doc.sswl - frm.doc.swl );
+    // },
     // Trigger calculations and validations when any field related to hours changes
     number_of_weeks: function(frm) {
         calculate_total_hours(frm);
@@ -159,9 +166,14 @@ function validate_total_hours(frm) {
                                frm.doc.total_hours_practical +
                                frm.doc.total_hours_laboratory;
 
-    if (total_hours_combined > frm.doc.sswl) {
-        frappe.throw(__('The sum of all total hours cannot exceed SSWL'));
-    }
+    frm.set_value("sswl",total_hours_combined);
+    frm.set_value("swl",frm.doc.ects * 25);
+    frm.set_value("usswl",frm.doc.sswl - frm.doc.swl );
+
+    
+    // if (total_hours_combined > frm.doc.sswl) {
+    //     frappe.throw(__('The sum of all total hours cannot exceed SSWL'));
+    // }
 }
 
 

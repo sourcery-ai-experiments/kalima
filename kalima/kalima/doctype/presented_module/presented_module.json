@@ -14,9 +14,10 @@
   "stage",
   "column_break_gjxd",
   "module",
+  "ects",
+  "swl",
   "sswl",
   "usswl",
-  "ects",
   "available_in_choose_credit_panel",
   "scheduled_tab",
   "a_section",
@@ -121,19 +122,19 @@
    "fieldname": "sswl",
    "fieldtype": "Int",
    "label": "SSWL",
-   "options": "Module"
+   "read_only": 1
   },
   {
    "fieldname": "usswl",
    "fieldtype": "Int",
    "label": "USSWL",
-   "options": "Module"
+   "options": "Module",
+   "read_only": 1
   },
   {
    "fieldname": "ects",
    "fieldtype": "Int",
-   "label": "ECTS",
-   "options": "Module"
+   "label": "ECTS"
   },
   {
    "default": "0",
@@ -320,6 +321,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.stage == \"Bologna\"",
    "fieldname": "unscheduled_tab",
    "fieldtype": "Tab Break",
    "label": "Unscheduled"
@@ -415,11 +417,17 @@
    "fieldname": "total_hours_exam",
    "fieldtype": "Int",
    "label": "Total Hours"
+  },
+  {
+   "fieldname": "swl",
+   "fieldtype": "Int",
+   "label": "SWL",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-25 11:58:18.579082",
+ "modified": "2024-06-25 12:33:45.028003",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Module",
