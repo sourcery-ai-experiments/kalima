@@ -1,0 +1,179 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{student}-{module}-{#####}",
+ "creation": "2024-06-25 14:32:58.741680",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_zda3",
+  "year",
+  "module",
+  "teacher",
+  "column_break_chsn",
+  "stage",
+  "round",
+  "amended_from",
+  "section_break_wtxs",
+  "student",
+  "exam_max_result",
+  "result",
+  "column_break_cmbi",
+  "status",
+  "cheating",
+  "present",
+  "prototype_section",
+  "questions_prototype"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_zda3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Exam Result",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year",
+   "read_only": 1
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Presented Module",
+   "read_only": 1
+  },
+  {
+   "fieldname": "teacher",
+   "fieldtype": "Link",
+   "label": "Teacher",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_chsn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "round",
+   "fieldtype": "Select",
+   "label": "Round",
+   "options": "First\nSecond\nThird",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_wtxs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "exam_max_result",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Exam Max Result",
+   "options": "Student",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Result",
+   "options": "Student",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cmbi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Passed\nFailed\nSecond Try",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "cheating",
+   "fieldtype": "Check",
+   "label": "Cheating",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "present",
+   "fieldtype": "Check",
+   "label": "Present",
+   "read_only": 1
+  },
+  {
+   "fieldname": "prototype_section",
+   "fieldtype": "Section Break",
+   "label": "Prototype"
+  },
+  {
+   "fieldname": "questions_prototype",
+   "fieldtype": "Table",
+   "label": "Questions Prototype",
+   "options": "Questions Prototype",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-25 14:42:56.815724",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Exam Result",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
