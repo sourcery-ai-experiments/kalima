@@ -10,6 +10,7 @@
   "year",
   "module",
   "teacher",
+  "prototype",
   "column_break_chsn",
   "stage",
   "round",
@@ -22,7 +23,7 @@
   "status",
   "cheating",
   "present",
-  "prototype_section",
+  "column_break_dagt",
   "questions_prototype"
  ],
  "fields": [
@@ -136,23 +137,30 @@
    "read_only": 1
   },
   {
-   "fieldname": "prototype_section",
-   "fieldtype": "Section Break",
-   "label": "Prototype"
-  },
-  {
    "fieldname": "questions_prototype",
    "fieldtype": "Table",
    "label": "Questions Prototype",
    "options": "Questions Prototype",
    "read_only": 1
+  },
+  {
+   "fieldname": "prototype",
+   "fieldtype": "Link",
+   "label": "Prototype",
+   "options": "Question Prototype",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dagt",
+   "fieldtype": "Column Break"
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-25 14:42:56.815724",
+ "modified": "2024-06-25 15:17:14.513176",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Exam Result",

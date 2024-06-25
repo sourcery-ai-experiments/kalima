@@ -19,6 +19,7 @@
   "section_break_xega",
   "prototype_1",
   "prototype_2",
+  "column_break_mjhw",
   "prototype_3",
   "prototype_4"
  ],
@@ -78,51 +79,61 @@
   },
   {
    "fieldname": "prototype_1",
-   "fieldtype": "Table",
+   "fieldtype": "Link",
    "label": "Prototype 1",
-   "options": "Questions Prototype"
+   "options": "Question Prototype",
+   "reqd": 1
   },
   {
    "fieldname": "prototype_2",
-   "fieldtype": "Table",
+   "fieldtype": "Link",
    "label": "Prototype 2",
-   "options": "Questions Prototype"
+   "options": "Question Prototype",
+   "reqd": 1
   },
   {
    "fieldname": "prototype_3",
-   "fieldtype": "Table",
+   "fieldtype": "Link",
    "label": "Prototype 3",
-   "options": "Questions Prototype"
+   "options": "Question Prototype",
+   "reqd": 1
   },
   {
    "fieldname": "prototype_4",
-   "fieldtype": "Table",
+   "fieldtype": "Link",
    "label": "Prototype 4",
-   "options": "Questions Prototype"
+   "options": "Question Prototype"
   },
   {
    "fieldname": "first_round_selected_prototype",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "First Round Selected Prototype",
+   "options": "Question Prototype",
    "read_only": 1
   },
   {
    "fieldname": "second_round_selected_prototype",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Second Round Selected Prototype",
+   "options": "Question Prototype",
    "read_only": 1
   },
   {
    "fieldname": "third_round_selected_prototype",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Third Round Selected Prototype",
+   "options": "Question Prototype",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mjhw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-25 14:30:46.473012",
+ "modified": "2024-06-25 15:21:50.314035",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Questions",

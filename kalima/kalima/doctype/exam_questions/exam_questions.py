@@ -7,10 +7,10 @@ class ExamQuestions(Document):
 
     def assign_random_prototypes(self):
         prototypes = [
-            "prototype_1", 
-            "prototype_2", 
-            "prototype_3", 
-            "prototype_4"
+            self.prototype_1, 
+            self.prototype_2, 
+            self.prototype_3, 
+            self.prototype_4
         ]
         
         # Remove empty prototypes
