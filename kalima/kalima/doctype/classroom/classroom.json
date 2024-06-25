@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Classroom-{#####}",
+ "autoname": "format:{building}-{name1}",
  "creation": "2024-06-23 21:19:12.016296",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -43,7 +43,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-23 21:22:31.669424",
+ "modified": "2024-06-25 11:14:03.414195",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Classroom",

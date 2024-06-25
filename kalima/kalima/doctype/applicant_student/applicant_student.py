@@ -11,7 +11,7 @@ class ApplicantStudent(Document):
 
 
 @frappe.whitelist()
-def admit_student(doc_name, department):
+def admit_student(doc_name, department, study_system):
     # Get the "Applicant Student" document
     applicant_doc = frappe.get_doc("Applicant Student", doc_name)
 
@@ -68,6 +68,7 @@ def admit_student(doc_name, department):
     student_doc.email = email if (applicant_doc.email == None or applicant_doc.email == "") else applicant_doc.email
     student_doc.customer = customer.name
     student_doc.final_selected_course = department
+    student_doc.study_system = study_system
     student_doc.user = user_doc.name
     student_doc.insert()
     student_doc.save()
