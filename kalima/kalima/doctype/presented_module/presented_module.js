@@ -168,7 +168,7 @@ function validate_total_hours(frm) {
 
     frm.set_value("sswl",total_hours_combined);
     frm.set_value("swl",frm.doc.ects * 25);
-    frm.set_value("usswl",frm.doc.sswl - frm.doc.swl );
+    frm.set_value("usswl",frm.doc.swl -frm.doc.sswl);
 
     
     // if (total_hours_combined > frm.doc.sswl) {
