@@ -28,7 +28,8 @@
    "fieldname": "round",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Round"
+   "label": "Round",
+   "options": "First\nSecond\nThird"
   },
   {
    "fieldname": "notes",
@@ -40,7 +41,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-26 12:06:16.178467",
+ "modified": "2024-06-25 12:06:04.497014",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Ministry Exam Results",

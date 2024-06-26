@@ -7,14 +7,15 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_6o8j",
-  "document_number",
+  "title",
   "receiving_date",
+  "document_number",
   "outgoing",
   "column_break_pzva",
   "sender",
   "amended_from",
   "section_break_kjri",
-  "document_receivers"
+  "description"
  ],
  "fields": [
   {
@@ -64,16 +65,22 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "document_receivers",
-   "fieldtype": "Table",
-   "label": "Document Receivers",
-   "options": "Document Receivers"
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 12:45:22.917519",
+ "modified": "2024-06-25 13:17:01.159486",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Incoming",
