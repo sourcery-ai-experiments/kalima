@@ -40,7 +40,9 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
   },
   {
    "fieldname": "date",
@@ -117,7 +119,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 12:45:39.128393",
+ "modified": "2024-06-25 13:05:27.039428",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Outgoing",

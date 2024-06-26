@@ -21,6 +21,13 @@ frappe.ui.form.on("Applicant Student", {
                                     ]
                                 };
                             }
+                        },
+                        {
+                            label: 'Study System',
+                            fieldname: 'study_system',
+                            fieldtype: 'Select',
+                            options: "Morning\nEvening",
+                            reqd: 1,
                         }
                     ],
                     size: 'small', // small, large, extra-large 
@@ -31,7 +38,8 @@ frappe.ui.form.on("Applicant Student", {
                             method: "kalima.kalima.doctype.applicant_student.applicant_student.admit_student",
                             args: {
                                 doc_name: cur_frm.doc.name,
-                                department: values["department"]
+                                department: values["department"],
+                                study_type: values["study_system"]
                             },
                             callback: function (response) {
                                 if (response.message) {
