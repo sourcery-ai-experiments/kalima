@@ -49,6 +49,10 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                 read_only: 1
             },
             {
+                fieldtype: 'Column Break',
+                fieldname: 'clmn',
+            },
+            {
                 fieldtype: 'Data',
                 fieldname: 'stage',
                 label: 'Stage',
@@ -89,46 +93,126 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
 
     // Function to display students in a Bootstrap table
     function display_students(students) {
+        // Check if a table already exists and remove it
+        var $existingTable = $(wrapper).find('.student-table-container');
+        if ($existingTable.length) {
+            $existingTable.remove();
+        }
+
         let table_html = `
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Student Name</th>
-                        <th>Stage</th>
-                        <th>Department</th>
-                        <th>Extra Column 1</th>
-                        <th>Extra Column 2</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="student-table-container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Student </th>
+                            <th>Exam Mark</th>
+                            <th>Final Result</th>
+                            <th>Present</th>
+                            <th>Cheating?</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
         `;
 
         students.forEach(student => {
             table_html += `
                 <tr>
                     <td>${student.name}</td>
-                    <td>${student.student_name}</td>
-                    <td>${student.stage}</td>
-                    <td>${student.department}</td>
-                    <td>Extra Data 1</td>
-                    <td>Extra Data 2</td>
+                    <td>50</td>
+                    <td><input type="number" class="form-control final-result" placeholder="Final Result" min="0" max="50" required></td>
+                    <td>
+                        <select class="form-control">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" class="form-control"></td>
+                    <td>                        
+                        <select class="form-control status">
+                            <option value="none"></option>
+                            <option value="Passed">Passed</option>
+                            <option value="Failed">Failed</option>
+                        </select>
+                    </td>
                 </tr>
             `;
         });
 
         table_html += `
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary submit-results">Submit Results</button>
+            </div>
         `;
+        
+        var $container = $(wrapper).find('.layout-main-section');
+        $container.append(table_html); // Append the table HTML instead of setting it
 
-        // Append the table to the page
-        // let table_container = document.createElement('div');
-        // table_container.innerHTML = table_html;
-        // page.body.appendChild(table_container);
+        // Add event listener to final result inputs to update the status
+        $container.find('.final-result').on('input', function() {
+            var finalResult = $(this).val();
+            var statusSelect = $(this).closest('tr').find('.status');
 
-		var $container = $(wrapper).find('.layout-main-section');
-		$container.html(table_html);
-	
+            if (finalResult > 24) { // Use 49 instead of 24 as per your original request
+                statusSelect.val('Passed');
+            } else {
+                statusSelect.val('Failed');
+            }
+        });
+
+        // Add event listener to submit button to collect data and make frappe.call
+        $container.find('.submit-results').on('click', function() {
+            let prototype = form.get_value('Prototype');
+            let module = form.get_value('module');
+            let teacher = form.get_value('teacher');
+            let student_results = [];
+            let valid = true;
+
+            $container.find('tbody tr').each(function() {
+                let final_result = $(this).find('.final-result').val();
+
+                if (final_result === '' || final_result < 0 || final_result > 50) {
+                    valid = false;
+                    return false; // Exit the loop
+                }
+
+                let student_result = {
+                    student_name: $(this).find('td:eq(0)').text(),
+                    exam_mark: $(this).find('td:eq(1)').text(),
+                    final_result: final_result,
+                    present: $(this).find('select:eq(0)').val(),
+                    cheating: $(this).find('input[type=checkbox]').prop('checked') ? 'Yes' : 'No',
+                    status: $(this).find('select.status').val(),
+                    prototype: prototype,
+                    module: module,
+                    teacher: teacher
+                };
+                student_results.push(student_result);
+            });
+
+            if (!valid) {
+                frappe.msgprint('Please ensure all students have a valid result between 0 and 50.');
+                return;
+            }
+
+            frappe.call({
+                method: 'kalima.utils.utils.submit_student_results',
+                args: {
+                    student_results: student_results
+                },
+                callback: function(response) {
+                    if (response.message) {
+                        frappe.msgprint('Results submitted successfully');
+                        form.clear(); // Reset the form
+                        var $existingTable = $(wrapper).find('.student-table-container');
+                        if ($existingTable.length) {
+                            $existingTable.remove();
+                        }
+                    }
+                }
+            });
+            
+        });
     }
 }

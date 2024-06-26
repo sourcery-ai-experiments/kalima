@@ -7,24 +7,22 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_zda3",
+  "prototype",
+  "student",
   "year",
   "module",
-  "teacher",
-  "prototype",
   "column_break_chsn",
+  "teacher",
   "stage",
   "round",
   "amended_from",
   "section_break_wtxs",
-  "student",
   "exam_max_result",
   "result",
   "column_break_cmbi",
   "status",
   "cheating",
-  "present",
-  "column_break_dagt",
-  "questions_prototype"
+  "present"
  ],
  "fields": [
   {
@@ -95,7 +93,7 @@
   },
   {
    "fieldname": "exam_max_result",
-   "fieldtype": "Float",
+   "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Exam Max Result",
    "options": "Student",
@@ -104,7 +102,7 @@
   },
   {
    "fieldname": "result",
-   "fieldtype": "Float",
+   "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Result",
    "options": "Student",
@@ -130,17 +128,10 @@
    "read_only": 1
   },
   {
-   "default": "0",
+   "default": "1",
    "fieldname": "present",
    "fieldtype": "Check",
    "label": "Present",
-   "read_only": 1
-  },
-  {
-   "fieldname": "questions_prototype",
-   "fieldtype": "Table",
-   "label": "Questions Prototype",
-   "options": "Questions Prototype",
    "read_only": 1
   },
   {
@@ -150,17 +141,13 @@
    "options": "Question Prototype",
    "read_only": 1,
    "reqd": 1
-  },
-  {
-   "fieldname": "column_break_dagt",
-   "fieldtype": "Column Break"
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-25 15:17:14.513176",
+ "modified": "2024-06-26 11:18:40.369675",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Exam Result",
