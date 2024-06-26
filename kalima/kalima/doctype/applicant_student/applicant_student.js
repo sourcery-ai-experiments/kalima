@@ -39,7 +39,7 @@ frappe.ui.form.on("Applicant Student", {
                             args: {
                                 doc_name: cur_frm.doc.name,
                                 department: values["department"],
-                                study_type: values["study_system"]
+                                study_system: values["study_system"]
                             },
                             callback: function (response) {
                                 if (response.message) {
