@@ -145,19 +145,7 @@
   "account_tab",
   "user",
   "password",
-  "confirm_password",
-  "choose_us_tab",
-  "personal_statement",
-  "how_hear_about_us_section",
-  "social_media",
-  "website",
-  "exhibition",
-  "recommendation_family_friend",
-  "tv",
-  "colleagues",
-  "school_college",
-  "column_break_dsgr",
-  "disability"
+  "confirm_password"
  ],
  "fields": [
   {
@@ -496,68 +484,6 @@
    "options": "Work Experince"
   },
   {
-   "fieldname": "choose_us_tab",
-   "fieldtype": "Tab Break",
-   "label": "Choose Us"
-  },
-  {
-   "fieldname": "personal_statement",
-   "fieldtype": "Text",
-   "label": "Personal statement in support of your application"
-  },
-  {
-   "fieldname": "how_hear_about_us_section",
-   "fieldtype": "Section Break",
-   "label": "Please indicate how you hear about us?"
-  },
-  {
-   "default": "0",
-   "fieldname": "social_media",
-   "fieldtype": "Check",
-   "label": "Social Media"
-  },
-  {
-   "default": "0",
-   "fieldname": "website",
-   "fieldtype": "Check",
-   "label": "Website"
-  },
-  {
-   "default": "0",
-   "fieldname": "exhibition",
-   "fieldtype": "Check",
-   "label": "Exhibition"
-  },
-  {
-   "default": "0",
-   "fieldname": "recommendation_family_friend",
-   "fieldtype": "Check",
-   "label": "Recommendation (Family/Friend)"
-  },
-  {
-   "default": "0",
-   "fieldname": "tv",
-   "fieldtype": "Check",
-   "label": "TV"
-  },
-  {
-   "default": "0",
-   "fieldname": "colleagues",
-   "fieldtype": "Check",
-   "label": "Colleagues"
-  },
-  {
-   "default": "0",
-   "fieldname": "school_college",
-   "fieldtype": "Check",
-   "label": "School/College"
-  },
-  {
-   "fieldname": "disability",
-   "fieldtype": "Text",
-   "label": "Disability"
-  },
-  {
    "fieldname": "uploads_tab",
    "fieldtype": "Tab Break",
    "label": "Documents"
@@ -687,10 +613,6 @@
   },
   {
    "fieldname": "column_break_wont",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_dsgr",
    "fieldtype": "Column Break"
   },
   {
@@ -971,7 +893,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-27 13:13:26.012535",
+ "modified": "2024-06-29 11:32:11.526743",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

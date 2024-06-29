@@ -34,6 +34,8 @@ frappe.ui.form.on("Applicant Student", {
                     primary_action_label: 'Admit',
                     primary_action(values) {
 
+                        var progressIndicator = frappe.show_progress('Loading..', 70, 100, 'Please wait');
+
                         frappe.call({
                             method: "kalima.kalima.doctype.applicant_student.applicant_student.admit_student",
                             args: {
@@ -43,6 +45,7 @@ frappe.ui.form.on("Applicant Student", {
                             },
                             callback: function (response) {
                                 if (response.message) {
+                                    progressIndicator.hide();
                                     frappe.msgprint(__('Student document {0} created successfully.', [response.message]));
                                 }
                             }
