@@ -39,6 +39,7 @@ class Outgoing(Document):
 			new_incoming.append("document_receivers", {"user":rec})
   
 		new_incoming.insert()
+		new_incoming.submit()
   
   
 
