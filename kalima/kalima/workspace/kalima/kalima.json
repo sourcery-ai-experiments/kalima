@@ -153,16 +153,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Presented Subject",
-   "link_count": 0,
-   "link_to": "Presented Subject",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Complaints",
    "link_count": 0,
    "link_to": "Complaints",
@@ -743,7 +733,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-06-26 12:22:52.689761",
+ "modified": "2024-06-29 09:01:13.820684",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",
