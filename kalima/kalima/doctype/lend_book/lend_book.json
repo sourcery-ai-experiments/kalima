@@ -7,10 +7,16 @@
  "engine": "InnoDB",
  "field_order": [
   "book",
-  "user_type",
+  "borrowing_period",
+  "borrowing_days",
+  "user",
+  "return_date",
+  "is_returned",
   "column_break_sbra",
+  "user_type",
   "fining_system",
-  "borrowing_period"
+  "extra_period",
+  "fine_amount"
  ],
  "fields": [
   {
@@ -19,34 +25,82 @@
    "in_list_view": 1,
    "label": "Book",
    "options": "Book",
+   "read_only_depends_on": "eval:doc.is_returned == 1",
    "reqd": 1
   },
   {
    "fieldname": "user_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "User Type",
-   "options": "Book"
+   "options": "Undergraduate Student\nMaster Student\nPhd Student\nEmployee\nTeacher\nSpecial",
+   "read_only_depends_on": "eval:doc.is_returned == 1"
   },
   {
    "fieldname": "fining_system",
    "fieldtype": "Link",
    "label": "Fining System",
-   "options": "Fining system"
+   "options": "Fining system",
+   "read_only_depends_on": "eval:doc.is_returned == 1"
   },
   {
    "fieldname": "borrowing_period",
    "fieldtype": "Link",
    "label": "Borrowing Period",
-   "options": "Borrowing Period"
+   "options": "Borrowing Period",
+   "read_only_depends_on": "eval:doc.is_returned == 1",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_sbra",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "borrowing_period.days",
+   "fieldname": "borrowing_days",
+   "fieldtype": "Data",
+   "label": "Borrowing Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "read_only_depends_on": "eval:doc.is_returned == 1"
+  },
+  {
+   "fetch_from": "fining_system.period",
+   "fieldname": "extra_period",
+   "fieldtype": "Data",
+   "label": "Extra Period",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "fining_system.amount",
+   "fieldname": "fine_amount",
+   "fieldtype": "Data",
+   "label": "Fine Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_returned",
+   "fieldtype": "Check",
+   "label": "Is Returned",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "return_date",
+   "fieldtype": "Date",
+   "label": "Return Date",
+   "options": "User",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:39:53.661320",
+ "modified": "2024-06-29 16:42:47.978876",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Lend Book",

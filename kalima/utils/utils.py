@@ -1,5 +1,6 @@
 import frappe
 import json
+from datetime import datetime, timedelta
 
 @frappe.whitelist()
 def get_classes_for_teacher(teacher_name):
@@ -71,3 +72,62 @@ def submit_student_results(student_results):
         doc.submit()
         
     return "Results submitted successfully"
+
+
+
+def fines():
+    current_date = datetime.now()
+
+    # Fetch Lend Book records where the difference between current date and creation date is greater than borrowing_days
+    lend_books = frappe.get_all(
+        "Lend Book",
+        filters={
+            'creation': ('>', (current_date - timedelta(days=30)).strftime('%Y-%m-%d %H:%M:%S'))  # Example: 30 days ago
+        },
+        fields=["name", "creation", "borrowing_days", "extra_period", "book", "user", "user_type", "fine_amount"]
+    )
+    
+    for lend_book in lend_books:
+        creation_date = lend_book.get('creation')
+        borrowing_days = int(lend_book.get('borrowing_days')) + int(lend_book.get('extra_period'))
+
+        # Calculate the difference in days between the current date and the creation date
+        day_difference = (current_date - creation_date).days
+
+        if day_difference > borrowing_days:
+   
+            due_date = current_date + timedelta(days=3)
+
+            # Create a new Fine document
+            fine_doc = frappe.get_doc({
+                "doctype": "Fines",
+                "book": lend_book.get('book'),
+                "user": lend_book.get('user'),
+                "status": "Unpaid",
+                "amount": lend_book.get('fine_amount'),
+                "due_date": due_date
+            })
+            fine_doc.insert()
+            frappe.db.commit()
+            
+
+# user_type = lend_book.get('user_type')
+            
+# # Fetch Borrowing Limitations settings
+# borrowing_limitations = frappe.get_single("Borrowing Limitations")
+
+# # Get the number of days for the due date based on the user type
+# if user_type == "Undergraduate Student":
+#     due_days = borrowing_limitations.undergraduate_student
+# elif user_type == "Master Student":
+#     due_days = borrowing_limitations.master_student
+# elif user_type == "Phd Student":
+#     due_days = borrowing_limitations.phd_student
+# elif user_type == "Employee":
+#     due_days = borrowing_limitations.employee
+# elif user_type == "Teacher":
+#     due_days = borrowing_limitations.teacher
+# elif user_type == "Special":
+#     due_days = borrowing_limitations.special
+# else:
+#     due_days = 0 # Default to 0 if user type is not recognized

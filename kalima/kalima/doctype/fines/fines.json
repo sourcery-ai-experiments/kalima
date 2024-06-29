@@ -1,12 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:Fine-{#####}",
  "creation": "2024-05-26 14:41:39.529781",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "book",
-  "code",
+  "number",
   "due_date",
   "column_break_epfx",
   "amount",
@@ -19,11 +20,6 @@
    "fieldtype": "Link",
    "label": "Book",
    "options": "Book"
-  },
-  {
-   "fieldname": "code",
-   "fieldtype": "Int",
-   "label": "Code"
   },
   {
    "fieldname": "due_date",
@@ -50,14 +46,22 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Paid\nUnpaid\nPartialy Paid"
+  },
+  {
+   "fetch_from": "book.number",
+   "fieldname": "number",
+   "fieldtype": "Int",
+   "label": "Number",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:43:26.566226",
+ "modified": "2024-06-29 15:39:46.793586",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Fines",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

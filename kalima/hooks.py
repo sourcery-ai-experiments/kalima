@@ -148,6 +148,12 @@ fixtures = [
 # Scheduled Tasks
 # ---------------
 
+scheduler_events = {
+    "daily": [
+        "kalima.kalima.utils.utils.fines"
+    ]
+}
+
 # scheduler_events = {
 # 	"all": [
 # 		"kalima.tasks.all"
