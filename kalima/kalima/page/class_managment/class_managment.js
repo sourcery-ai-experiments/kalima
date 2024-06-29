@@ -2,7 +2,7 @@ var selected_class;
 var selectedTeacher;
 var current_class;// = await frappe.db.get_doc("Class", selected_class,fields=["student_list"]);
 var naming_maps = {};
-
+var called = false;
 
 frappe.pages['class-managment'].on_page_load = async function (wrapper) {
     var page = frappe.ui.make_app_page({
@@ -37,7 +37,7 @@ async function teacher_field(page) {
             }
         }
     });
-    teacherSelector.set_value("HR-EMP-00001");
+    // teacherSelector.set_value("HR-EMP-00001");
     teacherSelector.refresh();
 }
 
@@ -74,6 +74,7 @@ async function class_field(page, teacher) {
                         change: async () => {
                             selected_class = classSelector.get_value();
                             current_class = await frappe.db.get_doc("Class", selected_class, fields = ["student_list"]);
+                            if(!called)
                             await content_manager();
 
                             // console.log(current_class);
@@ -91,6 +92,7 @@ async function class_field(page, teacher) {
 }
 
 async function content_manager(dont_click = false) {
+    called = true;
     var contentColumn = document.querySelector("#content");
     document.querySelectorAll('.btn-secondary').forEach(button => {
         button.addEventListener('click', async function () {
