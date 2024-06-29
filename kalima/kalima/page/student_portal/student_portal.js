@@ -1,4 +1,4 @@
-var selected_student ;
+var selected_student = "حامد حامد حامد حامد" ;
 var selectedTeacher;
 var current_class;
 var naming_maps = {};
@@ -15,7 +15,7 @@ frappe.pages['student-portal'].on_page_load = async function (wrapper) {
     var $container = $(wrapper).find('.layout-main-section');
     $container.html(main_template);
 
-    await get_current_user_student();
+    // await get_current_user_student();
     await content_manager();
 }
 
@@ -45,6 +45,14 @@ async function content_manager(dont_click = false) {
                 ];
                 await attendance(contentColumn, columns);
             }
+
+
+            if (template === 'exam-results') {
+                await exam_results(contentColumn);
+            }
+
+
+
         });
     });
 
@@ -78,6 +86,75 @@ async function attendance(container, columns) {
         moduleContainer.innerHTML = `<h3>${module}</h3>`;
         container.appendChild(moduleContainer);
         moduleContainer.appendChild(createTable(records, columns));
+    }
+}
+async function exam_results(container) {
+    var data = await frappe.call({
+        method: 'kalima.utils.utils.get_student_results',
+        args: {
+            student_name: selected_student
+        }
+    });
+    console.log(data);
+
+    // Group data by year
+    const resultsByYear = data.message.reduce((acc, result) => {
+        const year = result.stage || 'Unknown Year'; // Handle cases where year is null
+        if (!acc[year]) {
+            acc[year] = [];
+        }
+        acc[year].push(result);
+        return acc;
+    }, {});
+
+    // Create and append tables for each year
+    for (const year in resultsByYear) {
+        const br = document.createElement('br');
+        const hr = document.createElement('hr');
+        const table = document.createElement('table');
+        table.className = 'table table-striped table-bordered';
+        const thead = document.createElement('thead');
+        const tbody = document.createElement('tbody');
+
+        // Create header row
+        const headerRow = document.createElement('tr');
+        ['Module',  'Round', 'Exam Max Result', 'Result', 'Status', 'Cheating', 'Present'].forEach(text => {
+            const th = document.createElement('th');
+            th.textContent = text;
+            th.className = 'text-center';
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Create data rows
+        resultsByYear[year].forEach(result => {
+            const row = document.createElement('tr');
+            ['module',  'round', 'exam_max_result', 'result', 'status', 'cheating', 'present'].forEach(key => {
+                const td = document.createElement('td');
+                td.className = 'text-center';
+                if (key === 'cheating' || key === 'present') {
+                    td.innerHTML = result[key] ? '<i class="bi bi-check-lg"></i>' : '<i class="bi bi-x-lg"></i>';
+                } else {
+                    td.textContent = result[key];
+                }
+                row.appendChild(td);
+            });
+            tbody.appendChild(row);
+        });
+        table.appendChild(tbody);
+
+        // Add year as title
+        const yearTitle = document.createElement('h3');
+        yearTitle.textContent = year;
+        yearTitle.className = 'my-4';
+        container.appendChild(yearTitle);
+
+        container.appendChild(table);
+        container.appendChild(br);
+        container.appendChild(hr);
+        container.appendChild(br);
+
     }
 }
 
@@ -141,3 +218,4 @@ function createTable(records, columns) {
     table.appendChild(tbody);
     return table;
 }
+
