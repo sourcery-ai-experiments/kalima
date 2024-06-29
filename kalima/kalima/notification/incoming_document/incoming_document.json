@@ -1,17 +1,17 @@
 {
  "attach_print": 0,
- "channel": "Email",
- "creation": "2024-06-05 14:26:41.114652",
+ "channel": "System Notification",
+ "creation": "2024-06-29 12:46:44.409657",
  "days_in_advance": 0,
  "docstatus": 0,
  "doctype": "Notification",
- "document_type": "Outgoing",
- "enabled": 0,
- "event": "Save",
+ "document_type": "Incoming",
+ "enabled": 1,
+ "event": "New",
  "idx": 0,
  "is_standard": 1,
  "message": "Add your message here",
- "modified": "2024-06-25 13:41:36.020625",
+ "modified": "2024-06-29 12:46:44.409657",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Incoming Document",
@@ -21,7 +21,7 @@
    "receiver_by_document_field": "user,document_receivers"
   }
  ],
- "send_system_notification": 1,
+ "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "subject": "Incoming Document - {{ doc.name }}"
+ "subject": "{{ doc.title }}"
 }
