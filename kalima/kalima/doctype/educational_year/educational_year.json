@@ -11,7 +11,8 @@
   "max_failed_courses_annual",
   "column_break_vfnq",
   "first_notification",
-  "max_available_failed_count"
+  "max_available_failed_count",
+  "active_year"
  ],
  "fields": [
   {
@@ -43,11 +44,17 @@
    "fieldname": "max_available_failed_count",
    "fieldtype": "Int",
    "label": "Max Available Failed Count"
+  },
+  {
+   "default": "0",
+   "fieldname": "active_year",
+   "fieldtype": "Check",
+   "label": "Active Year"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-25 15:25:04.785717",
+ "modified": "2024-06-29 11:36:45.670828",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Educational Year",

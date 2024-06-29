@@ -86,19 +86,6 @@
   "language_qualification",
   "work_experience_section",
   "work_experience",
-  "choose_us_tab",
-  "section_break_szbx",
-  "personal_statement",
-  "how_hear_about_us_section",
-  "social_media",
-  "website",
-  "exhibition",
-  "recommendation_family_friend",
-  "tv",
-  "colleagues",
-  "school_college",
-  "column_break_dsgr",
-  "disability",
   "uploads_tab",
   "id_section",
   "id_number",
@@ -124,7 +111,20 @@
   "coupons_form",
   "medical_test",
   "other",
-  "sponsorship"
+  "sponsorship",
+  "choose_us_tab",
+  "section_break_szbx",
+  "personal_statement",
+  "how_hear_about_us_section",
+  "social_media",
+  "website",
+  "exhibition",
+  "recommendation_family_friend",
+  "tv",
+  "colleagues",
+  "school_college",
+  "column_break_dsgr",
+  "disability"
  ],
  "fields": [
   {
@@ -140,22 +140,26 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "label": "First Name"
+   "label": "First Name",
+   "reqd": 1
   },
   {
    "fieldname": "middle_name",
    "fieldtype": "Data",
-   "label": "Middle Name"
+   "label": "Middle Name",
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "Last Name"
+   "label": "Last Name",
+   "reqd": 1
   },
   {
    "fieldname": "fourth_name",
    "fieldtype": "Data",
-   "label": "Fourth Name"
+   "label": "Fourth Name",
+   "reqd": 1
   },
   {
    "fieldname": "mother_name",
@@ -168,7 +172,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Full name in Arabic",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "column_break_aqxi",
@@ -656,9 +660,12 @@
   {
    "fieldname": "english_student_full_name",
    "fieldtype": "Data",
-   "label": "English Student Full Name"
+   "label": "English Student Full Name",
+   "reqd": 1
   },
   {
+   "default": "+964-",
+   "description": "Example : +964 770 000 0000",
    "fieldname": "phone_number",
    "fieldtype": "Phone",
    "label": "Phone Number",
@@ -754,7 +761,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-27 13:12:07.979478",
+ "modified": "2024-06-29 11:29:46.758994",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
@@ -776,5 +783,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "full_name_in_arabic"
 }

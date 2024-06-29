@@ -1,16 +1,27 @@
-# Copyright (c) 2024, e2next and contributors
-# For license information, please see license.txt
-
 import frappe
 from frappe.model.document import Document
-
-# from frappe.utils.user import add_user
+from frappe import _
+from datetime import datetime, timedelta
 
 
 class ApplicantStudent(Document):
-    pass
+    def validate(self):
+        # Concatenate full name in Arabic
+        self.full_name_in_arabic = f"{self.first_name} {self.middle_name} {self.last_name} {self.fourth_name}"
+        
+        # Validate age
+        if self.date_of_birth:
+            # Ensure date_of_birth is parsed as a datetime.date object
+            if isinstance(self.date_of_birth, str):
+                dob = datetime.strptime(self.date_of_birth, '%Y-%m-%d').date()
+            else:
+                dob = self.date_of_birth
+            age = (datetime.now().date() - dob).days / 365.25
+            if age < 17:
+                frappe.throw(_("Age must be more than 17 years."))
 
-
+                
+                
 @frappe.whitelist()
 def admit_student(doc_name, department, study_system):
     # Get the "Applicant Student" document
@@ -34,14 +45,6 @@ def admit_student(doc_name, department, study_system):
     email_prefix = applicant_doc.english_student_full_name.replace(" ", "").lower()
     custom_email_domain = "Kalima.com"
     email = f"{email_prefix}@{custom_email_domain}"
-
-    print("email")
-    print(applicant_doc.email)
-    print(
-        email
-        if (applicant_doc.email == None or applicant_doc.email == "")
-        else applicant_doc.email
-    )
 
     # Create a new user
     user_doc = frappe.get_doc(
@@ -79,7 +82,17 @@ def admit_student(doc_name, department, study_system):
     student_doc.final_selected_course = department
     student_doc.study_system = study_system
     student_doc.user = user_doc.name
+    
+    
+    active_year = frappe.get_last_doc('Educational Year', filters={"active_year": 1})
+    if(active_year == None):
+        frappe.throw(_("Please Select The Active Year in Educaational Year"))
+    
+    student_doc.year = active_year
     student_doc.insert()
     student_doc.save()
-
+    
+    applicant_doc.admission_status = "Accepted"
+    applicant_doc.save()
+    
     return student_doc.name
