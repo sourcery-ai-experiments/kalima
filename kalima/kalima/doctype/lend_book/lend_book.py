@@ -1,9 +1,9 @@
-# Copyright (c) 2024, e2next and contributors
-# For license information, please see license.txt
 
-# import frappe
 from frappe.model.document import Document
-
+from kalima.utils.utils import fines
 
 class LendBook(Document):
-	pass
+    # pass
+	def before_save(doc):
+		fines()
+

@@ -7,10 +7,14 @@
  "engine": "InnoDB",
  "field_order": [
   "book",
-  "user_type",
+  "borrowing_period",
+  "borrowing_days",
+  "user",
   "column_break_sbra",
+  "user_type",
   "fining_system",
-  "borrowing_period"
+  "extra_period",
+  "fine_amount"
  ],
  "fields": [
   {
@@ -23,9 +27,9 @@
   },
   {
    "fieldname": "user_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "User Type",
-   "options": "Book"
+   "options": "Undergraduate Student\nMaster Student\nPhd Student\nEmployee\nTeacher\nSpecial"
   },
   {
    "fieldname": "fining_system",
@@ -37,16 +41,44 @@
    "fieldname": "borrowing_period",
    "fieldtype": "Link",
    "label": "Borrowing Period",
-   "options": "Borrowing Period"
+   "options": "Borrowing Period",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_sbra",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "borrowing_period.days",
+   "fieldname": "borrowing_days",
+   "fieldtype": "Data",
+   "label": "Borrowing Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fetch_from": "fining_system.period",
+   "fieldname": "extra_period",
+   "fieldtype": "Data",
+   "label": "Extra Period",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "fining_system.amount",
+   "fieldname": "fine_amount",
+   "fieldtype": "Data",
+   "label": "Fine Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:39:53.661320",
+ "modified": "2024-06-29 15:50:15.255004",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Lend Book",
