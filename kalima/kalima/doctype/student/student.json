@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{full_name_in_arabic}-{#####}",
+ "autoname": "field:full_name_in_arabic",
  "creation": "2024-05-26 11:28:58.326661",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -971,11 +971,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 15:07:40.309856",
+ "modified": "2024-06-27 13:13:26.012535",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

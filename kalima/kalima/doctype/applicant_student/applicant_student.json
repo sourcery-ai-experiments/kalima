@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Applicant-{full_name_in_arabic}-{#####}",
+ "autoname": "format:AS:{YYYY}-{######}",
  "creation": "2024-05-26 12:35:36.338278",
  "default_view": "List",
  "doctype": "DocType",
@@ -754,7 +754,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-25 12:02:43.957041",
+ "modified": "2024-06-27 13:12:07.979478",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
