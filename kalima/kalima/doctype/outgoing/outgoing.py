@@ -26,7 +26,7 @@ class Outgoing(Document):
 		elif(doc.departments == "Departments"):
 			pass
 
-		print(users)
+		# print(users)
 		new_incoming = frappe.get_doc({
 				"doctype":"Incoming",
 				"outgoing":doc.name,
