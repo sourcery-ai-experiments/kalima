@@ -17,7 +17,7 @@ frappe.pages['class-managment'].on_page_load = async function (wrapper) {
     $container.html(main_template);
 
     await teacher_field(page);
-    await content_manager();
+    // await content_manager();
 }
 
 async function teacher_field(page) {
@@ -29,8 +29,7 @@ async function teacher_field(page) {
             fieldname: "employee",
             label: __("Select Teacher"),
             placeholder: __("Teacher"),
-            default: "HR-EMP-00001",
-
+            // default: "HR-EMP-00001",
             reqd: 1,
             change: async () => {
                 selectedTeacher = teacherSelector.get_value();
@@ -62,7 +61,7 @@ async function class_field(page, teacher) {
                         options: "Class",
                         fieldname: "class",
                         label: __("Select Class"),
-                        default: "CE 1",
+                        // default: "CE 1",
                         placeholder: __("Class"),
                         get_query(doc, cdt, cdn) {
                             return {
@@ -75,11 +74,13 @@ async function class_field(page, teacher) {
                         change: async () => {
                             selected_class = classSelector.get_value();
                             current_class = await frappe.db.get_doc("Class", selected_class, fields = ["student_list"]);
+                            await content_manager();
+
                             // console.log(current_class);
                         }
                     }
                 });
-                classSelector.set_value("CE 1");
+                // classSelector.set_value("CE 1");
 
                 classSelector.refresh();
             } else {
@@ -445,7 +446,7 @@ function createFormDialogNew(templateName) {
                             fieldname: 'score', fieldtype: 'Float', in_list_view: 1,
                             label: 'Score'
                         },
-                        { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 0,read_only:1, label: 'Net Score' },
+                        { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 0, read_only: 1, label: 'Net Score' },
                         { fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent' },
                         { fieldname: 'Description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
 
@@ -736,7 +737,7 @@ function createFormDialogNew(templateName) {
                     }
                 } else if (templateName == "continuous-exam-list") {
                     values.continuous_exam_result.forEach(element => {
-                        element["net_score"] = (element.score/values.marked_on)* values.percentage;
+                        element["net_score"] = (element.score / values.marked_on) * values.percentage;
                     });
                     console.log(values);
 
