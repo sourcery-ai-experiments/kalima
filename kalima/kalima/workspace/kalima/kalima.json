@@ -528,65 +528,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Exams",
-   "link_count": 5,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Question Prototype",
-   "link_count": 0,
-   "link_to": "Question Prototype",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Student Exam Result",
-   "link_count": 0,
-   "link_to": "Student Exam Result",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Exam Questions",
-   "link_count": 0,
-   "link_to": "Exam Questions",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Student Result Entry",
-   "link_count": 0,
-   "link_to": "student-result-entry",
-   "link_type": "Page",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Result Sheet",
-   "link_count": 0,
-   "link_to": "students-results",
-   "link_type": "Page",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Library",
    "link_count": 7,
    "link_type": "DocType",
@@ -721,9 +662,58 @@
    "link_type": "Page",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Exams",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Question Prototype",
+   "link_count": 0,
+   "link_to": "Question Prototype",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Exam Questions",
+   "link_count": 0,
+   "link_to": "Exam Questions",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Student Result Entry",
+   "link_count": 0,
+   "link_to": "student-result-entry",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Result Sheet",
+   "link_count": 0,
+   "link_to": "students-results",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-06-30 14:10:14.313045",
+ "modified": "2024-06-30 15:18:52.268521",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",
