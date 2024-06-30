@@ -88,6 +88,8 @@ async function attendance(container, columns) {
         moduleContainer.appendChild(createTable(records, columns));
     }
 }
+
+
 async function exam_results(container) {
     var data = await frappe.call({
         method: 'kalima.utils.utils.get_student_results',
@@ -107,18 +109,24 @@ async function exam_results(container) {
         return acc;
     }, {});
 
+    // Sort years in descending order
+    const sortedYears = Object.keys(resultsByYear).sort((a, b) => b - a);
+
     // Create and append tables for each year
-    for (const year in resultsByYear) {
+    sortedYears.forEach((year, index) => {
         const br = document.createElement('br');
         const hr = document.createElement('hr');
         const table = document.createElement('table');
         table.className = 'table table-striped table-bordered';
+        table.id = `table-${year}`;
+        table.style.display = index === 0 ? 'table' : 'none'; // Show the first table, hide others
+
         const thead = document.createElement('thead');
         const tbody = document.createElement('tbody');
 
         // Create header row
         const headerRow = document.createElement('tr');
-        ['Module',  'Round', 'Exam Max Result', 'Result', 'Status', 'Cheating', 'Present'].forEach(text => {
+        ['Module', 'Round', 'Exam Max Result', 'Result', 'Status', 'Cheating', 'Present'].forEach(text => {
             const th = document.createElement('th');
             th.textContent = text;
             th.className = 'text-center';
@@ -130,7 +138,7 @@ async function exam_results(container) {
         // Create data rows
         resultsByYear[year].forEach(result => {
             const row = document.createElement('tr');
-            ['module',  'round', 'exam_max_result', 'result', 'status', 'cheating', 'present'].forEach(key => {
+            ['module', 'round', 'exam_max_result', 'result', 'status', 'cheating', 'present'].forEach(key => {
                 const td = document.createElement('td');
                 td.className = 'text-center';
                 if (key === 'cheating' || key === 'present') {
@@ -144,19 +152,34 @@ async function exam_results(container) {
         });
         table.appendChild(tbody);
 
-        // Add year as title
+        // Add year as collapsible title
         const yearTitle = document.createElement('h3');
-        yearTitle.textContent = year;
+        yearTitle.textContent = `${year} `;
         yearTitle.className = 'my-4';
-        container.appendChild(yearTitle);
+        yearTitle.style.cursor = 'pointer';
 
+        // Add arrow symbol
+        const arrow = document.createElement('span');
+        arrow.innerHTML = index === 0 ? '▼' : '▶';
+        yearTitle.appendChild(arrow);
+
+        // Add event listener to toggle table display
+        yearTitle.addEventListener('click', function() {
+            const table = document.getElementById(`table-${year}`);
+            const isVisible = table.style.display === 'table';
+            table.style.display = isVisible ? 'none' : 'table';
+            arrow.innerHTML = isVisible ? '▶' : '▼';
+        });
+
+        container.appendChild(yearTitle);
         container.appendChild(table);
         container.appendChild(br);
         container.appendChild(hr);
         container.appendChild(br);
-
-    }
+    });
 }
+
+
 
 function groupBy(array, key) {
     return array.reduce((result, currentValue) => {

@@ -28,6 +28,20 @@ def get_student_attendance(student_name):
 
 
 
+# @frappe.whitelist()
+# def get_student_results(student_name):
+#     print(student_name)
+
+#     # Define the SQL query
+#     query = """
+#         SELECT ser.*
+#         FROM `tabStudent Exam Result` ser
+#         WHERE ser.student = %s;
+#     """
+#     records = frappe.db.sql(query, (student_name,), as_dict=True)
+#     print(records)
+#     return records
+
 @frappe.whitelist()
 def get_student_results(student_name):
     print(student_name)
@@ -35,11 +49,10 @@ def get_student_results(student_name):
     # Define the SQL query
     query = """
         SELECT ser.*
-        FROM `tabStudent Exam Result` ser
+        FROM `tabStudent Result Log` ser
         WHERE ser.student = %s;
     """
     records = frappe.db.sql(query, (student_name,), as_dict=True)
-    print(records)
     return records
 
 
