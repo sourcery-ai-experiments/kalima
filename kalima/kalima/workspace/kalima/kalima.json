@@ -55,95 +55,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Library",
-   "link_count": 8,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Library",
-   "link_count": 0,
-   "link_to": "Library",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Book Category",
-   "link_count": 0,
-   "link_to": "Book Category",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Book",
-   "link_count": 0,
-   "link_to": "Book",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Lend Book",
-   "link_count": 0,
-   "link_to": "Lend Book",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Return Book",
-   "link_count": 0,
-   "link_to": "Return Book",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Fines",
-   "link_count": 0,
-   "link_to": "Fines",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Borrowing Limitations",
-   "link_count": 0,
-   "link_to": "Borrowing Limitations",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Borrowing Period",
-   "link_count": 0,
-   "link_to": "Borrowing Period",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Misc",
    "link_count": 7,
    "link_type": "DocType",
@@ -676,6 +587,85 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Library",
+   "link_count": 7,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Library",
+   "link_count": 0,
+   "link_to": "Library",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Book Category",
+   "link_count": 0,
+   "link_to": "Book Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Book",
+   "link_count": 0,
+   "link_to": "Book",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Lend Book",
+   "link_count": 0,
+   "link_to": "Lend Book",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fines",
+   "link_count": 0,
+   "link_to": "Fines",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Borrowing Limitations",
+   "link_count": 0,
+   "link_to": "Borrowing Limitations",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Borrowing Period",
+   "link_count": 0,
+   "link_to": "Borrowing Period",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Grades",
    "link_count": 5,
    "link_type": "DocType",
@@ -695,9 +685,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Student Exam Result",
+   "label": "Student Result Log",
    "link_count": 0,
-   "link_to": "Student Exam Result",
+   "link_to": "Student Result Log",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -733,7 +723,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-06-29 09:01:13.820684",
+ "modified": "2024-06-30 14:10:14.313045",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Kalima",
