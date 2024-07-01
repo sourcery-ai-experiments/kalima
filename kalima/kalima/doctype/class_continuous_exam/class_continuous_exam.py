@@ -6,6 +6,13 @@ from frappe.model.document import Document
 
 
 class ClassContinuousExam(Document):
+	def before_save(doc):
+		for s in doc.continuous_exam_result:
+			if s.is_absent == 1:
+				s.score = 0
+				s.net_score = 0
+				
+				
 	def after_insert(doc):
 		for std in doc.continuous_exam_result:
 			new_doc = frappe.get_doc({

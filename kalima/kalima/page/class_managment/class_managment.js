@@ -74,8 +74,8 @@ async function class_field(page, teacher) {
                         change: async () => {
                             selected_class = classSelector.get_value();
                             current_class = await frappe.db.get_doc("Class", selected_class, fields = ["student_list"]);
-                            if(!called)
-                            await content_manager();
+                            if (!called)
+                                await content_manager();
 
                             // console.log(current_class);
                         }
@@ -421,7 +421,18 @@ function createFormDialogNew(templateName) {
                     fieldname: "percentage",
                     fieldtype: "Percent",
                     label: "Percentage",
-                    reqd: 1
+                    reqd: 1,
+                    change: async () => {
+                        document.querySelector('input[data-fieldname="percentage"]').addEventListener('change', function () {
+                            // Get the value of the percentage field
+                            let percentageValue = this.value;
+
+                            // Find the marked_on field and update its value
+                            let markedOnField = document.querySelector('input[data-fieldname="marked_on"]');
+                            markedOnField.value = percentageValue;
+                        });
+
+                    }
                 },
 
                 {
@@ -435,6 +446,14 @@ function createFormDialogNew(templateName) {
                     fieldtype: "Section Break"
                 },
                 {
+                    fieldname: "button_fill_students",
+                    fieldtype: "Button",
+                    label: "Fill Students",
+                    click: function () {
+                        fillStudents();
+                    }
+                },
+                {
                     label: 'Continuous Exam Result',
                     fieldname: 'continuous_exam_result',
                     fieldtype: 'Table',
@@ -443,20 +462,47 @@ function createFormDialogNew(templateName) {
                     fields: [
                         { fieldname: 'student_code', fieldtype: 'Data', in_list_view: 1, label: 'Student Code' },
                         { fieldname: 'student_name', fieldtype: 'Link', options: 'Student', in_list_view: 1, label: 'Student Name' },
-                        { fieldname: 'department', fieldtype: 'Link', options: 'Faculty Department', in_list_view: 1, label: 'Department' },
+                        { fieldname: 'department', fieldtype: 'Link', options: 'Faculty Department', label: 'Department' },
                         {
                             fieldname: 'score', fieldtype: 'Float', in_list_view: 1,
-                            label: 'Score'
+                            label: 'Score',
+                            change: async function () {
+                                // Recalculate the net score when score changes
+                                const row = this;
+                                const score = row.doc.score || 0;
+                                const percentage = d.get_value('percentage') || 1;
+                                const markedOn = d.get_value('marked_on') || 1;
+
+                                // Calculate net score
+                                row.doc.net_score = (score / markedOn) * percentage;
+
+                                // Refresh the table to show updated net score
+                                d.fields_dict['continuous_exam_result'].grid.refresh();
+                                console.log(`Score changed. New Net Score: ${row.doc.net_score}`);
+                            }
                         },
                         { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 0, read_only: 1, label: 'Net Score' },
-                        { fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent' },
-                        { fieldname: 'Description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
+                        {
+                            fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent',
+                             change: async function () {
+                                const row = this;
+
+                                if (row.doc.is_absent) {
+                                    
+                                row.doc.net_score = 0;
+                                row.doc.score = 0;
+
+                                d.fields_dict['continuous_exam_result'].grid.refresh();
+                                } else {
+                                }
+            
+                            }
+                        },
+                        { fieldname: 'Description', fieldtype: 'Data', in_list_view: 0, label: 'Description' },
 
                     ]
                     , label: 'Score'
                 },
-                // { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 1, label: 'Net Score' },
-                { fieldname: 'is_absent', fieldtype: 'Check', in_list_view: 1, label: 'Is Absent' },
                 { fieldname: 'Description', fieldtype: 'Data', in_list_view: 1, label: 'Description' },
 
             ]
@@ -702,6 +748,39 @@ function createFormDialogNew(templateName) {
                     label: "Description"
                 },
             ];
+        }
+
+
+        async function fillStudents() {
+            // Simulate fetching student data (you can replace this with actual data fetching logic)
+            let students = [];
+
+            console.log(current_class.student_list);
+
+            current_class.student_list.forEach(element => {
+                students.push({
+                    student_code: element.student,
+                    student_name: element.student // Assuming the student name is stored in the same field
+                });
+            });
+
+            let tableField = d.fields_dict['continuous_exam_result'].grid;
+
+            // Clear existing rows
+            tableField.df.data = [];
+
+            // Add new rows directly to the grid's data array
+            students.forEach(student => {
+                tableField.df.data.push({
+                    student_code: student.student_code,
+                    student_name: student.student_name,
+                    // department: student.department || 'N/A', // Default value or actual if available
+                    // score: student.score || 0, // Default value or actual if available
+                    // net_score: (student.score || 0) / (d.get_value('marked_on') || 1) * (d.get_value('percentage') || 1) // Ensure no division by zero
+                });
+            });
+
+            tableField.refresh();
         }
 
         let d = new frappe.ui.Dialog({
