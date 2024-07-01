@@ -37,7 +37,8 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
 					let stage = form.get_value('stage');
 					let department = form.get_value('department');
 					let semester = form.get_value('semester');
-					fetch_students(stage, department, semester);
+					let module = form.get_value('module');
+					fetch_students(stage, department, semester,module);
 				}
 			},
 			{
@@ -66,30 +67,51 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
 	form.make();
 
 	// Function to fetch students and display them in a table
-	function fetch_students(stage, department, semester) {
+	function fetch_students(stage, department, semester,module) {
 		console.log(stage);
 		console.log(department);
 		console.log(semester);
 
 		frappe.call({
-			method: 'frappe.client.get_list',
+			method: 'kalima.utils.utils.get_student_sheet',
 			args: {
-				doctype: 'Student',
-				filters: {
-					'stage': stage,
-					'semester': semester,
-					'final_selected_course': department
-				},
-				fields: ['name', 'stage', 'final_selected_course']
+				stage: stage,
+				department: department,
+				module: module,
+				semester: semester,
 			},
 			callback: function (response) {
 				if (response.message) {
+					console.log("response.message");
+					console.log(response.message);
 					let students = response.message;
-					console.log(students);
 					display_students(students);
+
 				}
 			}
 		});
+
+
+
+		// frappe.call({
+		// 	method: 'frappe.client.get_list',
+		// 	args: {
+		// 		doctype: 'Student',
+		// 		filters: {
+		// 			'stage': stage,
+		// 			'semester': semester,
+		// 			'final_selected_course': department
+		// 		},
+		// 		fields: ['name', 'stage', 'final_selected_course']
+		// 	},
+		// 	callback: function (response) {
+		// 		if (response.message) {
+		// 			let students = response.message;
+		// 			console.log(students);
+		// 			display_students(students);
+		// 		}
+		// 	}
+		// });
 	}
 
 	// Function to display students in a Bootstrap table

@@ -1,4 +1,4 @@
-frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
+frappe.pages['student-result-entry'].on_page_load = function (wrapper) {
     var page = frappe.ui.make_app_page({
         parent: wrapper,
         title: 'Student Result Entry',
@@ -14,7 +14,7 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                 label: 'Prototype',
                 options: 'Question Prototype', // Replace 'Doctype' with the actual doctype you want to link to
                 read_only: 0,
-                onchange: function() {
+                onchange: function () {
                     let prototype = form.get_value('Prototype');
                     if (prototype) {
                         // Get the module and teacher from the selected Prototype
@@ -26,9 +26,9 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                             frappe.db.get_doc('Presented Module', doc.module).then(module_doc => {
                                 form.set_value('stage', module_doc.stage);
                                 let department = module_doc.department;
-                                
+
                                 // Fetch students with the same stage and department
-                                fetch_students(module_doc.stage, department);
+                                fetch_students(module_doc.stage, department,);
                             });
                         });
                     }
@@ -82,10 +82,11 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                 },
                 fields: ['name', 'stage', 'final_selected_course']
             },
-            callback: function(response) {
+            callback: function (response) {
                 if (response.message) {
                     let students = response.message;
                     display_students(students);
+
                 }
             }
         });
@@ -145,12 +146,12 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                 <button class="btn btn-primary submit-results">Submit Results</button>
             </div>
         `;
-        
+
         var $container = $(wrapper).find('.layout-main-section');
         $container.append(table_html); // Append the table HTML instead of setting it
 
         // Add event listener to final result inputs to update the status
-        $container.find('.final-result').on('input', function() {
+        $container.find('.final-result').on('input', function () {
             var finalResult = $(this).val();
             var statusSelect = $(this).closest('tr').find('.status');
 
@@ -162,14 +163,14 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
         });
 
         // Add event listener to submit button to collect data and make frappe.call
-        $container.find('.submit-results').on('click', function() {
+        $container.find('.submit-results').on('click', function () {
             let prototype = form.get_value('Prototype');
             let module = form.get_value('module');
             let teacher = form.get_value('teacher');
             let student_results = [];
             let valid = true;
 
-            $container.find('tbody tr').each(function() {
+            $container.find('tbody tr').each(function () {
                 let final_result = $(this).find('.final-result').val();
 
                 if (final_result === '' || final_result < 0 || final_result > 50) {
@@ -201,7 +202,7 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                 args: {
                     student_results: student_results
                 },
-                callback: function(response) {
+                callback: function (response) {
                     if (response.message) {
                         frappe.msgprint('Results submitted successfully');
                         form.clear(); // Reset the form
@@ -212,7 +213,7 @@ frappe.pages['student-result-entry'].on_page_load = function(wrapper) {
                     }
                 }
             });
-            
+
         });
     }
 }

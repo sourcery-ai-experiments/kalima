@@ -108,6 +108,47 @@ def submit_student_results(student_results):
 
 
 
+@frappe.whitelist()
+def get_student_sheet( stage, department,module,semester):
+    filters = {
+        'stage': stage,
+        'final_selected_course': department
+    }
+    
+    fields = ['name', 'stage', 'final_selected_course']
+    
+    students = frappe.get_list('Student', filters=filters, fields=fields)
+    
+    stds= []
+    for student in students:   
+        std = {}
+        form_assess = 0
+        midterm = 0
+        res_filters = {
+            'student': student.name,
+            'module': module,
+            'type': "Class Continuous Exam",
+            # 'semester': semester,
+            'stage': stage,
+        }
+        
+        res_fields = ['net_score', 'score', 'midterm']
+        
+        cons = frappe.get_list('Student Result Log', filters=res_filters, fields=res_fields)
+        for cont in cons:
+            form_assess += cont.net_score
+            midterm += cont.midterm
+            
+        std["formative_assessment"]=form_assess
+        std["midterm"]=midterm
+        std["name"]=student.name
+        
+        stds.append(std)
+            
+    print("stds")
+    print(stds)
+    return stds
+
 def fines():
     current_date = datetime.now()
 
