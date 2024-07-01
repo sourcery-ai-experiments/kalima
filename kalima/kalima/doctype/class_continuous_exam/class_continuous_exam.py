@@ -34,8 +34,8 @@ class ClassContinuousExam(Document):
 				'description': std.description,
 
 			})
-	
 		
-		new_doc.insert()
-		new_doc.submit()
+			
+			new_doc.insert()
+			new_doc.submit()
 
