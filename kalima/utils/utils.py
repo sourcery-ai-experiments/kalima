@@ -26,22 +26,6 @@ def get_student_attendance(student_name):
     # for r in records:
     return records
 
-
-
-# @frappe.whitelist()
-# def get_student_results(student_name):
-#     print(student_name)
-
-#     # Define the SQL query
-#     query = """
-#         SELECT ser.*
-#         FROM `tabStudent Exam Result` ser
-#         WHERE ser.student = %s;
-#     """
-#     records = frappe.db.sql(query, (student_name,), as_dict=True)
-#     print(records)
-#     return records
-
 @frappe.whitelist()
 def get_student_results(student_name):
     print(student_name)
@@ -87,24 +71,6 @@ def submit_student_results(student_results):
         doc.insert()
         doc.submit()
 
-
-        # doc = frappe.get_doc({
-        #     'doctype': 'Student Exam Result',
-            
-        #     'prototype': result["prototype"],
-        #     'student': result["student_name"],
-        #     'module': result["module"],
-        #     'teacher': result["teacher"],
-            
-        #     'exam_max_result': result["exam_mark"],
-        #     'result':result["final_result"],
-        #     'status': result["status"],
-        #     'cheating': 0 if result["cheating"] == "No" else 1,
-        #     'present': 1 if result["cheating"] == "Yes" else 1,
-        # })
-        # doc.insert()
-        # doc.submit()
-        
     return "Results submitted successfully"
 
 
@@ -192,24 +158,3 @@ def fines():
             fine_doc.insert()
             frappe.db.commit()
             
-
-# user_type = lend_book.get('user_type')
-            
-# # Fetch Borrowing Limitations settings
-# borrowing_limitations = frappe.get_single("Borrowing Limitations")
-
-# # Get the number of days for the due date based on the user type
-# if user_type == "Undergraduate Student":
-#     due_days = borrowing_limitations.undergraduate_student
-# elif user_type == "Master Student":
-#     due_days = borrowing_limitations.master_student
-# elif user_type == "Phd Student":
-#     due_days = borrowing_limitations.phd_student
-# elif user_type == "Employee":
-#     due_days = borrowing_limitations.employee
-# elif user_type == "Teacher":
-#     due_days = borrowing_limitations.teacher
-# elif user_type == "Special":
-#     due_days = borrowing_limitations.special
-# else:
-#     due_days = 0 # Default to 0 if user type is not recognized
