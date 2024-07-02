@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Outgoing-{date}-{#####}",
+ "autoname": "format:KOUT-{date}-{#####}",
  "creation": "2024-06-05 11:17:04.895201",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -40,12 +40,15 @@
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "sent_to",
@@ -55,8 +58,9 @@
   },
   {
    "fieldname": "document_number",
-   "fieldtype": "Data",
-   "label": "Document Number"
+   "fieldtype": "Autocomplete",
+   "label": "Document Number",
+   "read_only": 1
   },
   {
    "fieldname": "description",
@@ -117,7 +121,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-08 14:52:45.166286",
+ "modified": "2024-06-29 11:58:19.896757",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Outgoing",
@@ -140,5 +144,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "title"
 }

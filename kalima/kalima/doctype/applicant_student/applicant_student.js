@@ -21,20 +21,31 @@ frappe.ui.form.on("Applicant Student", {
                                     ]
                                 };
                             }
+                        },
+                        {
+                            label: 'Study System',
+                            fieldname: 'study_system',
+                            fieldtype: 'Select',
+                            options: "Morning\nEvening",
+                            reqd: 1,
                         }
                     ],
                     size: 'small', // small, large, extra-large 
                     primary_action_label: 'Admit',
                     primary_action(values) {
 
+                        var progressIndicator = frappe.show_progress('Loading..', 70, 100, 'Please wait');
+
                         frappe.call({
                             method: "kalima.kalima.doctype.applicant_student.applicant_student.admit_student",
                             args: {
                                 doc_name: cur_frm.doc.name,
-                                department: values["department"]
+                                department: values["department"],
+                                study_system: values["study_system"]
                             },
                             callback: function (response) {
                                 if (response.message) {
+                                    progressIndicator.hide();
                                     frappe.msgprint(__('Student document {0} created successfully.', [response.message]));
                                 }
                             }

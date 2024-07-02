@@ -1,0 +1,303 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Result-Log-{#####}",
+ "creation": "2024-06-30 12:35:54.754042",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_zda3",
+  "student",
+  "year",
+  "module",
+  "stage",
+  "column_break_chsn",
+  "type",
+  "teacher",
+  "round",
+  "present",
+  "aaa_section",
+  "title",
+  "continuous_exam_type",
+  "date",
+  "class",
+  "percentage",
+  "column_break_zqvf",
+  "score",
+  "midterm",
+  "cexams",
+  "marked_on",
+  "continuous_exam_result_section",
+  "student_code",
+  "student_name",
+  "department",
+  "column_break_dexg",
+  "net_score",
+  "continuous_score",
+  "description",
+  "section_break_wtxs",
+  "prototype",
+  "exam_max_result",
+  "result",
+  "column_break_cmbi",
+  "status",
+  "cheating",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_zda3",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "prototype",
+   "fieldtype": "Link",
+   "label": "Prototype",
+   "options": "Question Prototype"
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "label": "Module",
+   "options": "Presented Module"
+  },
+  {
+   "fieldname": "column_break_chsn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "teacher",
+   "fieldtype": "Link",
+   "label": "Teacher",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+  },
+  {
+   "fieldname": "round",
+   "fieldtype": "Select",
+   "label": "Round",
+   "options": "First\nSecond\nThird"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Result Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.type == \"Student Exam Result\"",
+   "fieldname": "section_break_wtxs",
+   "fieldtype": "Section Break",
+   "label": "Exam Result"
+  },
+  {
+   "fieldname": "exam_max_result",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Exam Max Result",
+   "options": "Student"
+  },
+  {
+   "fieldname": "result",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Result",
+   "options": "Student"
+  },
+  {
+   "fieldname": "column_break_cmbi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Passed\nFailed\nSecond Try",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "cheating",
+   "fieldtype": "Check",
+   "label": "Cheating",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "present",
+   "fieldtype": "Check",
+   "label": "Present",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Student Result Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Class Continuous Exam\nStudent Exam Result",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.type == \"Class Continuous Exam\"",
+   "fieldname": "aaa_section",
+   "fieldtype": "Section Break",
+   "label": "Continuous Exam"
+  },
+  {
+   "fieldname": "column_break_zqvf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "continuous_exam_type",
+   "fieldtype": "Select",
+   "label": "Continuous Exam Type",
+   "options": "Normal Exam\nAttendance\nProject\nSeminar\nQuiz"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "class",
+   "fieldtype": "Link",
+   "label": "Class",
+   "options": "Class"
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Int",
+   "label": "Score"
+  },
+  {
+   "fieldname": "midterm",
+   "fieldtype": "Int",
+   "label": "Midterm"
+  },
+  {
+   "fieldname": "cexams",
+   "fieldtype": "Int",
+   "label": "C.Exams"
+  },
+  {
+   "fieldname": "marked_on",
+   "fieldtype": "Int",
+   "label": "Marked On"
+  },
+  {
+   "depends_on": "eval:doc.type == \"Class Continuous Exam\"",
+   "fieldname": "continuous_exam_result_section",
+   "fieldtype": "Section Break",
+   "label": "Continuous Exam Result"
+  },
+  {
+   "fieldname": "student_code",
+   "fieldtype": "Data",
+   "label": "Student Code"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Link",
+   "label": "Student Name",
+   "options": "Student"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Faculty Department"
+  },
+  {
+   "fieldname": "continuous_score",
+   "fieldtype": "Float",
+   "label": "Score"
+  },
+  {
+   "fieldname": "net_score",
+   "fieldtype": "Float",
+   "label": "Net Score"
+  },
+  {
+   "fieldname": "column_break_dexg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-07-02 09:34:02.162340",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Student Result Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "student"
+}

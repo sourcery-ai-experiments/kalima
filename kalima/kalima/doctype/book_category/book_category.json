@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:title",
  "creation": "2024-05-26 14:27:57.314953",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -22,7 +23,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "parent1",
@@ -34,10 +36,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 14:29:24.393555",
+ "modified": "2024-06-10 13:28:13.965110",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Book Category",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

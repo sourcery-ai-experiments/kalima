@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Student-Fees-{YYYY}-{#####}",
+ "creation": "2024-06-10 11:40:58.889557",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_5xet",
+  "fee_structure",
+  "fee_category",
+  "year",
+  "stage",
+  "column_break_ctre",
+  "semester",
+  "study_system",
+  "date",
+  "transfer_date",
+  "amended_from",
+  "section_break_mpbh",
+  "item",
+  "faculty",
+  "description",
+  "column_break_ytfk",
+  "fee_amount",
+  "fee_study_type",
+  "payment_term",
+  "section_break_fuet",
+  "students_fees",
+  "total_amount",
+  "section_break_qeiq",
+  "company",
+  "debit_account",
+  "column_break_mlgl",
+  "income_account",
+  "cost_center"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_5xet",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Students Fees",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "fee_structure",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fee Structure",
+   "options": "Student Fee Structure",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "fee_structure.fee_category",
+   "fieldname": "fee_category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fee Category"
+  },
+  {
+   "fetch_from": "fee_structure.year",
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year"
+  },
+  {
+   "fetch_from": "fee_structure.stage",
+   "fieldname": "stage",
+   "fieldtype": "Data",
+   "label": "Stage"
+  },
+  {
+   "fieldname": "column_break_ctre",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fee_structure.semester",
+   "fieldname": "semester",
+   "fieldtype": "Data",
+   "label": "Semester"
+  },
+  {
+   "fetch_from": "fee_structure.study_system",
+   "fieldname": "study_system",
+   "fieldtype": "Data",
+   "label": "Study System"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_mpbh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "faculty",
+   "fieldtype": "Link",
+   "label": "Faculty",
+   "options": "Faculty Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ytfk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fee_structure.fee_amount",
+   "fieldname": "fee_amount",
+   "fieldtype": "Float",
+   "label": "Fee Amount"
+  },
+  {
+   "fetch_from": "fee_structure.study_type",
+   "fieldname": "fee_study_type",
+   "fieldtype": "Data",
+   "label": "Fee Study Type"
+  },
+  {
+   "fieldname": "section_break_fuet",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "students_fees",
+   "fieldtype": "Table",
+   "label": "Students Fees",
+   "options": "Students Fees Table"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Float",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "section_break_qeiq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "fee_structure.company",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company"
+  },
+  {
+   "fetch_from": "fee_structure.debit_account",
+   "fieldname": "debit_account",
+   "fieldtype": "Data",
+   "label": "Debit Account"
+  },
+  {
+   "fieldname": "column_break_mlgl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fee_structure.income_account",
+   "fieldname": "income_account",
+   "fieldtype": "Data",
+   "label": "Income Account"
+  },
+  {
+   "fetch_from": "fee_structure.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Data",
+   "label": "Cost Center"
+  },
+  {
+   "fetch_from": "fee_structure.description",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "transfer_date",
+   "fieldtype": "Date",
+   "label": "Transfer Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_term",
+   "fieldtype": "Link",
+   "label": "Payment Term",
+   "options": "Payment Terms Template",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "custom_student_fee"
+  }
+ ],
+ "modified": "2024-06-23 14:25:37.286283",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Students Fees",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

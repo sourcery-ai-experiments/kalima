@@ -7,6 +7,9 @@ import frappe
 
 
 class Outgoing(Document):
+	def before_save(doc):
+		doc.document_number = doc.name
+
 	def on_submit(doc):
 	# def save(doc):
 		users = []
@@ -23,14 +26,20 @@ class Outgoing(Document):
 		elif(doc.departments == "Departments"):
 			pass
 
-		print(users)
+		# print(users)
 		new_incoming = frappe.get_doc({
 				"doctype":"Incoming",
 				"outgoing":doc.name,
+				"title":doc.title,
 				"receiving_date":doc.date,
+				"description":doc.description,
 				# "document_receivers":doc.document_receivers,
 			})
 		for rec in users:
 			new_incoming.append("document_receivers", {"user":rec})
   
 		new_incoming.insert()
+		new_incoming.submit()
+  
+  
+

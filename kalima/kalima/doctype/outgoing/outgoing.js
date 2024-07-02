@@ -1,18 +1,15 @@
-
 frappe.ui.form.on("Outgoing", {
     async refresh(frm) {
-        if (!frm.is_new()) {
+        if (!frm.is_new() && frm.doc.docstatus != 1) {
             frm.add_custom_button(__('Fetch Receivers'), async function () {
                 if (frm.doc.receivers_type == "Students") {
                     await getEntitiesAndShowDialog("Student", ["name"], "name", "receive_student", "student");
                 } else if (frm.doc.receivers_type == "Teachers") {
                     await getEntitiesAndShowDialog("Employee", ["name", "employee_name"], "employee_name", "receive_teachers", "teacher");
                 } else if (frm.doc.receivers_type == "Departments") {
-                    
                     var all_students = await frappe.db.get_list("Faculty Department", {
                         fields: ['name', 'arabic_title']
                     });
-                    console.log(all_students);
 
                     var fields = [];
                     let student_count = all_students.length;
@@ -31,8 +28,20 @@ frappe.ui.form.on("Outgoing", {
                         fields.push({
                             fieldname: element.name,
                             fieldtype: "Check",
-                            label: element.arabic_title
+                            label: element.arabic_title,
+                            default: 1 // Initially select all checkboxes
                         });
+                    });
+
+                    fields.push({
+                        fieldtype: "HTML",
+                        fieldname: "custom_buttons",
+                        options: `
+                            <div>
+                                <button class="btn btn-primary btn-select-all">Select All</button>
+                                <button class="btn btn-secondary btn-clear-all">Clear All</button>
+                            </div>
+                        `
                     });
 
                     let d = new frappe.ui.Dialog({
@@ -61,15 +70,29 @@ frappe.ui.form.on("Outgoing", {
                             d.hide();
                         }
                     });
-                    d.show();
-                    // await getEntitiesAndShowDialog("Faculty Department", ["name"], "name", "departments", "departmnet");
-                }
 
+                    d.show();
+
+                    // Add event listeners for the custom buttons
+                    d.$wrapper.find('.btn-select-all').on('click', function () {
+                        fields.forEach((field) => {
+                            if (field.fieldtype === "Check") {
+                                d.set_value(field.fieldname, 1);
+                            }
+                        });
+                    });
+
+                    d.$wrapper.find('.btn-clear-all').on('click', function () {
+                        fields.forEach((field) => {
+                            if (field.fieldtype === "Check") {
+                                d.set_value(field.fieldname, 0);
+                            }
+                        });
+                    });
+                }
 
                 async function getEntitiesAndShowDialog(doctype, fieldsList, labelField, targetField, sub_field) {
                     var all_entities = await frappe.db.get_list(doctype, { fields: fieldsList });
-
-                    console.log(all_entities);
 
                     var fields = [];
                     let entity_count = all_entities.length;
@@ -88,8 +111,20 @@ frappe.ui.form.on("Outgoing", {
                         fields.push({
                             fieldname: element.name,
                             fieldtype: "Check",
-                            label: element[labelField]
+                            label: element[labelField],
+                            default: 1 // Initially select all checkboxes
                         });
+                    });
+
+                    fields.push({
+                        fieldtype: "HTML",
+                        fieldname: "custom_buttons",
+                        options: `
+                            <div>
+                                <button class="btn btn-primary btn-select-all">Select All</button>
+                                <button class="btn btn-secondary btn-clear-all">Clear All</button>
+                            </div>
+                        `
                     });
 
                     let d = new frappe.ui.Dialog({
@@ -106,16 +141,13 @@ frappe.ui.form.on("Outgoing", {
                                     selected_entities.push(entity.name);
                                 }
                             });
-                            console.log("selected_entities");
-                            console.log(selected_entities);
+
                             selected_entities.forEach((entity_name) => {
                                 let child = {};
                                 child[sub_field] = entity_name;
                                 new_child.push(child);
                             });
-                            console.log("new_child");
-                            console.log(new_child);
-                            // Combine the previous table with the new child entries
+
                             let combined_data = frm.doc[targetField] || [];
                             combined_data = combined_data.concat(new_child);
 
@@ -126,53 +158,28 @@ frappe.ui.form.on("Outgoing", {
                     });
 
                     d.show();
+
+                    // Add event listeners for the custom buttons
+                    d.$wrapper.find('.btn-select-all').on('click', function () {
+                        fields.forEach((field) => {
+                            if (field.fieldtype === "Check") {
+                                d.set_value(field.fieldname, 1);
+                            }
+                        });
+                    });
+
+                    d.$wrapper.find('.btn-clear-all').on('click', function () {
+                        fields.forEach((field) => {
+                            if (field.fieldtype === "Check") {
+                                d.set_value(field.fieldname, 0);
+                            }
+                        });
+                    });
                 }
 
             }).addClass('bg-success', 'text-white').css({
                 "color": "white",
             });
         }
-
     },
 });
-
-
-// let d = new frappe.ui.Dialog({
-//     title: 'Enter details',
-//     fields: [
-//         {
-//             label: 'Department',
-//             fieldname: 'department',
-//             fieldtype: 'Link',
-//             options: "Faculty Department",
-//             reqd: 1,
-//             get_query: function () {
-//                 return {
-//                     filters: [
-//                         ['name', 'in', frm.doc.prefered_departments.map(dept => dept.department)]
-//                     ]
-//                 };
-//             }
-//         }
-//     ],
-//     size: 'small', // small, large, extra-large
-//     primary_action_label: 'Admit',
-//     primary_action(values) {
-
-//         frappe.call({
-//             method: "kalima.kalima.doctype.applicant_student.applicant_student.admit_student",
-//             args: {
-//                 doc_name: cur_frm.doc.name,
-//                 department: values["department"]
-//             },
-//             callback: function (response) {
-//                 if (response.message) {
-//                     frappe.msgprint(__('Student document {0} created successfully.', [response.message]));
-//                 }
-//             }
-//         });
-//         d.hide();
-//     }
-// });
-
-// d.show();

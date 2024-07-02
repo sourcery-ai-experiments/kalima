@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Return-{book}",
+ "autoname": "format:KB-RET-{DD}-{MM}-{YYYY}-{#####}",
  "creation": "2024-05-26 14:40:55.545289",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -30,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 15:27:12.730638",
+ "modified": "2024-06-10 13:35:08.302517",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Return Book",

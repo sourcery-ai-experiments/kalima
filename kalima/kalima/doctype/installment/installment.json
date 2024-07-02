@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KINST-{MM}-{YYYY}-{#####}",
  "creation": "2024-05-26 11:00:14.107761",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -73,10 +74,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-26 11:03:04.929273",
+ "modified": "2024-06-10 13:01:01.945252",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Installment",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

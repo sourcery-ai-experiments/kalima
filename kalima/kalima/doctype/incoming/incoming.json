@@ -1,19 +1,21 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Incoming-{receiving_date}-{#####}",
+ "autoname": "format:KINC-{receiving_date}-{#####}",
  "creation": "2024-06-05 11:25:59.297718",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_6o8j",
-  "document_number",
+  "title",
   "receiving_date",
+  "document_number",
   "outgoing",
   "column_break_pzva",
   "sender",
   "amended_from",
   "section_break_kjri",
+  "description",
   "document_receivers"
  ],
  "fields": [
@@ -64,16 +66,30 @@
    "fieldtype": "Section Break"
   },
   {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
    "fieldname": "document_receivers",
    "fieldtype": "Table",
    "label": "Document Receivers",
-   "options": "Document Receivers"
+   "options": "Document Receivers",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-05 13:36:59.593905",
+ "modified": "2024-06-29 12:49:51.880348",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Incoming",

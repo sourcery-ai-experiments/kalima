@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:title",
+ "autoname": "format:KCLS-{title}-{#####}",
  "creation": "2024-05-26 11:21:09.406301",
  "default_view": "List",
  "doctype": "DocType",
@@ -146,11 +146,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 14:51:38.264119",
+ "modified": "2024-06-10 13:44:05.474622",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

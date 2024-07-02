@@ -14,7 +14,9 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Name",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -30,7 +32,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 11:39:29.744840",
+ "modified": "2024-06-10 13:46:18.890570",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Venue",

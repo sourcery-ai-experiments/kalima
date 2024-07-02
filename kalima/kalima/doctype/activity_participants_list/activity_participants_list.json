@@ -11,17 +11,16 @@
  "fields": [
   {
    "fieldname": "participant",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Participant",
-   "options": "Activity Participant",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-01 11:52:21.262565",
+ "modified": "2024-06-11 12:13:43.103608",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Participants List",

@@ -79,6 +79,15 @@
   "admission_office_section",
   "status",
   "final_selected_course",
+  "study_info_tab",
+  "current_info_section",
+  "year",
+  "stage",
+  "discount",
+  "column_break_qbgh",
+  "semester",
+  "fee_category",
+  "study_system",
   "external_account_tab",
   "university_email",
   "column_break_tfjr",
@@ -136,19 +145,7 @@
   "account_tab",
   "user",
   "password",
-  "confirm_password",
-  "choose_us_tab",
-  "personal_statement",
-  "how_hear_about_us_section",
-  "social_media",
-  "website",
-  "exhibition",
-  "recommendation_family_friend",
-  "tv",
-  "colleagues",
-  "school_college",
-  "column_break_dsgr",
-  "disability"
+  "confirm_password"
  ],
  "fields": [
   {
@@ -487,68 +484,6 @@
    "options": "Work Experince"
   },
   {
-   "fieldname": "choose_us_tab",
-   "fieldtype": "Tab Break",
-   "label": "Choose Us"
-  },
-  {
-   "fieldname": "personal_statement",
-   "fieldtype": "Text",
-   "label": "Personal statement in support of your application"
-  },
-  {
-   "fieldname": "how_hear_about_us_section",
-   "fieldtype": "Section Break",
-   "label": "Please indicate how you hear about us?"
-  },
-  {
-   "default": "0",
-   "fieldname": "social_media",
-   "fieldtype": "Check",
-   "label": "Social Media"
-  },
-  {
-   "default": "0",
-   "fieldname": "website",
-   "fieldtype": "Check",
-   "label": "Website"
-  },
-  {
-   "default": "0",
-   "fieldname": "exhibition",
-   "fieldtype": "Check",
-   "label": "Exhibition"
-  },
-  {
-   "default": "0",
-   "fieldname": "recommendation_family_friend",
-   "fieldtype": "Check",
-   "label": "Recommendation (Family/Friend)"
-  },
-  {
-   "default": "0",
-   "fieldname": "tv",
-   "fieldtype": "Check",
-   "label": "TV"
-  },
-  {
-   "default": "0",
-   "fieldname": "colleagues",
-   "fieldtype": "Check",
-   "label": "Colleagues"
-  },
-  {
-   "default": "0",
-   "fieldname": "school_college",
-   "fieldtype": "Check",
-   "label": "School/College"
-  },
-  {
-   "fieldname": "disability",
-   "fieldtype": "Text",
-   "label": "Disability"
-  },
-  {
    "fieldname": "uploads_tab",
    "fieldtype": "Tab Break",
    "label": "Documents"
@@ -678,10 +613,6 @@
   },
   {
    "fieldname": "column_break_wont",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_dsgr",
    "fieldtype": "Column Break"
   },
   {
@@ -908,11 +839,61 @@
    "in_list_view": 1,
    "label": "Full name in English",
    "unique": 1
+  },
+  {
+   "fieldname": "fee_category",
+   "fieldtype": "Link",
+   "label": "Fee Category",
+   "options": "Fee Category"
+  },
+  {
+   "fieldname": "study_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Study Info"
+  },
+  {
+   "fieldname": "current_info_section",
+   "fieldtype": "Section Break",
+   "label": "Current Info"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Educational Year"
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+  },
+  {
+   "fieldname": "column_break_qbgh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "semester",
+   "fieldtype": "Select",
+   "label": "Semester",
+   "options": "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+  },
+  {
+   "fieldname": "study_system",
+   "fieldtype": "Select",
+   "label": "Study System",
+   "options": "Morning\nEvening"
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Link",
+   "label": "Discount Type",
+   "options": "Constant"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-01 15:41:55.668848",
+ "modified": "2024-06-29 11:32:11.526743",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

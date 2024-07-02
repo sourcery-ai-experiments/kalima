@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-23 21:30:26.703179",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "classroom",
+  "from_date",
+  "to_date",
+  "days",
+  "column_break_sroy",
+  "from_time",
+  "to_time",
+  "distribution_type",
+  "section_break_tgcd",
+  "exam_departments",
+  "students_section",
+  "students",
+  "student_distro",
+  "distribution_section",
+  "distribution"
+ ],
+ "fields": [
+  {
+   "fieldname": "classroom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Classroom",
+   "options": "Classroom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "column_break_sroy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time"
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Table MultiSelect",
+   "label": "Days",
+   "options": "Week Days"
+  },
+  {
+   "fieldname": "section_break_tgcd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "students_section",
+   "fieldtype": "Section Break",
+   "label": "Students"
+  },
+  {
+   "fieldname": "students",
+   "fieldtype": "Table",
+   "label": "Students",
+   "options": "Exam Students",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exam_departments",
+   "fieldtype": "Table",
+   "label": "Exam Departments",
+   "options": "Exam Departments"
+  },
+  {
+   "fieldname": "distribution_section",
+   "fieldtype": "Section Break",
+   "label": "Distribution"
+  },
+  {
+   "fieldname": "distribution",
+   "fieldtype": "HTML",
+   "label": "Distribution"
+  },
+  {
+   "fieldname": "distribution_type",
+   "fieldtype": "Select",
+   "label": "Distribution Type",
+   "options": "XO\nParallel"
+  },
+  {
+   "fieldname": "student_distro",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Student Distro",
+   "options": "Student Distro",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-24 14:52:28.429678",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Exam Hall Distribution",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

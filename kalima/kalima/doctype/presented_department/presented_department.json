@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:KPRES-DEP-{#####}",
  "creation": "2024-05-26 11:07:50.620905",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -91,10 +92,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-29 15:04:48.687697",
+ "modified": "2024-06-10 13:31:21.518692",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Presented Department",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

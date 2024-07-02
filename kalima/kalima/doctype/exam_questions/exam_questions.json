@@ -1,0 +1,160 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{module}-{year}-{#####}",
+ "creation": "2024-06-25 14:03:35.747221",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ucml",
+  "module",
+  "year",
+  "department",
+  "teacher",
+  "amended_from",
+  "column_break_saqc",
+  "first_round_selected_prototype",
+  "second_round_selected_prototype",
+  "third_round_selected_prototype",
+  "section_break_xega",
+  "prototype_1",
+  "prototype_2",
+  "column_break_mjhw",
+  "prototype_3",
+  "prototype_4"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_ucml",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exam Questions",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "Presented Module",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "module.year",
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Year",
+   "read_only": 1
+  },
+  {
+   "fieldname": "teacher",
+   "fieldtype": "Link",
+   "label": "Teacher",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_saqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "module.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_xega",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "prototype_1",
+   "fieldtype": "Link",
+   "label": "Prototype 1",
+   "options": "Question Prototype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "prototype_2",
+   "fieldtype": "Link",
+   "label": "Prototype 2",
+   "options": "Question Prototype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "prototype_3",
+   "fieldtype": "Link",
+   "label": "Prototype 3",
+   "options": "Question Prototype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "prototype_4",
+   "fieldtype": "Link",
+   "label": "Prototype 4",
+   "options": "Question Prototype"
+  },
+  {
+   "fieldname": "first_round_selected_prototype",
+   "fieldtype": "Link",
+   "label": "First Round Selected Prototype",
+   "options": "Question Prototype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "second_round_selected_prototype",
+   "fieldtype": "Link",
+   "label": "Second Round Selected Prototype",
+   "options": "Question Prototype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "third_round_selected_prototype",
+   "fieldtype": "Link",
+   "label": "Third Round Selected Prototype",
+   "options": "Question Prototype",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mjhw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-25 15:21:50.314035",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Exam Questions",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
