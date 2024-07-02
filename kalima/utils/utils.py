@@ -104,7 +104,7 @@ def get_student_sheet( stage, department,module,semester,round):
         
         cons = frappe.get_list('Student Result Log', filters=res_filters, fields=res_fields)
         for cont in cons:
-            if(cont.type == "Class Continuous Exam"):
+            if(cont.type == "Class Continuous Exam" or cont.type == "Assignment"):
                 form_assess += cont.net_score
                 midterm += cont.midterm
             else:

@@ -131,7 +131,7 @@ async function content_manager(dont_click = false) {
                     { label: 'Title', fieldname: 'title' },
                     { label: 'From Date', fieldname: 'from_date' },
                     { label: 'Percentage', fieldname: 'percentage' },
-                    { label: 'Total in final Score', fieldname: 'total_in_final_score' }
+                    { label: 'Marked On', fieldname: 'marked_on' }
                 ];
                 await populateTable('Assignments and Tasks', contentColumn, columns);
             } else if (templateName == "exam-schedule") {
@@ -539,9 +539,9 @@ function createFormDialogNew(templateName) {
                     label: "To Date"
                 },
                 {
-                    fieldname: "total_in_final_score",
+                    fieldname: "marked_on",
                     fieldtype: "Float",
-                    label: "Total in final Score"
+                    label: "Marked On"
                 },
                 {
                     fieldname: "section_break_gahv",
@@ -563,7 +563,21 @@ function createFormDialogNew(templateName) {
 
                     ]
                 },
+                // {
+                //     label: 'Marks',
+                //     fieldname: 'assignment_marks',
+                //     fieldtype: 'Table',
+                //     cannot_add_rows: true,
+                //     in_place_edit: true,
+                //     read_only:1 ,
 
+                //     fields: [
+                //         { fieldname: 'student', fieldtype: 'Link', in_list_view: 1, label: 'Student',options:"Student",read_only:1 },
+                //         { fieldname: 'answer', fieldtype: 'Attach', in_list_view: 1, label: 'Answer',read_only:1 },
+                //         { fieldname: 'score', fieldtype: 'Float', in_list_view: 1, label: 'Score',read_only:1 },
+                //         { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 1, label: 'Net Score',read_only:1 },
+                //     ]
+                // },
             ];
         } else if (templateName == "exam-schedule") {
             fields = [
@@ -859,7 +873,7 @@ function createFormDialogNew(templateName) {
                         from_date: values.from_date,
                         to_date: values.to_date,
                         description: values.description,
-                        total_in_final_score: values.total_in_final_score,
+                        marked_on: values.marked_on,
                         assignment_files: values.assignment_files,
                         percentage: values.percentage
                     }
@@ -954,7 +968,7 @@ async function refresh(templateName, contentColumn) {
             { label: 'Title', fieldname: 'title' },
             { label: 'From Date', fieldname: 'from_date' },
             { label: 'Percentage', fieldname: 'percentage' },
-            { label: 'Total in final Score', fieldname: 'total_in_final_score' }
+            { label: 'Marked On', fieldname: 'marked_on' }
         ];
         await populateTable('Assignments and Tasks', contentColumn, columns);
     } else if (templateName == "exam-schedule") {

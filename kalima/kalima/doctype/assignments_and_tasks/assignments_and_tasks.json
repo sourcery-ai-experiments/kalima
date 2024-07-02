@@ -12,11 +12,13 @@
   "to_date",
   "column_break_kosm",
   "percentage",
-  "total_in_final_score",
+  "marked_on",
   "section_break_hymn",
   "description",
   "assignment_files",
-  "amended_from"
+  "amended_from",
+  "marks_section",
+  "assignment_marks"
  ],
  "fields": [
   {
@@ -50,11 +52,6 @@
    "label": "Percentage"
   },
   {
-   "fieldname": "total_in_final_score",
-   "fieldtype": "Float",
-   "label": "Total in final Score"
-  },
-  {
    "fieldname": "section_break_hymn",
    "fieldtype": "Section Break"
   },
@@ -78,12 +75,28 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "marks_section",
+   "fieldtype": "Section Break",
+   "label": "Marks"
+  },
+  {
+   "fieldname": "assignment_marks",
+   "fieldtype": "Table",
+   "label": "Assignment Marks",
+   "options": "Assignment Marks"
+  },
+  {
+   "fieldname": "marked_on",
+   "fieldtype": "Float",
+   "label": "Marked On"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-02 13:36:22.976540",
+ "modified": "2024-07-02 15:10:53.708273",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Assignments and Tasks",
