@@ -109,7 +109,7 @@ def submit_student_results(student_results):
 
 
 @frappe.whitelist()
-def get_student_sheet( stage, department,module,semester):
+def get_student_sheet( stage, department,module,semester,round):
     filters = {
         'stage': stage,
         'final_selected_course': department
@@ -126,27 +126,35 @@ def get_student_sheet( stage, department,module,semester):
         midterm = 0
         res_filters = {
             'student': student.name,
-            'module': module,
-            'type': "Class Continuous Exam",
+            # 'module': module,
+            # 'type': "Class Continuous Exam",
             # 'semester': semester,
             'stage': stage,
+            # 'round': round,
         }
         
-        res_fields = ['net_score', 'score', 'midterm']
+        res_fields = ['net_score', 'score', 'midterm', 'type', 'present']
+        
+        final_exam_result = 0
         
         cons = frappe.get_list('Student Result Log', filters=res_filters, fields=res_fields)
         for cont in cons:
-            form_assess += cont.net_score
-            midterm += cont.midterm
-            
+            if(cont.type == "Class Continuous Exam"):
+                form_assess += cont.net_score
+                midterm += cont.midterm
+            else:
+                final_exam_result = cont.result
+                
         std["formative_assessment"]=form_assess
         std["midterm"]=midterm
         std["name"]=student.name
+        std["present"]="Yes" if student.present == 1 else "No"
+        std["final_exam_result"]= student.final_exam_result if student.present == 1 else 0
+
+        
         
         stds.append(std)
-            
-    print("stds")
-    print(stds)
+  
     return stds
 
 def fines():
