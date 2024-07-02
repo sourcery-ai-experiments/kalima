@@ -6,6 +6,8 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
 		single_column: true
 	});
 
+	var crv = 0;
+
 	// Create a form container
 	let form = new frappe.ui.FieldGroup({
 		fields: [
@@ -60,7 +62,26 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
 				fieldname: 'round',
 				label: 'Round',
 			},
-			
+			{
+				fieldtype: 'Section Break',
+				fieldname: 'scnb',
+				label: '',
+			},
+			{
+				fieldtype: 'Float',
+				fieldname: 'curve',
+				label: 'Curve',
+				onchange: function (v) {
+                    let curve = form.get_value('curve');
+					crv = curve;
+					let stage = form.get_value('stage');
+					let department = form.get_value('department');
+					let semester = form.get_value('semester');
+					let module = form.get_value('module');
+					let round = form.get_value('round');
+					fetch_students(stage, department, semester,module,round);
+                }
+			},
 		],
 		body: page.body
 	});
@@ -111,6 +132,7 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
                             <th>Curve</th>
                             <th>Attended the Exam</th>
                             <th>Result</th>
+                            <th>Status</th>
                             <th>Notes</th>
                         </tr>
                     </thead>
@@ -119,7 +141,12 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
 
 
 		students.forEach(student => {
-			var res = student.formative_assessment +student.midterm +student.final_exam_result;
+			var res = student.formative_assessment +student.midterm +student.final_exam_result + crv;
+			var status = "Failed";
+			if(res > 49)
+				{
+					status = "Passed"
+				}
 
 			table_html += `
                 <tr>
@@ -127,9 +154,10 @@ frappe.pages['students-results'].on_page_load = function (wrapper) {
 					<td><input readonly value="${student.formative_assessment}" type="number" class="form-control final-result" placeholder="Final Result" min="0" max="40" required></td>
 					<td><input readonly value="${student.midterm}" type="number" class="form-control final-result" placeholder="Midterm" min="0" max="10" required></td>
 					<td><input readonly value="${student.final_exam_result}" type="number" class="form-control final-result" placeholder="Final" min="0" max="50" required></td>
-					<td><input readonly value="${student.formative_assessment}" type="number" class="form-control final-result" placeholder="" min="0" max="50" required></td>
+					<td><input readonly value="${crv}" type="number" class="form-control final-result" placeholder="" min="0" max="50" required></td>
 					<td><input readonly value="${student.present}" value="Yes" type="text" class="form-control final-result" required></td>
 					<td><input readonly value="${res}" value="60" type="text" class="form-control final-result" required></td>
+					<td><input readonly value="${status}" value="60" type="text" class="form-control final-result"></td>
 					<td><input type="text" class="form-control final-result" placeholder="Notes"></td>
 
                 </tr>
