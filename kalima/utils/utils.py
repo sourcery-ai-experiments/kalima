@@ -76,6 +76,7 @@ def submit_student_results(student_results):
             'student': result["student_name"],
             'module': result["module"],
             'teacher': result["teacher"],
+            'round': result["round"],
 
             'exam_max_result': result["exam_mark"],
             'result':result["final_result"],
@@ -126,14 +127,12 @@ def get_student_sheet( stage, department,module,semester,round):
         midterm = 0
         res_filters = {
             'student': student.name,
-            # 'module': module,
-            # 'type': "Class Continuous Exam",
-            # 'semester': semester,
+            'module': module,
             'stage': stage,
-            # 'round': round,
         }
         
-        res_fields = ['net_score', 'score', 'midterm', 'type', 'present']
+            
+        res_fields = ['net_score', 'score', 'round', 'midterm', 'type', 'present']
         
         final_exam_result = 0
         
@@ -143,13 +142,14 @@ def get_student_sheet( stage, department,module,semester,round):
                 form_assess += cont.net_score
                 midterm += cont.midterm
             else:
-                final_exam_result = cont.result
+                if cont.round == round:
+                    final_exam_result = cont.result
                 
         std["formative_assessment"]=form_assess
         std["midterm"]=midterm
         std["name"]=student.name
         std["present"]="Yes" if student.present == 1 else "No"
-        std["final_exam_result"]= student.final_exam_result if student.present == 1 else 0
+        std["final_exam_result"]= final_exam_result if student.present == 1 else 0
 
         
         

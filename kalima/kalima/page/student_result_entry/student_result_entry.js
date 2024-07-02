@@ -59,10 +59,10 @@ frappe.pages['student-result-entry'].on_page_load = function (wrapper) {
                 read_only: 1
             },
             {
-                fieldtype: 'Data',
+                fieldtype: 'Select',
                 fieldname: 'round',
                 label: 'Round',
-                read_only: 1
+                options: 'First\nSecond\nThird',
             },
         ],
         body: page.body
@@ -167,6 +167,7 @@ frappe.pages['student-result-entry'].on_page_load = function (wrapper) {
             let prototype = form.get_value('Prototype');
             let module = form.get_value('module');
             let teacher = form.get_value('teacher');
+            let round = form.get_value('round');
             let student_results = [];
             let valid = true;
 
@@ -186,6 +187,7 @@ frappe.pages['student-result-entry'].on_page_load = function (wrapper) {
                     cheating: $(this).find('input[type=checkbox]').prop('checked') ? 'Yes' : 'No',
                     status: $(this).find('select.status').val(),
                     prototype: prototype,
+                    round: round,
                     module: module,
                     teacher: teacher
                 };
