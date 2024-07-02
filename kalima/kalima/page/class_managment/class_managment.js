@@ -596,13 +596,16 @@ function createFormDialogNew(templateName) {
                     label: "Class",
                     default: selected_class,
                     read_only: 1,
+                    hidden:1,
                     options: "Class"
                 }, {
                     fieldname: "teacher",
                     fieldtype: "Link",
                     label: "Teacher",
-                    default: selectedTeacher, read_only: 1,
-                    options: "Employee"
+                    default: selectedTeacher, 
+                    read_only: 1,
+                    options: "Employee",
+                    hidden:1
                 },
                 {
                     fieldname: "year",
@@ -610,7 +613,10 @@ function createFormDialogNew(templateName) {
                     in_list_view: 1,
                     label: "Year",
                     options: "Educational Year",
-                    reqd: 1
+                    reqd: 1,
+                    default: current_class.year, 
+
+                    hidden:1
                 },
                 {
                     fieldname: "department",
@@ -618,6 +624,14 @@ function createFormDialogNew(templateName) {
                     in_list_view: 1,
                     label: "Department",
                     options: "Faculty Department",
+                    reqd: 1,
+                    default: current_class.department, 
+                    hidden:1
+                },  {
+                    fieldname: "date",
+                    fieldtype: "Date",
+                    label: "Date",
+                    default: frappe.datetime.nowdate(),
                     reqd: 1
                 },
                 {
@@ -628,24 +642,28 @@ function createFormDialogNew(templateName) {
                     fieldname: "module",
                     fieldtype: "Link",
                     label: "Presented Module",
-                    options: "Presented Module"
+                    options: "Presented Module",
+                    hidden:1,
+                    default: current_class.module, 
+
                 },
-                {
-                    fieldname: "date",
-                    fieldtype: "Date",
-                    label: "Date",
-                    reqd: 1
-                },
+              
                 {
                     fieldname: "semester",
                     fieldtype: "Select",
                     label: "Semester",
-                    options: "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+                    options: "Fall Semester\nSprint Semester\nShort Semester\nAnnual",
+                    hidden:1,
+                    default: current_class.semester, 
+
                 }, {
                     fieldname: "stage",
                     fieldtype: "Select",
                     label: "Stage",
-                    options: "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+                    options: "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna",
+                    hidden:1,
+                    default: current_class.stage, 
+
                 },
                 {
                     fieldname: "section_break_fsrg",
