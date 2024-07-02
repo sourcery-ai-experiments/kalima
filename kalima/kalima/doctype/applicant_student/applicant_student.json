@@ -268,7 +268,7 @@
    "fieldname": "province",
    "fieldtype": "Link",
    "label": "Province",
-   "options": "Province"
+   "options": "Territory"
   },
   {
    "fieldname": "document_date",
@@ -763,7 +763,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-29 13:22:22.879661",
+ "modified": "2024-07-02 15:59:45.129579",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Applicant Student",
