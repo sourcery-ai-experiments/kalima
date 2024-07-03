@@ -56,7 +56,7 @@ def admit_student(doc_name, department, study_system):
                 else applicant_doc.email
             ),
             "first_name": applicant_doc.first_name,
-            "last_name": applicant_doc.sure_name,
+            "last_name": applicant_doc.last_name,
             "roles": [{"role": "Student"}],
         }
     )

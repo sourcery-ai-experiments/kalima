@@ -899,7 +899,7 @@
    "options": "Dismissed\nGraduated\nHosted from\nHosted to\nTransferred from\nTransferred To\nUnder graduation\nDrop-out"
   },
   {
-   "depends_on": "eval:(doc.study_status == \"Hosted from\" ||doc.study_status == \"Hosted to\" || doc.study_status == \"Transfer from\" ||doc.study_status == \"Transfer To\" )",
+   "depends_on": "eval:(doc.study_status == \"Hosted from\" ||doc.study_status == \"Hosted to\" || doc.study_status == \"Transferred from\" ||doc.study_status == \"Transferred To\" )",
    "fieldname": "further_information",
    "fieldtype": "Data",
    "label": "Further Information"
@@ -907,7 +907,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-03 11:49:56.911769",
+ "modified": "2024-07-03 12:45:38.803130",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

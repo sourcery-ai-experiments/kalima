@@ -16,7 +16,8 @@
   "year",
   "system_type",
   "semester",
-  "description"
+  "description",
+  "amended_from"
  ],
  "fields": [
   {
@@ -38,8 +39,9 @@
   },
   {
    "fieldname": "department",
-   "fieldtype": "Data",
-   "label": "Department"
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Faculty Department"
   },
   {
    "fieldname": "date",
@@ -77,11 +79,22 @@
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Transfer",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 13:27:59.249088",
+ "modified": "2024-07-03 12:49:02.936483",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Transfer",
