@@ -158,3 +158,24 @@ def fines():
             fine_doc.insert()
             frappe.db.commit()
             
+
+
+@frappe.whitelist()
+def get_student_classes(student_name):
+    query = """
+        SELECT sae.name
+        FROM `tabClass` sae
+        JOIN `tabClass Students` sad
+        ON sae.name = sad.parent
+        WHERE sad.student = %s
+    """
+    
+    # Execute the SQL query
+    records = frappe.db.sql(query, (student_name,), as_dict=True)
+    print(records)
+    lst = []
+    for r in records:
+        lst.append(r["name"])
+        
+    return lst
+    

@@ -1,7 +1,6 @@
 var selected_student = "حامد حامد حامد حامد" ;
-var selectedTeacher;
-var current_class;
 var naming_maps = {};
+var student_classes = [];
 
 frappe.pages['student-portal'].on_page_load = async function (wrapper) {
     var page = frappe.ui.make_app_page({
@@ -16,8 +15,23 @@ frappe.pages['student-portal'].on_page_load = async function (wrapper) {
     $container.html(main_template);
 
     // await get_current_user_student();
+    await get_classes();
     await content_manager();
 }
+async function get_classes() {
+
+    let response = await frappe.call({
+        method: 'kalima.utils.utils.get_student_classes',
+        args:
+        {
+            student_name:selected_student
+        }
+    });
+    if (response.message) {
+        student_classes = response.message;
+    }
+}
+
 
 async function content_manager(dont_click = false) {
     var contentColumn = document.querySelector("#content");
@@ -51,6 +65,28 @@ async function content_manager(dont_click = false) {
                 await exam_results(contentColumn);
             }
 
+            if (template === 'lecture-schedule') {
+                const columns = [
+                    { label: 'Class', fieldname: 'class' },
+                    { label: 'Day', fieldname: 'day' },
+                    { label: 'Start', fieldname: 'start' },
+                    { label: 'Finish', fieldname: 'finish' }
+                ];
+                await populateTable('Class Timetable', contentColumn, columns);
+            }
+
+            if (template === 'modules') {
+                const columns = [
+                    { label: 'Class', fieldname: 'class' },
+                    { label: 'Title', fieldname: 'title' },
+                ];
+                await populateTable('Class Session', contentColumn, columns);
+            }
+
+            if (template === 'tasks') {
+                await populateTable('Exam Schedule', contentColumn, columns);
+            }
+
 
 
         });
@@ -61,6 +97,95 @@ async function content_manager(dont_click = false) {
             btn.click();
         });
     }
+}
+
+async function populateTable(doctype, container, columns) {
+    // Fetch data from Frappe
+    const data = await frappe.call({
+        method: 'frappe.client.get_list',
+        args: {
+            doctype: doctype,
+            filters:{
+                'class': ['in',student_classes]
+            },
+            fields: ['name', ...columns.map(col => col.fieldname)],
+            // limit_page_length: 15
+        }
+    });
+
+    console.log("data");
+    console.log(data);
+
+    // Create table elements
+    const table = document.createElement('table');
+    table.classList.add('table', 'border', 'rounded', 'table-hover');
+    table.style.borderRadius = '30px';  // Adjust the value as needed
+
+    const thead = document.createElement('thead');
+    const tr = document.createElement('tr');
+
+    const th = document.createElement('th');
+    th.scope = 'col';
+    th.textContent = "#";
+    tr.appendChild(th);
+
+    // Create table header
+    columns.forEach(col => {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        th.textContent = col.label;
+        tr.appendChild(th);
+    });
+
+    // Add "Edit" column header
+    const editTh = document.createElement('th');
+    editTh.scope = 'col';
+    editTh.textContent = 'Edit';
+    tr.appendChild(editTh);
+
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    // Populate table rows
+    data.message.forEach((row, index) => {
+        const tr = document.createElement('tr');
+        tr.classList.add('clickable-row');
+
+        tr.addEventListener('click', () => {
+            frappe.open_in_new_tab = true;
+            frappe.set_route(`/app/${toKebabCase(doctype)}/${row.name}`);
+        });
+
+        const th = document.createElement('th');
+        th.scope = 'row';
+        th.textContent = index + 1;
+        tr.appendChild(th);
+
+        columns.forEach(col => {
+            const td = document.createElement('td');
+            td.textContent = row[col.fieldname] || '';
+            tr.appendChild(td);
+        });
+
+        // Add "Edit" column
+        const editTd = document.createElement('td');
+        const editButton = document.createElement('button');
+        editButton.classList.add('btn', 'btn-primary', 'btn-sm');
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', () => {
+            // Add your edit functionality here
+            console.log(`Editing row ${index + 1}`);
+        });
+        editTd.appendChild(editButton);
+        tr.appendChild(editTd);
+
+        tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
 }
 
 async function get_current_user_student() {
@@ -242,3 +367,9 @@ function createTable(records, columns) {
     return table;
 }
 
+
+
+
+function toKebabCase(str) {
+    return str.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
+}

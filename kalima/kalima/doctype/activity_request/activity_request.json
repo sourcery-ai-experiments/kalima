@@ -19,7 +19,8 @@
   "activity_deliverers",
   "participants_type",
   "departments",
-  "staff_activity_list"
+  "staff_activity_list",
+  "amended_from"
  ],
  "fields": [
   {
@@ -71,7 +72,7 @@
   {
    "fieldname": "activity_deliverers",
    "fieldtype": "Table",
-   "label": "Activity Deliverers",
+   "label": "Activity Speakers",
    "options": "Activity Deliverers"
   },
   {
@@ -102,11 +103,22 @@
    "fieldtype": "Table",
    "label": "Staff Activity List",
    "options": "Staff Activity List"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Activity Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-11 12:07:18.683899",
+ "modified": "2024-07-03 15:19:11.488846",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Request",

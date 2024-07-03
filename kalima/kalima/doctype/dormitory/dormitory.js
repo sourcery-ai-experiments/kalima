@@ -1,8 +1,18 @@
-// Copyright (c) 2024, e2next and contributors
-// For license information, please see license.txt
+frappe.ui.form.on("Dormitory", {
+    async hostel(frm) {
+        if (frm.doc.hostel) {
+            var hostel = await frappe.db.get_doc("Hostel", frm.doc.hostel);
 
-// frappe.ui.form.on("Dormitory", {
-// 	refresh(frm) {
+            // frappe.model.clear_table('rooms');
+            let options = [];
 
-// 	},
-// });
+            hostel.rooms_list.forEach(element => {
+                options.push(element.title);
+            });
+            frm.set_df_property("room", 'options', options.join('\n'));
+            frm.refresh_field("room");
+        }
+    }
+});
+
+
