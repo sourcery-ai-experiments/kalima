@@ -148,6 +148,7 @@ async function content_manager(dont_click = false) {
                 await populateTable('Student Attendance Entry', contentColumn, columns);
             } else if (templateName == "time-table") {
                 const columns = [
+                    { label: 'Class', fieldname: 'class' },
                     { label: 'Day', fieldname: 'day' },
                     { label: 'Start', fieldname: 'start' },
                     { label: 'Finish', fieldname: 'finish' }
@@ -183,6 +184,7 @@ async function populateTable(doctype, container, columns) {
     // Create table elements
     const table = document.createElement('table');
     table.classList.add('table', 'border', 'rounded', 'table-hover');
+    table.style.borderRadius = '30px';  // Adjust the value as needed
 
     const thead = document.createElement('thead');
     const tr = document.createElement('tr');
@@ -255,6 +257,7 @@ async function populateStudents(container) {
     // Create table elements
     const table = document.createElement('table');
     table.classList.add('table', 'border', 'rounded', 'table-hover');
+    table.style.borderRadius = '30px';  // Adjust the value as needed
 
     const thead = document.createElement('thead');
     const tr = document.createElement('tr');
@@ -741,15 +744,13 @@ function createFormDialogNew(templateName) {
                 {
                     fieldname: "class",
                     fieldtype: "Link",
-                    default: selected_class, read_only: 1,
-
+                    // default: selected_class, read_only: 1,
                     label: "Class",
                     options: "Class"
                 }, {
                     fieldname: "teacher",
                     fieldtype: "Link",
                     default: selectedTeacher, read_only: 1,
-
                     label: "Teacher",
                     options: "Employee"
                 },
@@ -932,6 +933,30 @@ function createFormDialogNew(templateName) {
 
         d.show();
     });
+    const btn = $('<button class="btn btn-info border hover">View List</button>').appendTo(parent);
+    btn.click(async function () {
+        const encodedClass = encodeURIComponent(selected_class);
+        
+        let url = "";
+        if (templateName == "attendance-entry") {
+            url = `/app/student-attendance-entry?class=${encodedClass}`;
+        } else if (templateName == "sessions-list") {
+            url = `/app/class-session?class=${encodedClass}`;
+        } else if (templateName == "continuous-exam-list") {
+            url = `/app/class-continuous-exam?class=${encodedClass}`;
+        } else if (templateName == "assignment-list") {
+            url = `/app/assignments-and-tasks?class=${encodedClass}`;
+        } else if (templateName == "exam-schedule") {
+            url = `/app/exam-schedule?class=${encodedClass}`;
+        } else if (templateName == "time-table") {
+            url = `/app/class-timetable?class=${encodedClass}`;
+        }
+    
+        if (url !== "") {
+            window.open(url, '_blank');
+        }
+    });
+    
 }
 
 
@@ -985,6 +1010,7 @@ async function refresh(templateName, contentColumn) {
         await populateTable('Student Attendance Entry', contentColumn, columns);
     } else if (templateName == "time-table") {
         const columns = [
+            { label: 'Class', fieldname: 'class' },
             { label: 'Day', fieldname: 'day' },
             { label: 'Start', fieldname: 'start' },
             { label: 'Finish', fieldname: 'finish' }
