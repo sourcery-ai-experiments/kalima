@@ -6,6 +6,15 @@ from frappe.model.document import Document
 
 
 class Student(Document):
+	def before_save(doc):
+		ttl=0
+		for r in doc.ministry_exam_results:
+			ttl += r.mark
+   
+		doc.total = ttl
+		doc.final_average = ttl/len(doc.ministry_exam_results)
+			
+
 	def after_save(doc):
 		# user = frappe.get_doc("User", doc.user)
 		if(doc.password != None and doc.password != ""):
