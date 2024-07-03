@@ -29,12 +29,13 @@
   {
    "fieldname": "time",
    "fieldtype": "Time",
-   "label": "Time"
+   "label": "Time",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:46:11.342514",
+ "modified": "2024-07-03 15:50:42.007894",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Schedule",

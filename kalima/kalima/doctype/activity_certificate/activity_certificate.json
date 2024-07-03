@@ -10,7 +10,9 @@
   "participant",
   "issue_date",
   "column_break_bwzt",
-  "cerificate"
+  "cerificate",
+  "status",
+  "amended_from"
  ],
  "fields": [
   {
@@ -21,9 +23,8 @@
   },
   {
    "fieldname": "participant",
-   "fieldtype": "Link",
-   "label": "Participant",
-   "options": "Activity Participant"
+   "fieldtype": "Data",
+   "label": "Participant"
   },
   {
    "fieldname": "issue_date",
@@ -40,11 +41,28 @@
   {
    "fieldname": "column_break_bwzt",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Delivered\nNot delivered"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Activity Certificate",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 12:39:40.764002",
+ "modified": "2024-07-03 15:50:09.277581",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Certificate",

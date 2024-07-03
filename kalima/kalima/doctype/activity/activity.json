@@ -18,7 +18,8 @@
   "description",
   "section_break_cfjo",
   "activity_participants_list",
-  "requirements"
+  "requirements",
+  "amended_from"
  ],
  "fields": [
   {
@@ -86,7 +87,7 @@
    "fieldname": "activity_execution",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Activity Execution",
+   "label": "Activity Coordination",
    "options": "Activity Coordination",
    "reqd": 1
   },
@@ -95,11 +96,22 @@
    "fieldtype": "Table",
    "label": "Requirements",
    "options": "Activity Requirements"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Activity",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-11 12:13:07.483481",
+ "modified": "2024-07-03 15:48:09.541434",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity",
