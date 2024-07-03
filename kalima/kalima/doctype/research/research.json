@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Research-{author}-{#####}",
+ "creation": "2024-07-02 14:41:28.519028",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "author",
+  "benefit",
+  "publishing_channel",
+  "status",
+  "attachments",
+  "column_break_drrj",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Link",
+   "label": "Author",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "benefit",
+   "fieldtype": "Select",
+   "label": "Benefit",
+   "options": "Effective\nIneffective"
+  },
+  {
+   "fieldname": "publishing_channel",
+   "fieldtype": "Data",
+   "label": "Publishing Channel"
+  },
+  {
+   "fieldname": "column_break_drrj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Finished\nNot Finished\nUnder Publication\nPublished\nNot Published"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-02 14:45:13.690611",
+ "modified_by": "Administrator",
+ "module": "Kalima",
+ "name": "Research",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

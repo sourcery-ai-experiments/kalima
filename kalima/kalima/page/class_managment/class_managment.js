@@ -131,7 +131,7 @@ async function content_manager(dont_click = false) {
                     { label: 'Title', fieldname: 'title' },
                     { label: 'From Date', fieldname: 'from_date' },
                     { label: 'Percentage', fieldname: 'percentage' },
-                    { label: 'Total in final Score', fieldname: 'total_in_final_score' }
+                    { label: 'Marked On', fieldname: 'marked_on' }
                 ];
                 await populateTable('Assignments and Tasks', contentColumn, columns);
             } else if (templateName == "exam-schedule") {
@@ -148,6 +148,7 @@ async function content_manager(dont_click = false) {
                 await populateTable('Student Attendance Entry', contentColumn, columns);
             } else if (templateName == "time-table") {
                 const columns = [
+                    { label: 'Class', fieldname: 'class' },
                     { label: 'Day', fieldname: 'day' },
                     { label: 'Start', fieldname: 'start' },
                     { label: 'Finish', fieldname: 'finish' }
@@ -183,6 +184,7 @@ async function populateTable(doctype, container, columns) {
     // Create table elements
     const table = document.createElement('table');
     table.classList.add('table', 'border', 'rounded', 'table-hover');
+    table.style.borderRadius = '30px';  // Adjust the value as needed
 
     const thead = document.createElement('thead');
     const tr = document.createElement('tr');
@@ -255,6 +257,7 @@ async function populateStudents(container) {
     // Create table elements
     const table = document.createElement('table');
     table.classList.add('table', 'border', 'rounded', 'table-hover');
+    table.style.borderRadius = '30px';  // Adjust the value as needed
 
     const thead = document.createElement('thead');
     const tr = document.createElement('tr');
@@ -539,9 +542,9 @@ function createFormDialogNew(templateName) {
                     label: "To Date"
                 },
                 {
-                    fieldname: "total_in_final_score",
+                    fieldname: "marked_on",
                     fieldtype: "Float",
-                    label: "Total in final Score"
+                    label: "Marked On"
                 },
                 {
                     fieldname: "section_break_gahv",
@@ -563,7 +566,21 @@ function createFormDialogNew(templateName) {
 
                     ]
                 },
+                // {
+                //     label: 'Marks',
+                //     fieldname: 'assignment_marks',
+                //     fieldtype: 'Table',
+                //     cannot_add_rows: true,
+                //     in_place_edit: true,
+                //     read_only:1 ,
 
+                //     fields: [
+                //         { fieldname: 'student', fieldtype: 'Link', in_list_view: 1, label: 'Student',options:"Student",read_only:1 },
+                //         { fieldname: 'answer', fieldtype: 'Attach', in_list_view: 1, label: 'Answer',read_only:1 },
+                //         { fieldname: 'score', fieldtype: 'Float', in_list_view: 1, label: 'Score',read_only:1 },
+                //         { fieldname: 'net_score', fieldtype: 'Float', in_list_view: 1, label: 'Net Score',read_only:1 },
+                //     ]
+                // },
             ];
         } else if (templateName == "exam-schedule") {
             fields = [
@@ -596,13 +613,16 @@ function createFormDialogNew(templateName) {
                     label: "Class",
                     default: selected_class,
                     read_only: 1,
+                    hidden:1,
                     options: "Class"
                 }, {
                     fieldname: "teacher",
                     fieldtype: "Link",
                     label: "Teacher",
-                    default: selectedTeacher, read_only: 1,
-                    options: "Employee"
+                    default: selectedTeacher, 
+                    read_only: 1,
+                    options: "Employee",
+                    hidden:1
                 },
                 {
                     fieldname: "year",
@@ -610,7 +630,10 @@ function createFormDialogNew(templateName) {
                     in_list_view: 1,
                     label: "Year",
                     options: "Educational Year",
-                    reqd: 1
+                    reqd: 1,
+                    default: current_class.year, 
+
+                    hidden:1
                 },
                 {
                     fieldname: "department",
@@ -618,6 +641,14 @@ function createFormDialogNew(templateName) {
                     in_list_view: 1,
                     label: "Department",
                     options: "Faculty Department",
+                    reqd: 1,
+                    default: current_class.department, 
+                    hidden:1
+                },  {
+                    fieldname: "date",
+                    fieldtype: "Date",
+                    label: "Date",
+                    default: frappe.datetime.nowdate(),
                     reqd: 1
                 },
                 {
@@ -628,24 +659,28 @@ function createFormDialogNew(templateName) {
                     fieldname: "module",
                     fieldtype: "Link",
                     label: "Presented Module",
-                    options: "Presented Module"
+                    options: "Presented Module",
+                    hidden:1,
+                    default: current_class.module, 
+
                 },
-                {
-                    fieldname: "date",
-                    fieldtype: "Date",
-                    label: "Date",
-                    reqd: 1
-                },
+              
                 {
                     fieldname: "semester",
                     fieldtype: "Select",
                     label: "Semester",
-                    options: "Fall Semester\nSprint Semester\nShort Semester\nAnnual"
+                    options: "Fall Semester\nSprint Semester\nShort Semester\nAnnual",
+                    hidden:1,
+                    default: current_class.semester, 
+
                 }, {
                     fieldname: "stage",
                     fieldtype: "Select",
                     label: "Stage",
-                    options: "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna"
+                    options: "First Year\nSecond Year\nThird Year\nFourth Year\nFifth Year\nBologna",
+                    hidden:1,
+                    default: current_class.stage, 
+
                 },
                 {
                     fieldname: "section_break_fsrg",
@@ -709,15 +744,13 @@ function createFormDialogNew(templateName) {
                 {
                     fieldname: "class",
                     fieldtype: "Link",
-                    default: selected_class, read_only: 1,
-
+                    // default: selected_class, read_only: 1,
                     label: "Class",
                     options: "Class"
                 }, {
                     fieldname: "teacher",
                     fieldtype: "Link",
                     default: selectedTeacher, read_only: 1,
-
                     label: "Teacher",
                     options: "Employee"
                 },
@@ -841,7 +874,7 @@ function createFormDialogNew(templateName) {
                         from_date: values.from_date,
                         to_date: values.to_date,
                         description: values.description,
-                        total_in_final_score: values.total_in_final_score,
+                        marked_on: values.marked_on,
                         assignment_files: values.assignment_files,
                         percentage: values.percentage
                     }
@@ -900,6 +933,30 @@ function createFormDialogNew(templateName) {
 
         d.show();
     });
+    const btn = $('<button class="btn btn-info border hover">View List</button>').appendTo(parent);
+    btn.click(async function () {
+        const encodedClass = encodeURIComponent(selected_class);
+        
+        let url = "";
+        if (templateName == "attendance-entry") {
+            url = `/app/student-attendance-entry?class=${encodedClass}`;
+        } else if (templateName == "sessions-list") {
+            url = `/app/class-session?class=${encodedClass}`;
+        } else if (templateName == "continuous-exam-list") {
+            url = `/app/class-continuous-exam?class=${encodedClass}`;
+        } else if (templateName == "assignment-list") {
+            url = `/app/assignments-and-tasks?class=${encodedClass}`;
+        } else if (templateName == "exam-schedule") {
+            url = `/app/exam-schedule?class=${encodedClass}`;
+        } else if (templateName == "time-table") {
+            url = `/app/class-timetable?class=${encodedClass}`;
+        }
+    
+        if (url !== "") {
+            window.open(url, '_blank');
+        }
+    });
+    
 }
 
 
@@ -936,7 +993,7 @@ async function refresh(templateName, contentColumn) {
             { label: 'Title', fieldname: 'title' },
             { label: 'From Date', fieldname: 'from_date' },
             { label: 'Percentage', fieldname: 'percentage' },
-            { label: 'Total in final Score', fieldname: 'total_in_final_score' }
+            { label: 'Marked On', fieldname: 'marked_on' }
         ];
         await populateTable('Assignments and Tasks', contentColumn, columns);
     } else if (templateName == "exam-schedule") {
@@ -953,6 +1010,7 @@ async function refresh(templateName, contentColumn) {
         await populateTable('Student Attendance Entry', contentColumn, columns);
     } else if (templateName == "time-table") {
         const columns = [
+            { label: 'Class', fieldname: 'class' },
             { label: 'Day', fieldname: 'day' },
             { label: 'Start', fieldname: 'start' },
             { label: 'Finish', fieldname: 'finish' }

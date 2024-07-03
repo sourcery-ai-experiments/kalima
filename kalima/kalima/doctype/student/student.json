@@ -277,7 +277,7 @@
    "fieldname": "province",
    "fieldtype": "Link",
    "label": "Province",
-   "options": "Province"
+   "options": "Territory"
   },
   {
    "fieldname": "number_of_materials",
@@ -893,7 +893,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-29 11:32:11.526743",
+ "modified": "2024-07-02 16:00:10.791990",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",
