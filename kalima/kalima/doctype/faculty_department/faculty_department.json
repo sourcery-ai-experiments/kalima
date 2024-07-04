@@ -36,7 +36,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "faculty.arabic_title",
    "fieldname": "arabic_title",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -90,7 +89,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-08 14:54:27.099583",
+ "modified": "2024-07-04 09:10:35.700828",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Faculty Department",
