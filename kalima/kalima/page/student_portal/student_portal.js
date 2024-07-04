@@ -14,7 +14,7 @@ frappe.pages['student-portal'].on_page_load = async function (wrapper) {
     var $container = $(wrapper).find('.layout-main-section');
     $container.html(main_template);
 
-    // await get_current_user_student();
+    await get_current_user_student();
     await get_classes();
     await content_manager();
 }
