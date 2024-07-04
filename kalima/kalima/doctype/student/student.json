@@ -16,6 +16,8 @@
   "full_name_in_arabic",
   "mother_name",
   "email",
+  "study_status",
+  "further_information",
   "column_break_aqxi",
   "gender",
   "nationality",
@@ -277,7 +279,7 @@
    "fieldname": "province",
    "fieldtype": "Link",
    "label": "Province",
-   "options": "Province"
+   "options": "Territory"
   },
   {
    "fieldname": "number_of_materials",
@@ -889,11 +891,23 @@
    "fieldtype": "Link",
    "label": "Discount Type",
    "options": "Constant"
+  },
+  {
+   "fieldname": "study_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Dismissed\nGraduated\nHosted from\nHosted to\nTransferred from\nTransferred To\nUnder graduation\nDrop-out"
+  },
+  {
+   "depends_on": "eval:(doc.study_status == \"Hosted from\" ||doc.study_status == \"Hosted to\" || doc.study_status == \"Transferred from\" ||doc.study_status == \"Transferred To\" )",
+   "fieldname": "further_information",
+   "fieldtype": "Data",
+   "label": "Further Information"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-29 11:32:11.526743",
+ "modified": "2024-07-03 12:45:38.803130",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

@@ -11,8 +11,10 @@
   "leave_date",
   "column_break_tgld",
   "description",
+  "section_break_dkvz",
   "hostel",
-  "room"
+  "room",
+  "amended_from"
  ],
  "fields": [
   {
@@ -47,15 +49,29 @@
    "options": "Hostel"
   },
   {
-   "fetch_from": "hostel.address",
+   "fieldname": "section_break_dkvz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Dormitory",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
    "fieldname": "room",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "label": "Room"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 13:03:30.256382",
+ "modified": "2024-07-03 14:05:13.153920",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Dormitory",

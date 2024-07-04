@@ -8,7 +8,8 @@
  "field_order": [
   "request",
   "venue",
-  "activity_requirements"
+  "activity_requirements",
+  "amended_from"
  ],
  "fields": [
   {
@@ -30,11 +31,22 @@
    "fieldtype": "Table",
    "label": "Activity Requirements",
    "options": "Activity Requirements"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Activity Coordination",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-10 12:59:09.713601",
+ "modified": "2024-07-03 15:38:07.546094",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Coordination",

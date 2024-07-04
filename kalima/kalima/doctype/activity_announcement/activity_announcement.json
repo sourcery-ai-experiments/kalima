@@ -14,7 +14,8 @@
   "description",
   "section_break_ilot",
   "participants_type",
-  "departments"
+  "departments",
+  "amended_from"
  ],
  "fields": [
   {
@@ -44,7 +45,7 @@
   {
    "fieldname": "activity_deliverers",
    "fieldtype": "Table",
-   "label": "Activity Deliverers",
+   "label": "Activity Speakers",
    "options": "Activity Deliverers"
   },
   {
@@ -52,13 +53,6 @@
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Activity Date"
-  },
-  {
-   "fetch_from": "activity_request.participants_type",
-   "fieldname": "participants_type",
-   "fieldtype": "Select",
-   "label": "Participants Type",
-   "options": "General\nStaff\nDepartments"
   },
   {
    "fieldname": "departments",
@@ -69,11 +63,28 @@
   {
    "fieldname": "section_break_ilot",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Activity Announcement",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "participants_type",
+   "fieldtype": "Select",
+   "label": "Participants Type",
+   "options": "General\nStaff\nDepartments"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-11 12:12:53.357470",
+ "modified": "2024-07-03 15:37:20.626005",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Announcement",

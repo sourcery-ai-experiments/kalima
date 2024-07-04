@@ -25,16 +25,23 @@ frappe.ui.form.on("Students Fees", {
 
             for (let element of students) {
                 var discount_type = await frappe.db.get_value("Constant", element.discount, 'type');
-                var discount_value;
-                if (discount_type.message.type == "Percentage") {
-                    discount_value = await frappe.db.get_value("Constant", element.discount, 'percentage');
-                    discount_value = frm.doc.fee_amount * (discount_value.message.percentage / 100);
-                }
-                else {
-                    discount_value = await frappe.db.get_value("Constant", element.discount, 'amount');
-                    discount_value = discount_value.message.amount;
+                var discount_value = 0;
+                console.log("discount_type.message");
+                console.log(discount_type.message);
+                if (discount_type.message != undefined) {
+                    if (discount_type.message.type == "Percentage") {
+                        discount_value = await frappe.db.get_value("Constant", element.discount, 'percentage');
+                        discount_value = frm.doc.fee_amount * (discount_value.message.percentage / 100);
+                    }
+                    else {
+                        discount_value = await frappe.db.get_value("Constant", element.discount, 'amount');
+                        discount_value = discount_value.message.amount;
+                    }
+                } else {
 
                 }
+
+
                 var amnt_aftr_disc = frm.doc.fee_amount;
                 if (discount_value != null) {
                     amnt_aftr_disc -= discount_value;
@@ -100,6 +107,24 @@ frappe.ui.form.on("Students Fees", {
                 "color": "white",
             });
         }
+
+        // frm.fields_dict['students_fees'].grid.wrapper.on('change', 'input[data-fieldname="amount"]', function (e) {
+        //     console.log("ro333w");
+
+        //     frm.doc.students_fees.forEach(element => {
+        //         // Get the current row
+        //         // let $row = $(this).closest('.grid-row');
+        //         // let row = frm.fields_dict['assignment_marks'].grid.grid_rows[$row.index()].doc;
+        //         console.log("row");
+        //         console.log(element);
+
+        //         var discount = frappe.db.get_doc("Constant", row.discount_type);
+        //         console.log(discount.amount);
+        //         // row
+
+        //     });
+        // });
+
     },
 });
 

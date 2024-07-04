@@ -59,7 +59,28 @@ frappe.ui.form.on("Applicant Student", {
                 "color": "white",
             });
         }
+
+        frm.fields_dict['ministry_exam_results'].grid.wrapper.on('change', 'input[data-fieldname="mark"]', function (e) {
+            if (frm.doc.ministry_exam_results.length > 0) {
+
+                var ttl = 0;
+                frm.doc.ministry_exam_results.forEach(element => {
+                    ttl += element.mark;
+
+                });
+                frm.doc.total = ttl;
+                frm.doc.average = ttl / frm.doc.ministry_exam_results.length;
+
+                frm.set_value('total', ttl);
+                frm.set_value('average', ttl / frm.doc.ministry_exam_results.length);
+
+                frm.refresh_field('total');
+                frm.refresh_field('average');
+            }
+        });
+
     },
+
     validate(frm) {
         if (frm.doc.prefered_departments.length > 4) {
             frappe.throw(__('You can Only Select 4 departments'))

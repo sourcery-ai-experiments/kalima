@@ -52,5 +52,21 @@ frappe.ui.form.on("Activity Announcement", {
             });
         }
 
+
+
+    },
+    async activity_request(frm) {
+        frm.clear_table('activity_deliverers');
+
+        var req = await frappe.db.get_doc("Activity Request",frm.doc.activity_request);
+        req.activity_deliverers.forEach(element => {
+            var new_row = frm.add_child('activity_deliverers', {
+                'speaker': element.speaker
+            });
+
+            
+        });
+        frm.refresh_field('activity_deliverers');
+
     }
 });

@@ -16,9 +16,10 @@
    "unique": 1
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-23 21:42:24.321037",
+ "modified": "2024-07-03 15:51:48.290108",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Week Day",

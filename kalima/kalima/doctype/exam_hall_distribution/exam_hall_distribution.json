@@ -19,7 +19,8 @@
   "students",
   "student_distro",
   "distribution_section",
-  "distribution"
+  "distribution",
+  "amended_from"
  ],
  "fields": [
   {
@@ -105,11 +106,22 @@
    "label": "Student Distro",
    "options": "Student Distro",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exam Hall Distribution",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-24 14:52:28.429678",
+ "modified": "2024-07-03 15:52:19.522656",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Hall Distribution",
