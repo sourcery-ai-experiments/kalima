@@ -1,19 +1,19 @@
 {
  "content": null,
- "creation": "2024-06-26 11:34:26.830091",
+ "creation": "2024-07-04 15:30:54.355908",
  "docstatus": 0,
  "doctype": "Page",
  "idx": 0,
- "modified": "2024-06-26 11:34:26.830091",
+ "modified": "2024-07-04 15:31:13.932396",
  "modified_by": "Administrator",
  "module": "Kalima",
- "name": "students-results",
+ "name": "student-result-sheet-1",
  "owner": "Administrator",
- "page_name": "students-results",
+ "page_name": "student-result-sheet-1",
  "roles": [],
  "script": null,
  "standard": "Yes",
  "style": null,
  "system_page": 0,
- "title": "Final Students Results"
+ "title": "Student Result Sheet"
 }

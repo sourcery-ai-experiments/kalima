@@ -98,26 +98,26 @@ def get_student_sheet( stage, department,module,semester,round):
         }
         
             
-        res_fields = ['net_score', 'score', 'round', 'midterm', 'type', 'present']
+        res_fields = ['net_score', 'score','result', 'round', 'midterm', 'type', 'present']
         
         final_exam_result = 0
         
         cons = frappe.get_list('Student Result Log', filters=res_filters, fields=res_fields)
+
         for cont in cons:
             if(cont.type == "Class Continuous Exam" or cont.type == "Assignment"):
                 form_assess += cont.net_score
                 midterm += cont.midterm
             else:
-                if cont.round == round:
+                if cont.round == round or True:
                     final_exam_result = cont.result
-                
+                    std["final_exam_result"]= final_exam_result if cont.present == 1 else 0
+
         std["formative_assessment"]=form_assess
         std["midterm"]=midterm
         std["name"]=student.name
         std["present"]="Yes" if student.present == 1 else "No"
-        std["final_exam_result"]= final_exam_result if student.present == 1 else 0
-
-        
+        # std["final_exam_result"]= final_exam_result if student.present == 1 else 0
         
         stds.append(std)
   
