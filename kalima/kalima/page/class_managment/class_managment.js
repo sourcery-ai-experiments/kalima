@@ -640,7 +640,7 @@ function createFormDialogNew(templateName) {
                     fieldtype: "Link",
                     in_list_view: 1,
                     label: "Department",
-                    options: "Faculty Department",
+                    options: "Department",
                     reqd: 1,
                     default: current_class.department, 
                     hidden:1

@@ -1,11 +1,12 @@
-
-frappe.pages['students-results'].on_page_load = function (wrapper) {
+frappe.pages['student-result-sheet'].on_page_load = function(wrapper) {
 	var page = frappe.ui.make_app_page({
 		parent: wrapper,
-		title: 'Student Result Entry',
+		title: 'Student Result Sheet',
 		single_column: true
 	});
 
+
+	
 	var crv = 0;
 
 	// Create a form container
