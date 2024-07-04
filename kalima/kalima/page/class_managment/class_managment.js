@@ -465,7 +465,7 @@ function createFormDialogNew(templateName) {
                     fields: [
                         { fieldname: 'student_code', fieldtype: 'Data', in_list_view: 1, label: 'Student Code' },
                         { fieldname: 'student_name', fieldtype: 'Link', options: 'Student', in_list_view: 1, label: 'Student Name' },
-                        { fieldname: 'department', fieldtype: 'Link', options: 'Faculty Department', label: 'Department' },
+                        { fieldname: 'department', fieldtype: 'Link', options: 'Department', label: 'Department' },
                         {
                             fieldname: 'score', fieldtype: 'Float', in_list_view: 1,
                             label: 'Score',

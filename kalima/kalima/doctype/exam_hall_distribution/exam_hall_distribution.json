@@ -39,7 +39,8 @@
   {
    "fieldname": "to_date",
    "fieldtype": "Date",
-   "label": "To Date"
+   "label": "To Date",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_sroy",
@@ -48,7 +49,8 @@
   {
    "fieldname": "from_time",
    "fieldtype": "Time",
-   "label": "From Time"
+   "label": "From Time",
+   "reqd": 1
   },
   {
    "fieldname": "to_time",
@@ -59,7 +61,8 @@
    "fieldname": "days",
    "fieldtype": "Table MultiSelect",
    "label": "Days",
-   "options": "Week Days"
+   "options": "Week Days",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_tgcd",
@@ -97,7 +100,8 @@
    "fieldname": "distribution_type",
    "fieldtype": "Select",
    "label": "Distribution Type",
-   "options": "XO\nParallel"
+   "options": "XO\nParallel",
+   "reqd": 1
   },
   {
    "fieldname": "student_distro",
@@ -121,7 +125,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 15:52:19.522656",
+ "modified": "2024-07-04 11:38:49.140325",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Hall Distribution",

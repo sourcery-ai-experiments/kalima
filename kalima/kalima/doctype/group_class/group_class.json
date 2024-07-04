@@ -74,7 +74,7 @@
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Faculty Department",
+   "options": "Department",
    "reqd": 1
   },
   {
@@ -119,7 +119,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 12:38:58.057835",
+ "modified": "2024-07-04 14:17:53.904650",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Group Class",

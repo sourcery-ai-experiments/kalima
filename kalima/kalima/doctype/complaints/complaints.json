@@ -32,7 +32,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department",
+   "options": "Department",
    "read_only": 1
   },
   {
@@ -87,7 +87,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-29 11:48:52.350363",
+ "modified": "2024-07-04 14:10:45.044111",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Complaints",

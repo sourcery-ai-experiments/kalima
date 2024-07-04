@@ -249,7 +249,7 @@
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "continuous_score",
@@ -275,7 +275,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-02 15:27:59.893131",
+ "modified": "2024-07-04 14:06:13.130931",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Result Log",

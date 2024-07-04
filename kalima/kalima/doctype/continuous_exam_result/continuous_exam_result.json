@@ -33,7 +33,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "score",
@@ -62,7 +62,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-26 14:58:39.061678",
+ "modified": "2024-07-04 14:16:13.891904",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Continuous Exam Result",

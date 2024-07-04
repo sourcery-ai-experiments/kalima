@@ -34,7 +34,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department",
+   "options": "Department",
    "reqd": 1
   },
   {
@@ -97,7 +97,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 12:58:15.982795",
+ "modified": "2024-07-04 14:14:52.488141",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Attendance Entry",

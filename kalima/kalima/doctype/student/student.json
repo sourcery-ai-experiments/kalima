@@ -647,7 +647,7 @@
    "fieldname": "final_selected_course",
    "fieldtype": "Link",
    "label": "Final Selected Course",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "blood_type",
@@ -907,7 +907,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-03 12:45:38.803130",
+ "modified": "2024-07-04 14:28:47.741705",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student",

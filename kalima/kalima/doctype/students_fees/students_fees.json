@@ -112,8 +112,8 @@
   {
    "fieldname": "faculty",
    "fieldtype": "Link",
-   "label": "Faculty",
-   "options": "Faculty Department",
+   "label": "Department",
+   "options": "Department",
    "reqd": 1
   },
   {
@@ -208,7 +208,7 @@
    "link_fieldname": "custom_student_fee"
   }
  ],
- "modified": "2024-06-23 14:25:37.286283",
+ "modified": "2024-07-04 14:27:31.372058",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees",

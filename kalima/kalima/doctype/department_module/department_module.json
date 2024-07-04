@@ -46,7 +46,7 @@
    "fieldname": "department",
    "fieldtype": "Link",
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "column_break_aolq",
@@ -91,7 +91,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-27 13:36:11.322295",
+ "modified": "2024-07-04 14:11:33.374159",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Department Module",

@@ -31,37 +31,32 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "continuous",
    "fieldtype": "Float",
-   "label": "Continuous",
-   "options": "Faculty Department"
+   "label": "Continuous"
   },
   {
    "fieldname": "practical",
    "fieldtype": "Float",
-   "label": "Practical",
-   "options": "Faculty Department"
+   "label": "Practical"
   },
   {
    "fieldname": "final",
    "fieldtype": "Float",
-   "label": "Final",
-   "options": "Faculty Department"
+   "label": "Final"
   },
   {
    "fieldname": "curve",
    "fieldtype": "Float",
-   "label": "Curve",
-   "options": "Faculty Department"
+   "label": "Curve"
   },
   {
    "fieldname": "total",
    "fieldtype": "Float",
-   "label": "Total",
-   "options": "Faculty Department"
+   "label": "Total"
   },
   {
    "default": "0",
@@ -90,7 +85,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-26 13:35:59.013344",
+ "modified": "2024-07-04 14:27:06.204609",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Student Scores",

@@ -12,7 +12,7 @@ frappe.ui.form.on("Applicant Student", {
                             label: 'Department',
                             fieldname: 'department',
                             fieldtype: 'Link',
-                            options: "Faculty Department",
+                            options: "Department",
                             reqd: 1,
                             get_query: function () {
                                 return {

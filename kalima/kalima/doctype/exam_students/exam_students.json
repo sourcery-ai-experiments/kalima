@@ -32,7 +32,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "stage",
@@ -52,7 +52,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-06-24 13:20:25.373387",
+ "modified": "2024-07-04 14:05:27.424702",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Students",

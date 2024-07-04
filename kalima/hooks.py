@@ -21,7 +21,11 @@ fixtures = [
                 ]
             ]
         ]
-    }
+    },
+        {
+        "dt": "Week Day",
+    },
+    
 ]
 
 # include js, css files in header of desk.html

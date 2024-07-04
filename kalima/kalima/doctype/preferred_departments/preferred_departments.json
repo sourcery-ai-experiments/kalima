@@ -15,7 +15,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department"
+   "options": "Department"
   },
   {
    "fieldname": "study_type",
@@ -28,7 +28,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-27 12:14:38.908094",
+ "modified": "2024-07-04 14:09:53.200823",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Preferred Departments",
