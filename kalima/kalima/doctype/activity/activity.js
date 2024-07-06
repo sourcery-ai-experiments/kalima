@@ -14,10 +14,20 @@ frappe.ui.form.on("Activity", {
                 'material': element.material,
                 'quantitiy': element.quantitiy,
             });
-
-            
         });
         frm.refresh_field('requirements');
 
-    }
+    },
+    async activity_request(frm) {
+        frm.clear_table('activity_participants_list');
+
+        var req = await frappe.db.get_doc("Activity Request",frm.doc.activity_request);
+        req.activity_deliverers.forEach(element => {
+           frm.add_child('activity_participants_list', {
+                'participant': element.speaker
+            });
+        });
+        frm.refresh_field('activity_participants_list');
+
+    },
 });

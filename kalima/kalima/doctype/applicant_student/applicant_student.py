@@ -73,6 +73,8 @@ def admit_student(doc_name, department, study_system):
         }
     )
     customer.insert()
+    
+    
     student_doc.email = (
         email
         if (applicant_doc.email == None or applicant_doc.email == "")
