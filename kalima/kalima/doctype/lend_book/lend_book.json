@@ -16,7 +16,8 @@
   "user_type",
   "fining_system",
   "extra_period",
-  "fine_amount"
+  "fine_amount",
+  "amended_from"
  ],
  "fields": [
   {
@@ -96,11 +97,22 @@
    "label": "Return Date",
    "options": "User",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Lend Book",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-29 16:42:47.978876",
+ "modified": "2024-07-06 14:46:33.488894",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Lend Book",

@@ -108,23 +108,42 @@ frappe.ui.form.on("Students Fees", {
             });
         }
 
-        // frm.fields_dict['students_fees'].grid.wrapper.on('change', 'input[data-fieldname="amount"]', function (e) {
-        //     console.log("ro333w");
 
-        //     frm.doc.students_fees.forEach(element => {
-        //         // Get the current row
-        //         // let $row = $(this).closest('.grid-row');
-        //         // let row = frm.fields_dict['assignment_marks'].grid.grid_rows[$row.index()].doc;
-        //         console.log("row");
-        //         console.log(element);
+        frm.fields_dict['students_fees'].grid.wrapper.on('mouseover', 'input[data-fieldname="discount_type"]', async function (e) {
 
-        //         var discount = frappe.db.get_doc("Constant", row.discount_type);
-        //         console.log(discount.amount);
-        //         // row
+            let $row = $(this).closest('.grid-row');
+            let row = frm.fields_dict['students_fees'].grid.grid_rows[$row.index()].doc;
 
-        //     });
-        // });
+            var discount_type = await frappe.db.get_value("Constant", row.discount_type, 'type');
+            var discount_value = 0;
 
+            if (discount_type.message != undefined) {
+                if (discount_type.message.type == "Percentage") {
+                    discount_value = await frappe.db.get_value("Constant", row.discount_type, 'percentage');
+                    discount_value = row.amount * (discount_value.message.percentage / 100);
+                } else {
+                    discount_value = await frappe.db.get_value("Constant", row.discount_type, 'amount');
+                    discount_value = discount_value.message.amount;
+                }
+            }
+
+            var amnt_aftr_disc = row.amount;
+            if (discount_value != null) {
+                amnt_aftr_disc -= discount_value;
+            }
+
+            frappe.model.set_value(row.doctype, row.name, 'amount_after_discount', amnt_aftr_disc);
+            update_total_amount(frm);
+        });
+
+        function update_total_amount(frm) {
+            var total_amount = 0;
+            frm.doc.students_fees.forEach(element => {
+                total_amount += element.amount_after_discount;
+            });
+            frm.set_value('total_amount', total_amount);
+            frm.refresh_field('total_amount');
+        }
     },
 });
 

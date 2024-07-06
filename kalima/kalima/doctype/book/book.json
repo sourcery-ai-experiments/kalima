@@ -9,8 +9,6 @@
   "title",
   "library",
   "category",
-  "number",
-  "count",
   "class",
   "number_of_copies",
   "book_type",
@@ -47,21 +45,11 @@
    "options": "Book Category"
   },
   {
-   "fieldname": "number",
-   "fieldtype": "Int",
-   "label": "Number"
-  },
-  {
    "fieldname": "title",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
    "reqd": 1
-  },
-  {
-   "fieldname": "count",
-   "fieldtype": "Int",
-   "label": "Count"
   },
   {
    "fieldname": "class",
@@ -163,6 +151,7 @@
  "index_web_pages_for_search": 1,
  "links": [],
  "modified": "2024-07-06 15:43:52.998740",
+
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Book",

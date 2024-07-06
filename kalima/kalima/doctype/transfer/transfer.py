@@ -6,7 +6,7 @@ from frappe.model.document import Document
 
 
 class Transfer(Document):
-	def after_insert(doc):
+	def on_submit(doc):
 		std = frappe.get_doc("Student",doc.student)
 		std.study_status = "Transferred from" if doc.transfer_type == "IN" else "Transferred To"
 		std.further_information = doc.university

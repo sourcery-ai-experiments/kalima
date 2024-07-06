@@ -8,7 +8,12 @@
  "field_order": [
   "code",
   "title",
-  "parent1"
+  "parent1",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_book_category"
  ],
  "fields": [
   {
@@ -32,15 +37,51 @@
    "in_list_view": 1,
    "label": "Parent",
    "options": "Book Category"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Book Category"
+  },
+  {
+   "fieldname": "parent_book_category",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Book Category",
+   "options": "Book Category"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_tree": 1,
  "links": [],
- "modified": "2024-06-10 13:28:13.965110",
+ "modified": "2024-07-06 14:44:44.742867",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Book Category",
  "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_book_category",
  "owner": "Administrator",
  "permissions": [
   {
