@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KINC-{receiving_date}-{#####}",
+ "autoname": "field:title",
  "creation": "2024-06-05 11:25:59.297718",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -70,7 +70,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "description",
@@ -89,11 +90,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-06 14:50:39.195799",
+ "modified": "2024-07-06 15:44:28.203198",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Incoming",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

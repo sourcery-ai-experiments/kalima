@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KACT-{#####}",
+ "autoname": "hash",
  "creation": "2024-06-01 11:34:02.590030",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -111,11 +111,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 15:48:09.541434",
+ "modified": "2024-07-06 13:37:07.476786",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity",
- "naming_rule": "Expression",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
   {
@@ -131,7 +131,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "title"
 }

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KACT-REQ-{date}-{#####}",
+ "autoname": "field:title",
  "creation": "2024-06-01 11:35:30.561908",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -28,7 +28,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Title",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "venue",
@@ -118,11 +119,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 15:19:11.488846",
+ "modified": "2024-07-06 13:26:49.131513",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Request",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

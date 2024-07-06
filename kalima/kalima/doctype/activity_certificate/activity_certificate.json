@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KCRT-{issue_date}-{#####}",
+ "autoname": "format:CTF:{YYYY}-{#####}",
  "creation": "2024-06-01 11:45:15.399052",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -62,7 +62,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 15:50:09.277581",
+ "modified": "2024-07-06 14:03:43.128372",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Activity Certificate",
@@ -79,6 +79,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
