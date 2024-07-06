@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Student-Fees-{YYYY}-{#####}",
+ "autoname": "format:SF:{YYYY}-{#####}",
  "creation": "2024-06-10 11:40:58.889557",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -208,7 +208,7 @@
    "link_fieldname": "custom_student_fee"
   }
  ],
- "modified": "2024-06-23 14:25:37.286283",
+ "modified": "2024-07-06 13:26:07.234606",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Students Fees",

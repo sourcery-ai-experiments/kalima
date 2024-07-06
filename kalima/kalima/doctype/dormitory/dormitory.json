@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KDOR-{MM}-{YYYY}-{#####}",
+ "autoname": "format:DR:{YYYY}-{#####}",
  "creation": "2024-05-26 12:41:26.890988",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,13 +20,17 @@
   {
    "fieldname": "student",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1
   },
   {
    "fieldname": "entrance_date",
    "fieldtype": "Date",
-   "label": "Entrance Date"
+   "in_list_view": 1,
+   "label": "Entrance Date",
+   "reqd": 1
   },
   {
    "fieldname": "leave_date",
@@ -45,8 +49,10 @@
   {
    "fieldname": "hostel",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Hostel",
-   "options": "Hostel"
+   "options": "Hostel",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_dkvz",
@@ -71,7 +77,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 14:05:13.153920",
+ "modified": "2024-07-06 13:24:28.242342",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Dormitory",
@@ -88,10 +94,12 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "student"
 }

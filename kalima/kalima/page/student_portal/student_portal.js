@@ -68,6 +68,7 @@ async function content_manager(dont_click = false) {
             if (template === 'lecture-schedule') {
                 const columns = [
                     { label: 'Class', fieldname: 'class' },
+                    { label: 'Module', fieldname: 'module' },
                     { label: 'Day', fieldname: 'day' },
                     { label: 'Start', fieldname: 'start' },
                     { label: 'Finish', fieldname: 'finish' }

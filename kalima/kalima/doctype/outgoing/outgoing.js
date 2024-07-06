@@ -1,6 +1,6 @@
 frappe.ui.form.on("Outgoing", {
     async refresh(frm) {
-        if (!frm.is_new() && frm.doc.docstatus != 1) {
+        if (!frm.is_new() && frm.doc.docstatus != 1 && frm.doc.receivers_type == "Students") {
             frm.add_custom_button(__('Fetch Receivers'), async function () {
                 if (frm.doc.receivers_type == "Students") {
                     await getEntitiesAndShowDialog("Student", ["name"], "name", "receive_student", "student");

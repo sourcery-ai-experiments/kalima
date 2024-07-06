@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{classroom}:{YYYY}-{#####}",
  "creation": "2024-06-23 21:30:26.703179",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -121,10 +122,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 15:52:19.522656",
+ "modified": "2024-07-06 14:15:44.602459",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Exam Hall Distribution",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KTR-{year}-{#####}",
+ "autoname": "field:student",
  "creation": "2024-05-26 12:43:43.560784",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -23,14 +23,18 @@
   {
    "fieldname": "student",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student",
-   "options": "Student"
+   "options": "Student",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "transfer_type",
    "fieldtype": "Select",
    "label": "Transfer Type",
-   "options": "IN\nOUT"
+   "options": "IN\nOUT",
+   "reqd": 1
   },
   {
    "fieldname": "university",
@@ -94,11 +98,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 12:49:02.936483",
+ "modified": "2024-07-06 12:07:06.505399",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Transfer",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
