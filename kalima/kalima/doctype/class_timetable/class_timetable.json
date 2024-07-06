@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "class",
+  "module",
   "teacher",
   "day",
   "column_break_oimt",
@@ -58,11 +59,17 @@
    "fieldtype": "Text",
    "label": "Description",
    "options": "Employee"
+  },
+  {
+   "fetch_from": "class.module",
+   "fieldname": "module",
+   "fieldtype": "Data",
+   "label": "Module"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:45:09.770678",
+ "modified": "2024-07-05 10:59:59.035632",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class Timetable",
