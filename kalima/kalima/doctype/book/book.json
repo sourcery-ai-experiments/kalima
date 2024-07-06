@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:KBOOK-{title}",
+ "autoname": "hash",
  "creation": "2024-05-26 14:29:49.030059",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -162,11 +162,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 12:46:12.725648",
+ "modified": "2024-07-06 15:43:52.998740",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Book",
- "naming_rule": "Expression",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
   {
@@ -182,7 +182,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "title"
 }

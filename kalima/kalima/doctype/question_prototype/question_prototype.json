@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:Q-Proto-{module}-{#####}",
+ "autoname": "format:QP:{YYYY}-{###}",
  "creation": "2024-06-25 15:10:01.443954",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -53,7 +53,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-25 15:23:34.310512",
+ "modified": "2024-07-06 14:29:09.836072",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Question Prototype",
@@ -74,7 +74,9 @@
    "write": 1
   }
  ],
+ "search_fields": "module, teacher",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "module"
 }
