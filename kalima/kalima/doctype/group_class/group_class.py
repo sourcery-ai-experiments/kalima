@@ -7,6 +7,8 @@ import json
 
 class GroupClass(Document):
     pass
+
+
 @frappe.whitelist()
 def fetch_students(selected_modules, department):
     if not selected_modules or not department:
@@ -60,17 +62,21 @@ def fetch_students(selected_modules, department):
 
     return students
 
-
-
 @frappe.whitelist()
-def create_classes(group_class_doc,group_class_modules,students):
+def create_classes(group_title,year,stage,semester,department,group_class_modules,students):
     group_class_modules = json.loads(str(group_class_modules))
     for module in group_class_modules:
         # Convert the group_class_doc to a dictionary
-        group_class_doc = json.loads(str(group_class_doc))
+        # group_class_doc = json.loads(str(group_class_doc))
         students = json.loads(str(students))
 
-        create_class(group_class_doc["group_title"],module,group_class_doc["year"],group_class_doc["stage"],group_class_doc["semester"],group_class_doc["department"],students)
+        create_class(group_title,
+                     module,
+                     year,
+                     stage,
+                     semester,
+                     department,
+                     students)
 
     return "Classes created successfully."
 
