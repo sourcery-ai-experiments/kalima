@@ -40,7 +40,8 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
                 fieldtype: 'Link',
                 fieldname: 'department',
                 label: 'Department',
-                options: 'Faculty Department',
+                // options: 'Faculty Department',
+                options: 'Department',
                 onchange: function () {
                     let stage = form.get_value('stage');
                     let department = form.get_value('department');
