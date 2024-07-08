@@ -65,39 +65,47 @@ def fetch_students(selected_modules, department):
 @frappe.whitelist()
 def create_classes(group_title,year,stage,semester,department,group_class_modules,students):
     group_class_modules = json.loads(str(group_class_modules))
-    for module in group_class_modules:
+    print(group_class_modules)
+    
+    # for module in group_class_modules:
         # Convert the group_class_doc to a dictionary
         # group_class_doc = json.loads(str(group_class_doc))
-        students = json.loads(str(students))
+    students = json.loads(str(students))
 
-        create_class(group_title,
-                     module,
-                     year,
-                     stage,
-                     semester,
-                     department,
-                     students)
+    create_class(group_title,
+                    group_class_modules,
+                    year,
+                    stage,
+                    semester,
+                    department,
+                    students)
 
     return "Classes created successfully."
 
-def create_class(group_title,module,year,stage,semester,department,students):
+def create_class(group_title,group_class_modules,year,stage,semester,department,students):
 
-	new_class = frappe.get_doc({"doctype":"Class", 
-								"title": group_title + " - " + module, 
-								"stage":stage,
-								"semester": semester,
-								"module": module, 
-								"year": year, 
-								"department": department,
-								})
-	for std in students:
-		new_class.append("student_list", {"student": std})
-  
-		stud = frappe.get_doc("Student",std)
-		stud.append("enrolled_modules",{
-			"module":module,
-			"status":"Ongoing",
-		})
-		stud.save()
+    new_class = frappe.get_doc({"doctype":"Class", 
+                                "title": group_title , 
+                                "stage":stage,
+                                "semester": semester,
+                                "year": year, 
+                                "department": department,
+                                })
+    for std in students:
+        new_class.append("student_list", {"student": std})
+        stud = frappe.get_doc("Student",std)
+        
+        for mod in group_class_modules:
+            mody = frappe.db.get_value("Presented Module",mod,"name")
+            
+            if(mody!=None):
+                new_class.append("class_modules", {"module": mody})
+            
+            stud.append("enrolled_modules",{
+                "module":mod,
+                "status":"Ongoing",
+            })
+            
+        stud.save()
 
-	new_class.save()
+    new_class.save()

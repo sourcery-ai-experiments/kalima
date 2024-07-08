@@ -294,19 +294,19 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
 				if (r.message) {
 					frappe.msgprint(__('Classes have been successfully generated.'));+
 
-					form.set_value('group_title', "");
-                    form.set_value('department', "");
-                    form.set_value('stage', "");
-                    form.set_value('semester', "");
-                    form.set_value('year', "");
+					// form.set_value('group_title', "");
+                    // form.set_value('department', "");
+                    // form.set_value('stage', "");
+                    // form.set_value('semester', "");
+                    // form.set_value('year', "");
 
-					  // Clear form fields
-						$('input[type="text"], input[type="checkbox"], select').val('');
-						$('input[type="checkbox"]').prop('checked', false);
+					//   // Clear form fields
+					// 	$('input[type="text"], input[type="checkbox"], select').val('');
+					// 	$('input[type="checkbox"]').prop('checked', false);
 
-						// Clear the student and module lists
-						$('#student-list').html('');
-						$('#module-list').html('');
+					// 	// Clear the student and module lists
+					// 	$('#student-list').html('');
+					// 	$('#module-list').html('');
 				}
 			}
 		});
