@@ -61,6 +61,11 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
                 label: 'Semester',
                 options: 'Fall Semester\nSprint Semester\nShort Semester\nAnnual',
             },
+            {
+                fieldtype: 'Int',
+                fieldname: 'divisions',
+                label: 'Divisions',
+            },
 			{
                 fieldtype: 'Section Break',
                 fieldname: 'clmn',
@@ -93,11 +98,12 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
 					let stage = form.get_value('stage');
                     let semester = form.get_value('semester');
                     let year = form.get_value('year');
+                    let divisions = form.get_value('divisions');
 					generate_classes(group_title,
 						year,
 						stage,
 						semester,
-						department,);
+						department,divisions);
                 }
             }, {
                 fieldtype: 'Column Break',
@@ -260,7 +266,7 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
 		year,
 		stage,
 		semester,
-		department,) {
+		department,divisions) {
 		const selected_modules = [];
 		const selected_students = [];
 		// const department = frm.doc.department;
@@ -288,25 +294,26 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
 				semester: semester,
 				department: department,
 				group_class_modules: selected_modules,
-				students: selected_students
+				students: selected_students,
+                divisions:divisions
 			},
 			callback: function (r) {
 				if (r.message) {
 					frappe.msgprint(__('Classes have been successfully generated.'));+
 
-					// form.set_value('group_title', "");
-                    // form.set_value('department', "");
-                    // form.set_value('stage', "");
-                    // form.set_value('semester', "");
-                    // form.set_value('year', "");
+					form.set_value('group_title', "");
+                    form.set_value('department', "");
+                    form.set_value('stage', "");
+                    form.set_value('semester', "");
+                    form.set_value('year', "");
 
-					//   // Clear form fields
-					// 	$('input[type="text"], input[type="checkbox"], select').val('');
-					// 	$('input[type="checkbox"]').prop('checked', false);
+					  // Clear form fields
+						$('input[type="text"], input[type="checkbox"], select').val('');
+						$('input[type="checkbox"]').prop('checked', false);
 
-					// 	// Clear the student and module lists
-					// 	$('#student-list').html('');
-					// 	$('#module-list').html('');
+						// Clear the student and module lists
+						$('#student-list').html('');
+						$('#module-list').html('');
 				}
 			}
 		});

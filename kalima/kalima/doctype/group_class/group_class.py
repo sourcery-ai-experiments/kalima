@@ -1,6 +1,6 @@
 # Copyright (c) 2024, e2next and contributors
 # For license information, please see license.txt
-
+import random
 import frappe
 from frappe.model.document import Document
 import json
@@ -63,49 +63,58 @@ def fetch_students(selected_modules, department):
     return students
 
 @frappe.whitelist()
-def create_classes(group_title,year,stage,semester,department,group_class_modules,students):
-    group_class_modules = json.loads(str(group_class_modules))
-    print(group_class_modules)
-    
-    # for module in group_class_modules:
-        # Convert the group_class_doc to a dictionary
-        # group_class_doc = json.loads(str(group_class_doc))
-    students = json.loads(str(students))
-
-    create_class(group_title,
-                    group_class_modules,
-                    year,
-                    stage,
-                    semester,
-                    department,
-                    students)
-
+def create_classes(group_title, year, stage, semester, department, group_class_modules, students, divisions):
+    group_class_modules = json.loads(group_class_modules)
+    students = json.loads(students)
+    create_class(group_title, group_class_modules, year, stage, semester, department, students, divisions)
     return "Classes created successfully."
 
-def create_class(group_title,group_class_modules,year,stage,semester,department,students):
+def create_class(group_title, group_class_modules, year, stage, semester, department, students, divisions):
+    divisions = int(divisions)
+    # Shuffle the students list to randomize the distribution
+    random.shuffle(students)
+    
+    # Calculate the number of students per division
+    students_per_division = len(students) // divisions
+    # In case there are leftover students, calculate the remainder
+    remainder = len(students) % divisions
 
-    new_class = frappe.get_doc({"doctype":"Class", 
-                                "title": group_title , 
-                                "stage":stage,
-                                "semester": semester,
-                                "year": year, 
-                                "department": department,
-                                })
-    for std in students:
-        new_class.append("student_list", {"student": std})
-        stud = frappe.get_doc("Student",std)
+    # Iterate over the number of divisions and create classes
+    for i in range(divisions):
+        # Calculate the start and end index for the current division
+        start_index = i * students_per_division
+        end_index = start_index + students_per_division
+        if i == divisions - 1:  # Add the remainder to the last division
+            end_index += remainder
         
-        for mod in group_class_modules:
-            mody = frappe.db.get_value("Presented Module",mod,"name")
+        # Get the students for the current division
+        current_students = students[start_index:end_index]
+        
+        # Create a new class for the current division
+        new_class = frappe.get_doc({
+            "doctype": "Class",
+            "title": f"{group_title} Group {i+1}",
+            "stage": stage,
+            "semester": semester,
+            "year": year,
+            "department": department,
+        })
+        
+        for std in current_students:
+            new_class.append("student_list", {"student": std})
+            stud = frappe.get_doc("Student", std)
             
-            if(mody!=None):
-                new_class.append("class_modules", {"module": mody})
-            
-            stud.append("enrolled_modules",{
-                "module":mod,
-                "status":"Ongoing",
-            })
-            
-        stud.save()
-
-    new_class.save()
+            for mod in group_class_modules:
+                mody = frappe.db.get_value("Presented Module", mod, "name")
+                
+                if mody is not None:
+                    new_class.append("class_modules", {"module": mody})
+                
+                stud.append("enrolled_modules", {
+                    "module": mod,
+                    "status": "Ongoing",
+                })
+                
+            stud.save()
+        
+        new_class.save()
