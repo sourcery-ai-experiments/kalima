@@ -98,7 +98,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Department",
-   "options": "Faculty Department",
+   "options": "Department",
    "reqd": 1
   },
   {
@@ -146,7 +146,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-10 13:44:05.474622",
+ "modified": "2024-07-07 13:32:35.881782",
  "modified_by": "Administrator",
  "module": "Kalima",
  "name": "Class",
