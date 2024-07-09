@@ -51,8 +51,8 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
             },
             {
                 fieldtype: 'Select',
-                fieldname: 'time',
-                label: 'Time',
+                fieldname: 'study_system',
+                label: 'Study System',
                 options: 'Morning\nEvening',
             },
             {
@@ -62,9 +62,10 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
                 options: 'Fall Semester\nSprint Semester\nShort Semester\nAnnual',
             },
             {
-                fieldtype: 'Int',
+                fieldtype: 'Select',
                 fieldname: 'divisions',
                 label: 'Divisions',
+                options:"1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20"
             },
 			{
                 fieldtype: 'Section Break',
@@ -78,10 +79,10 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
                     let stage = form.get_value('stage');
                     let department = form.get_value('department');
                     let semester = form.get_value('semester');
-                    let time = form.get_value('time');
+                    let study_system = form.get_value('study_system');
                     let year = form.get_value('year');
-                    let faculty = form.get_value('faculty');
-                    fetch_students(stage, department, semester, time, year, faculty);
+                    // let faculty = form.get_value('faculty');
+                    fetch_students(stage, department, semester, study_system, year);
                 }
             },  {
                 fieldtype: 'Column Break',
@@ -127,9 +128,9 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
     let moduleListContainer = $('<div id="module-list"></div>').appendTo(page.body);
 
     // Function to fetch and display students
-    function fetch_students() {
+    function fetch_students(stage, department, semester, study_system, year) {
         const selected_modules = [];
-        const department = form.get_value('department');
+        // const department = form.get_value('department');
 
         // Get selected modules from moduleListContainer
         moduleListContainer.find('input[type="checkbox"]:checked').each(function () {
@@ -145,7 +146,11 @@ frappe.pages['class-distribution-t'].on_page_load = function (wrapper) {
             method: "kalima.kalima.doctype.group_class.group_class.fetch_students",
             args: {
                 selected_modules: JSON.stringify(selected_modules),
-                department: department
+                stage: stage,
+                department: department,
+                semester: semester,
+                study_system: study_system,
+                year: year,
             },
             callback: function (r) {
                 if (r.message) {

@@ -10,7 +10,7 @@ class GroupClass(Document):
 
 
 @frappe.whitelist()
-def fetch_students(selected_modules, department):
+def fetch_students(selected_modules, stage, department, semester, study_system, year):
     if not selected_modules or not department:
         frappe.throw("Please select at least one module and ensure department is selected.")
 
@@ -36,9 +36,13 @@ def fetch_students(selected_modules, department):
     base_query = """
         SELECT student.name, student.full_name_in_arabic
         FROM `tabStudent` AS student
-        WHERE student.final_selected_course = %s
+        WHERE student.final_selected_course = %s 
+        and  student.stage = %s 
+        and  student.semester = %s 
+        and  student.study_system = %s 
+        and  student.year = %s 
     """
-    query_params = [department]
+    query_params = [department,stage, semester, study_system, year]
 
     if prerequisites_modules:
         # Convert prerequisites_modules to a tuple for SQL query
